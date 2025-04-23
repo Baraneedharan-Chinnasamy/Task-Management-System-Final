@@ -15,7 +15,7 @@ router = APIRouter()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@router.post("/update_Checklist_Status/")
+@router.post("/mark_checklist_complete")
 def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)):
     """
     Update the completion status of a checklist and propagate changes appropriately.

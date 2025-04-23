@@ -16,7 +16,7 @@ router = APIRouter()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@router.post("/delete-related-items/")
+@router.post("/delete")
 def delete_related_items(
     delete_request: DeleteItemsRequest, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)
 ):

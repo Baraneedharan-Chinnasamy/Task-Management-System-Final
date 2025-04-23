@@ -14,7 +14,7 @@ router = APIRouter()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@router.post("/update-checklist")
+@router.post("/update_checklist")
 def update_checklist(data: UpdateChecklistRequest, db: Session = Depends(get_db),current_user: str = Depends(get_current_user)):
     try:
         checklist = db.query(Checklist).filter(Checklist.checklist_id == data.checklist_id, Checklist.is_delete == False).first()

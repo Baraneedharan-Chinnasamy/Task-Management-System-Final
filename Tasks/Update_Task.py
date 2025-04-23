@@ -15,7 +15,7 @@ router = APIRouter()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@router.post("/update_task/")
+@router.post("/update_task")
 def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)):
     """
     Update a task with new information.
@@ -251,7 +251,7 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
         raise HTTPException(status_code=500, detail="Internal Server Error")
     
 
-@router.post("/Send_For_Review/")
+@router.post("/send_for_review")
 def send_for_review(data: SendForReview, db: Session = Depends(get_db),Current_user: int = Depends(get_current_user)):
     try:
         task = db.query(Task).filter(Task.task_id == data.task_id,Task.task_type == TaskType.Review,

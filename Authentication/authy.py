@@ -9,6 +9,7 @@ from datetime import timedelta
 import logging
 import random
 from fastapi.responses import JSONResponse
+from Currentuser.currentUser import get_current_user
 
 
 router = APIRouter()
@@ -100,10 +101,32 @@ def logout(response: Response):
     return {"message": "Logged out"}
 
 
-
-# temp
-from fastapi import Security
-
 @router.get("/me")
 def get_me(token: str = Depends(oauth2_scheme)):
     return {"message": "You're authenticated", "token": token}
+
+
+@router.get("/users")
+def read_current_user(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    # Get all users from the DB
+    all_users = db.query(User).all()
+
+    # Prepare people list
+    people = [
+        {
+            "employee_id": user.employee_id,
+            "username": user.username
+        }
+        for user in all_users
+    ]
+
+    return {
+        "employee_id": current_user.employee_id,
+        "username": current_user.username,
+        "email": current_user.email,
+        "designation": current_user.designation,
+        "people": people
+    }
