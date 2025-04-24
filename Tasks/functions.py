@@ -56,7 +56,7 @@ def Mark_complete_help(task_id, db,Current_user, visited_tasks=None):
             ).first()
             
             if checklist and not checklist.is_completed:
-                log_checklist_field_change(db,checklist.checklist_id,"is_compelete",checklist.is_complete,True,Current_user.employee_id)
+                log_checklist_field_change(db,checklist.checklist_id,"is_compelete",checklist.is_completed,True,Current_user.employee_id)
                 checklist.is_completed = True
                 
                 # Find all parent tasks for this checklist in a single query
@@ -98,7 +98,7 @@ def Mark_complete_help(task_id, db,Current_user, visited_tasks=None):
                                 old_status = parent_task.status
                                 parent_task.status = new_status
                                 # Log the status change
-                                log_task_field_change(db, parent_task.task_id,"status", old_status, new_status,Current_user.employee_id)
+                                log_task_field_change(db, parent_task.task_id,"status", old_status, new_status,2)
                                 
                                 # Continue the recursive process for the parent task
                                 Mark_complete_help(parent_task_id, db,Current_user, visited_tasks)
@@ -116,7 +116,7 @@ def upload_output_to_all_reviews(task_id, output, db,current_user):
         task.is_reviewed = False
         task.status = TaskStatus.To_Do
         print(current_user.employee_id)
-        log_task_field_change(db, task.task_id,"output", old_status, "To_Do",current_user.employee_id)
+        log_task_field_change(db, task.task_id,"output", old_status, "To_Do",2)
         db.flush()
 
         next_review = db.query(Task).filter(Task.parent_task_id == task.task_id, Task.is_delete == False).first()

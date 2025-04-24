@@ -31,7 +31,7 @@ def update_parent_task_status(task_id, db,Current_user):
             print(f"Marking task {task_id} as {new_status}")
             task.status = new_status
             db.flush()
-            log_task_field_change(db, task.task_id,"status", old_status, task.status,Current_user.employee_id)
+            log_task_field_change(db, task.task_id,"status", old_status, task.status,2)
             print(task.status)
             
 
@@ -46,7 +46,7 @@ def update_parent_task_status(task_id, db,Current_user):
             old_status = task.status
             print(f"Marking task {task_id} as In_Process")
             task.status = "In_Process"
-            log_task_field_change(db, task.task_id,"status", old_status, task.status,Current_user.employee_id)
+            log_task_field_change(db, task.task_id,"status", old_status, task.status,2)
             db.flush()
 
 
@@ -125,7 +125,7 @@ def propagate_incomplete_upwards(checklist_id, db,Current_user, visited_checklis
             old_status = task.status
             print(f"🔄 Marking parent task {parent_task_id} as In_Process due to child checklist incomplete")
             task.status = "In_Process"
-            log_task_field_change(db, task.task_id,"status", old_status, task.status,Current_user.employee_id)
+            log_task_field_change(db, task.task_id,"status", old_status, task.status,2)
             db.flush()
 
         parent_checklists = db.query(TaskChecklistLink.checklist_id).filter(

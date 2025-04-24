@@ -30,7 +30,7 @@ def log_task_field_change(db, task_id: int, field_name: str, old_value, new_valu
             old_value=old_str,
             new_value=new_str,
             updated_by=user_id,
-            updated_at=datetime.utcnow()
+            updated_at=datetime.now()
         )
         db.add(log)
         db.flush()  # Let the main transaction handle commit
@@ -66,7 +66,7 @@ def log_checklist_field_change(db, checklist_id: int, field_name: str, old_value
             old_value=old_str,
             new_value=new_str,
             updated_by=user_id,
-            updated_at=datetime.utcnow()
+            updated_at=datetime.now()
         )
         db.add(log)
         db.flush()

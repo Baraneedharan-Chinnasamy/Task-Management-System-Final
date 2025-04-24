@@ -1,0 +1,35 @@
+2025-04-24 12:15:00,785 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:15:00,796 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
+2025-04-24 12:15:00,796 - create_checklist - INFO - Checklist created with ID=2 for task_id=1
+2025-04-24 12:15:00,796 - create_checklist - INFO - Checklist 2 linked to parent_task_id=1
+2025-04-24 12:15:00,812 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-24 12:15:06,054 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:15:06,054 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
+2025-04-24 12:15:06,066 - create_checklist - INFO - Checklist created with ID=3 for task_id=1
+2025-04-24 12:15:06,066 - create_checklist - INFO - Checklist 3 linked to parent_task_id=1
+2025-04-24 12:15:06,083 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-24 12:16:15,474 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:16:15,478 - create_checklist - INFO - Target task found: task_id=4, task_type=TaskType.Normal
+2025-04-24 12:16:15,488 - create_checklist - INFO - Checklist created with ID=6 for task_id=4
+2025-04-24 12:16:15,490 - create_checklist - INFO - Checklist 6 linked to parent_task_id=4
+2025-04-24 12:16:15,490 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-24 12:18:48,300 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:18:48,316 - create_checklist - INFO - Target task found: task_id=4, task_type=TaskType.Normal
+2025-04-24 12:18:48,316 - create_checklist - INFO - Checklist created with ID=8 for task_id=4
+2025-04-24 12:18:48,316 - create_checklist - INFO - Checklist 8 linked to parent_task_id=4
+2025-04-24 12:18:48,332 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-24 12:25:02,730 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:25:02,734 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
+2025-04-24 12:25:02,744 - create_checklist - INFO - Checklist created with ID=2 for task_id=1
+2025-04-24 12:25:02,744 - create_checklist - INFO - Checklist 2 linked to parent_task_id=1
+2025-04-24 12:25:02,759 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-24 12:25:06,346 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:25:06,363 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
+2025-04-24 12:25:06,363 - create_checklist - INFO - Checklist created with ID=3 for task_id=1
+2025-04-24 12:25:06,363 - create_checklist - INFO - Checklist 3 linked to parent_task_id=1
+2025-04-24 12:25:06,381 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-24 12:25:52,612 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-24 12:25:52,620 - create_checklist - INFO - Target task found: task_id=5, task_type=TaskType.Normal
+2025-04-24 12:25:52,622 - create_checklist - INFO - Checklist created with ID=6 for task_id=5
+2025-04-24 12:25:52,622 - create_checklist - INFO - Checklist 6 linked to parent_task_id=5
+2025-04-24 12:25:52,638 - create_checklist - INFO - Checklist creation and task update committed successfully

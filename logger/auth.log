@@ -1,0 +1,18 @@
+2025-04-24 12:09:27,084 - auth - INFO - Signup attempt for username='Baranee', email='baranee@example.com'
+2025-04-24 12:13:32,491 - auth - INFO - Signup attempt for username='Baranee', email='baranee@example.com'
+2025-04-24 12:13:33,088 - auth - INFO - New user created: user_id=1, username=Baranee
+2025-04-24 12:14:05,043 - auth - INFO - Signup attempt for username='Advart', email='advart@example.com'
+2025-04-24 12:14:05,603 - auth - INFO - New user created: user_id=2, username=Advart
+2025-04-24 12:14:17,959 - auth - INFO - Login attempt for username='Baranee'
+2025-04-24 12:14:18,663 - auth - INFO - Login successful for user_id=1, username=Baranee
+2025-04-24 12:23:24,629 - auth - INFO - Signup attempt for username='Baranee', email='baranee@example.com'
+2025-04-24 12:23:25,363 - auth - INFO - New user created: user_id=1, username=Baranee
+2025-04-24 12:23:57,049 - auth - INFO - Signup attempt for username='Advart', email='advart@example.com'
+2025-04-24 12:23:57,621 - auth - INFO - New user created: user_id=2, username=Advart
+2025-04-24 12:24:30,657 - auth - INFO - Login attempt for username='Baranee'
+2025-04-24 12:24:31,197 - auth - INFO - Login successful for user_id=1, username=Baranee
+2025-04-24 12:24:37,727 - auth - INFO - Fetching all users for user_id=1
+2025-04-24 12:40:04,317 - auth - INFO - Login attempt for username='Baranee'
+2025-04-24 12:40:04,957 - auth - INFO - Login successful for user_id=1, username=Baranee
+2025-04-24 13:02:00,914 - auth - INFO - Login attempt for username='Baranee'
+2025-04-24 13:02:01,532 - auth - INFO - Login successful for user_id=1, username=Baranee

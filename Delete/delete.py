@@ -2,92 +2,99 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import or_, update
-from models.models import Task,  Checklist, TaskChecklistLink
+from models.models import Task, Checklist, TaskChecklistLink, TaskUpdateLog, ChecklistUpdateLog
 from Logs.functions import log_task_field_change
 from database.database import get_db
 from Currentuser.currentUser import get_current_user
 from Delete.inputs import DeleteItemsRequest
 from Delete.functions import get_related_tasks_checklists_logic
 from Logs.functions import log_checklist_field_change,log_task_field_change
+from logger.logger import get_logger
+from datetime import datetime
 
 
 router = APIRouter()
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 @router.post("/delete")
 def delete_related_items(
-    delete_request: DeleteItemsRequest, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)
+    delete_request: DeleteItemsRequest,
+    db: Session = Depends(get_db),
+    Current_user: int = Depends(get_current_user)
 ):
-    # Validate the request
+    logger = get_logger('delete', 'delete.log')
+    logger.info(f"DELETE requested by user_id={Current_user.employee_id}")
+    
     task_id = delete_request.task_id
     checklist_id = delete_request.checklist_id
 
-    # employee id and created by id should be same
+    # Permission validation
     if task_id:
         task = db.query(Task).filter(Task.task_id == task_id, Task.created_by == Current_user.employee_id).first()
         if not task:
-            raise HTTPException(status_code=404, detail="Task not found or employee is not the creator of the task.")
+            logger.warning(f"Task deletion denied. Task {task_id} not found or not owned by user {Current_user.employee_id}")
+            raise HTTPException(status_code=403, detail="Task not found or not owned by you.")
     elif checklist_id:
-        parent_task = db.query(TaskChecklistLink).filter(
-            TaskChecklistLink.checklist_id == checklist_id,
-            TaskChecklistLink.parent_task_id.isnot(None)
-        ).first()
-        task = db.query(Task).filter(Task.task_id == parent_task.parent_task_id, Task.created_by == Current_user.employee_id).first()
-        if not task:
-            raise HTTPException(status_code=404, detail="Task not found or employee is not the creator of the task.")
+        parent_task_link = db.query(TaskChecklistLink).filter(TaskChecklistLink.checklist_id == checklist_id).first()
+        if not parent_task_link:
+            logger.warning(f"Checklist deletion failed. Checklist {checklist_id} not linked to any parent task.")
+            raise HTTPException(status_code=404, detail="Checklist is not linked to any parent task.")
+        parent_task = db.query(Task).filter(Task.task_id == parent_task_link.parent_task_id).first()
+        if parent_task.created_by != Current_user.employee_id:
+            logger.warning(f"Checklist deletion denied. Checklist {checklist_id} linked to task not owned by user {Current_user.employee_id}")
+            raise HTTPException(status_code=403, detail="You don't have permission to delete this checklist.")
 
-
-    # Get the related tasks and checklists
     result = get_related_tasks_checklists_logic(db, task_id, checklist_id)
     tasks_to_delete = result.get("tasks", [])
     checklists_to_delete = result.get("checklists", [])
 
     if not tasks_to_delete and not checklists_to_delete:
-        raise HTTPException(status_code=404, detail="No related tasks or checklists found")
-    
-    def get_all_review_tasks(db: Session, base_task_ids: list[int]) -> set[int]:
-        all_task_ids = set(base_task_ids)
-        queue = list(base_task_ids)
+        logger.info("No related tasks or checklists found for deletion.")
+        raise HTTPException(status_code=404, detail="No related tasks or checklists found.")
 
-        while queue:
-            current_id = queue.pop(0)
-            child_tasks = db.query(Task).filter(
-                Task.parent_task_id == current_id,
-                Task.is_delete == False
-            ).all()
+    logger.debug(f"Tasks to delete: {tasks_to_delete}")
+    logger.debug(f"Checklists to delete: {checklists_to_delete}")
 
-            for task in child_tasks:
-                if task.task_id not in all_task_ids:
-                    all_task_ids.add(task.task_id)
-                    queue.append(task.task_id)
-
-        return all_task_ids
-    
-    tasks_to_delete = get_all_review_tasks(db, tasks_to_delete)
-
-
-    # Mark tasks as deleted
-    # Mark tasks as deleted
+    # Bulk mark tasks as deleted
     if tasks_to_delete:
         db.execute(
-        update(Task)
-        .where(Task.task_id.in_(tasks_to_delete))
-        .values(is_delete=True))
-    for task_id in tasks_to_delete:
-        log_task_field_change(db, task_id, 'is_delete', False, True, Current_user.employee_id)  # pass actual user_id
+            update(Task)
+            .where(Task.task_id.in_(tasks_to_delete))
+            .values(is_delete=True)
+        )
+        logs = [{
+            "task_id": t_id,
+            "field_name": "is_delete",
+            "old_value": "False",
+            "new_value": "True",
+            "updated_by": Current_user.employee_id,
+            "updated_at": datetime.now()
+        } for t_id in tasks_to_delete]
+        db.bulk_insert_mappings(TaskUpdateLog, logs)
+        logger.info(f"Marked tasks as deleted: {tasks_to_delete}")
 
-# Mark checklists as deleted
+    # Bulk mark checklists as deleted
     if checklists_to_delete:
         db.execute(
-        update(Checklist)
-        .where(Checklist.checklist_id.in_(checklists_to_delete))
-        .values(is_delete=True))
-    for checklist_id in checklists_to_delete:
-        log_checklist_field_change(db, checklist_id, 'is_delete', False, True,Current_user.employee_id)
+            update(Checklist)
+            .where(Checklist.checklist_id.in_(checklists_to_delete))
+            .values(is_delete=True)
+        )
+        logs = [{
+            "checklist_id": c_id,
+            "field_name": "is_delete",
+            "old_value": "False",
+            "new_value": "True",
+            "updated_by": Current_user.employee_id,
+            "updated_at": datetime.now()
+        } for c_id in checklists_to_delete]
+        db.bulk_insert_mappings(ChecklistUpdateLog, logs)
+        logger.info(f"Marked checklists as deleted: {checklists_to_delete}")
 
+    db.commit()
 
-    db.commit() 
-
-    return {"message": "Related tasks and checklists marked as deleted", "tasks": tasks_to_delete, "checklists": checklists_to_delete}
+    logger.info("Deletion process completed successfully.")
+    return {
+        "message": "Related tasks and checklists marked as deleted",
+        "tasks": list(tasks_to_delete),
+        "checklists": list(checklists_to_delete)
+    }

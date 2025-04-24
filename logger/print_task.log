@@ -1,0 +1,22 @@
+2025-04-24 13:02:05,645 - print_task - INFO - GET /tasks - Called by user_id=1
+2025-04-24 13:02:05,648 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-04-24 13:02:05,649 - print_task - INFO - Filters - task_name=None, description=None, status=None, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-04-24 13:02:05,650 - print_task - INFO - Sorting by: due_date DESC
+2025-04-24 13:02:05,680 - print_task - INFO - Total filtered tasks: 4, Returned: 4
+2025-04-24 13:03:05,348 - print_task - INFO - GET /tasks - Called by user_id=1
+2025-04-24 13:03:05,348 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-04-24 13:03:05,359 - print_task - INFO - Filters - task_name=None, description=None, status=None, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-04-24 13:03:05,365 - print_task - INFO - Sorting by: due_date DESC
+2025-04-24 13:03:05,375 - print_task - INFO - Total filtered tasks: 8, Returned: 8
+2025-04-24 13:04:20,244 - print_task - INFO - GET /tasks - Called by user_id=1
+2025-04-24 13:04:20,244 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-04-24 13:04:20,248 - print_task - INFO - Filters - task_name=None, description=None, status=None, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-04-24 13:04:20,248 - print_task - INFO - Sorting by: due_date DESC
+2025-04-24 13:04:20,248 - print_task - INFO - Filter applied: created_by
+2025-04-24 13:04:20,274 - print_task - INFO - Total filtered tasks: 8, Returned: 8
+2025-04-24 13:04:30,042 - print_task - INFO - GET /tasks - Called by user_id=1
+2025-04-24 13:04:30,047 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-04-24 13:04:30,047 - print_task - INFO - Filters - task_name=None, description=None, status=None, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-04-24 13:04:30,047 - print_task - INFO - Sorting by: due_date DESC
+2025-04-24 13:04:30,057 - print_task - INFO - Filter applied: assigned_to
+2025-04-24 13:04:30,070 - print_task - INFO - Total filtered tasks: 3, Returned: 3

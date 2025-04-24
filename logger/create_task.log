@@ -1,0 +1,122 @@
+2025-04-24 12:14:28,588 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:14:28,588 - create_task - INFO - Creating main task...
+2025-04-24 12:14:28,599 - create_task - INFO - Main task created with ID=1
+2025-04-24 12:14:28,600 - create_task - INFO - Creating chat room for task_id=1
+2025-04-24 12:14:28,601 - create_task - INFO - Logging initial status change for task_id=1
+2025-04-24 12:14:28,612 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:14:28,617 - create_task - INFO - Checklist created with ID=1
+2025-04-24 12:14:28,617 - create_task - INFO - Linked checklist_id=1 to task_id=1
+2025-04-24 12:14:28,617 - create_task - INFO - Creating review task...
+2025-04-24 12:14:28,623 - create_task - INFO - Review task created with parent_task_id=1
+2025-04-24 12:14:28,646 - create_task - INFO - Task 1 created and committed successfully
+2025-04-24 12:15:45,279 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:15:45,282 - create_task - INFO - Creating main task...
+2025-04-24 12:15:45,286 - create_task - INFO - Main task created with ID=3
+2025-04-24 12:15:45,292 - create_task - INFO - Creating chat room for task_id=3
+2025-04-24 12:15:45,292 - create_task - INFO - Logging initial status change for task_id=3
+2025-04-24 12:15:45,298 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:15:45,298 - create_task - INFO - Checklist created with ID=4
+2025-04-24 12:15:45,298 - create_task - INFO - Linked checklist_id=4 to task_id=3
+2025-04-24 12:15:45,318 - create_task - INFO - Task 3 created and committed successfully
+2025-04-24 12:15:56,150 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:15:56,152 - create_task - INFO - Creating main task...
+2025-04-24 12:15:56,158 - create_task - INFO - Main task created with ID=4
+2025-04-24 12:15:56,163 - create_task - INFO - Creating chat room for task_id=4
+2025-04-24 12:15:56,163 - create_task - INFO - Logging initial status change for task_id=4
+2025-04-24 12:15:56,175 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:15:56,180 - create_task - INFO - Checklist created with ID=5
+2025-04-24 12:15:56,182 - create_task - INFO - Linked checklist_id=5 to task_id=4
+2025-04-24 12:15:56,193 - create_task - INFO - Task 4 created and committed successfully
+2025-04-24 12:16:37,587 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:16:37,587 - create_task - INFO - Creating main task...
+2025-04-24 12:16:37,590 - create_task - INFO - Main task created with ID=5
+2025-04-24 12:16:37,590 - create_task - INFO - Creating chat room for task_id=5
+2025-04-24 12:16:37,594 - create_task - INFO - Logging initial status change for task_id=5
+2025-04-24 12:16:37,594 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:16:37,609 - create_task - INFO - Checklist created with ID=7
+2025-04-24 12:16:37,609 - create_task - INFO - Linked checklist_id=7 to task_id=5
+2025-04-24 12:16:37,625 - create_task - INFO - Task 5 created and committed successfully
+2025-04-24 12:19:40,359 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:19:40,371 - create_task - INFO - Creating main task...
+2025-04-24 12:19:40,375 - create_task - INFO - Main task created with ID=6
+2025-04-24 12:19:40,375 - create_task - INFO - Creating chat room for task_id=6
+2025-04-24 12:19:40,387 - create_task - INFO - Logging initial status change for task_id=6
+2025-04-24 12:19:40,397 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:19:40,403 - create_task - INFO - Checklist created with ID=9
+2025-04-24 12:19:40,408 - create_task - INFO - Linked checklist_id=9 to task_id=6
+2025-04-24 12:19:40,430 - create_task - INFO - Task 6 created and committed successfully
+2025-04-24 12:20:41,872 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:20:41,872 - create_task - INFO - Creating main task...
+2025-04-24 12:20:41,884 - create_task - INFO - Main task created with ID=7
+2025-04-24 12:20:41,884 - create_task - INFO - Creating chat room for task_id=7
+2025-04-24 12:20:41,884 - create_task - INFO - Logging initial status change for task_id=7
+2025-04-24 12:20:41,889 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:20:41,890 - create_task - INFO - Checklist created with ID=10
+2025-04-24 12:20:41,891 - create_task - INFO - Linked checklist_id=10 to task_id=7
+2025-04-24 12:20:41,891 - create_task - INFO - Attempting to link to existing checklist_id=6
+2025-04-24 12:20:41,896 - create_task - INFO - Checklist 6 linked to parent_task_id=4
+2025-04-24 12:20:41,900 - create_task - INFO - Linked new task_id=7 as subtask to checklist_id=6
+2025-04-24 12:20:41,912 - create_task - INFO - Task 7 created and committed successfully
+2025-04-24 12:24:47,400 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:24:47,401 - create_task - INFO - Creating main task...
+2025-04-24 12:24:47,403 - create_task - INFO - Main task created with ID=1
+2025-04-24 12:24:47,403 - create_task - INFO - Creating chat room for task_id=1
+2025-04-24 12:24:47,408 - create_task - INFO - Logging initial status change for task_id=1
+2025-04-24 12:24:47,421 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:24:47,425 - create_task - INFO - Checklist created with ID=1
+2025-04-24 12:24:47,425 - create_task - INFO - Linked checklist_id=1 to task_id=1
+2025-04-24 12:24:47,425 - create_task - INFO - Creating review task...
+2025-04-24 12:24:47,428 - create_task - INFO - Review task created with parent_task_id=1
+2025-04-24 12:24:47,445 - create_task - INFO - Task 1 created and committed successfully
+2025-04-24 12:25:31,578 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:25:31,582 - create_task - INFO - Creating main task...
+2025-04-24 12:25:31,582 - create_task - INFO - Main task created with ID=3
+2025-04-24 12:25:31,582 - create_task - INFO - Creating chat room for task_id=3
+2025-04-24 12:25:31,582 - create_task - INFO - Logging initial status change for task_id=3
+2025-04-24 12:25:31,594 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:25:31,599 - create_task - INFO - Checklist created with ID=4
+2025-04-24 12:25:31,599 - create_task - INFO - Linked checklist_id=4 to task_id=3
+2025-04-24 12:25:31,601 - create_task - INFO - Creating review task...
+2025-04-24 12:25:31,603 - create_task - INFO - Review task created with parent_task_id=3
+2025-04-24 12:25:31,603 - create_task - INFO - Attempting to link to existing checklist_id=2
+2025-04-24 12:25:31,603 - create_task - INFO - Checklist 2 linked to parent_task_id=1
+2025-04-24 12:25:31,610 - create_task - INFO - Linked new task_id=3 as subtask to checklist_id=2
+2025-04-24 12:25:31,632 - create_task - INFO - Task 3 created and committed successfully
+2025-04-24 12:25:39,066 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:25:39,066 - create_task - INFO - Creating main task...
+2025-04-24 12:25:39,072 - create_task - INFO - Main task created with ID=5
+2025-04-24 12:25:39,072 - create_task - INFO - Creating chat room for task_id=5
+2025-04-24 12:25:39,072 - create_task - INFO - Logging initial status change for task_id=5
+2025-04-24 12:25:39,082 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:25:39,082 - create_task - INFO - Checklist created with ID=5
+2025-04-24 12:25:39,082 - create_task - INFO - Linked checklist_id=5 to task_id=5
+2025-04-24 12:25:39,082 - create_task - INFO - Creating review task...
+2025-04-24 12:25:39,090 - create_task - INFO - Review task created with parent_task_id=5
+2025-04-24 12:25:39,090 - create_task - INFO - Attempting to link to existing checklist_id=2
+2025-04-24 12:25:39,090 - create_task - INFO - Checklist 2 linked to parent_task_id=1
+2025-04-24 12:25:39,098 - create_task - INFO - Linked new task_id=5 as subtask to checklist_id=2
+2025-04-24 12:25:39,116 - create_task - INFO - Task 5 created and committed successfully
+2025-04-24 12:26:46,369 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:26:46,369 - create_task - INFO - Creating main task...
+2025-04-24 12:26:46,380 - create_task - INFO - Main task created with ID=7
+2025-04-24 12:26:46,380 - create_task - INFO - Creating chat room for task_id=7
+2025-04-24 12:26:46,380 - create_task - INFO - Logging initial status change for task_id=7
+2025-04-24 12:26:46,380 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:26:46,380 - create_task - INFO - Checklist created with ID=7
+2025-04-24 12:26:46,394 - create_task - INFO - Linked checklist_id=7 to task_id=7
+2025-04-24 12:26:46,395 - create_task - INFO - Attempting to link to existing checklist_id=6
+2025-04-24 12:26:46,398 - create_task - INFO - Checklist 6 linked to parent_task_id=5
+2025-04-24 12:26:46,398 - create_task - INFO - Linked new task_id=7 as subtask to checklist_id=6
+2025-04-24 12:26:46,414 - create_task - INFO - Task 7 created and committed successfully
+2025-04-24 12:27:09,360 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-24 12:27:09,360 - create_task - INFO - Creating main task...
+2025-04-24 12:27:09,366 - create_task - INFO - Main task created with ID=8
+2025-04-24 12:27:09,366 - create_task - INFO - Creating chat room for task_id=8
+2025-04-24 12:27:09,366 - create_task - INFO - Logging initial status change for task_id=8
+2025-04-24 12:27:09,370 - create_task - INFO - Creating 1 checklists...
+2025-04-24 12:27:09,378 - create_task - INFO - Checklist created with ID=8
+2025-04-24 12:27:09,378 - create_task - INFO - Linked checklist_id=8 to task_id=8
+2025-04-24 12:27:09,378 - create_task - INFO - Attempting to link to existing checklist_id=6
+2025-04-24 12:27:09,381 - create_task - INFO - Checklist 6 linked to parent_task_id=5
+2025-04-24 12:27:09,386 - create_task - INFO - Linked new task_id=8 as subtask to checklist_id=6
+2025-04-24 12:27:09,399 - create_task - INFO - Task 8 created and committed successfully

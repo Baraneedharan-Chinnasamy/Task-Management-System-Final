@@ -4,8 +4,12 @@ from sqlalchemy.sql import or_, update, asc, desc
 from models.models import Task, Checklist, TaskChecklistLink
 from database.database import get_db
 from Checklist.inputs import checklist_sub
+from logger.logger import get_logger
+
 
 router = APIRouter()
+
+
 
 @router.post("/Print_Checklist")
 def get_checklists_by_task(
@@ -14,20 +18,24 @@ def get_checklists_by_task(
     page: int = Query(1, ge=1),
     limit: int = Query(50, ge=1)
 ):
+    logger = get_logger('print_checklist', 'print_checklist.log')
+    logger.info(f"POST /Print_Checklist called for task_id={payload.task_id} | Page={page} | Limit={limit}")
+
     offset = (page - 1) * limit
 
-    # Get total count before pagination
     total = db.query(TaskChecklistLink).filter(
         TaskChecklistLink.parent_task_id == payload.task_id
     ).count()
     total_pages = (total + limit - 1) // limit  # Ceiling division
 
-    # Paginate checklist links
+    logger.info(f"Total checklists found: {total} | Total pages: {total_pages}")
+
     links = db.query(TaskChecklistLink).filter(
         TaskChecklistLink.parent_task_id == payload.task_id
     ).offset(offset).limit(limit).all()
 
     checklist_data = []
+    skipped_checklists = 0
 
     for link in links:
         checklist = db.query(Checklist).filter(
@@ -36,9 +44,12 @@ def get_checklists_by_task(
         ).first()
 
         if not checklist:
+            logger.warning(f"Checklist not found or deleted for link_id={link.link_id}")
+            skipped_checklists += 1
             continue
 
-        # Fetch subtasks
+        logger.debug(f"Processing checklist_id={checklist.checklist_id}")
+
         subtasks = []
         checklist_links = db.query(TaskChecklistLink).filter(
             TaskChecklistLink.checklist_id == checklist.checklist_id
@@ -54,6 +65,7 @@ def get_checklists_by_task(
             ).first()
 
             if not task_obj:
+                logger.warning(f"Subtask with ID={task.sub_task_id} not found or deleted.")
                 continue
 
             subtasks.append({
@@ -72,6 +84,7 @@ def get_checklists_by_task(
             })
 
         delete_allow = False if subtasks else True
+        logger.debug(f"Checklist {checklist.checklist_id} delete_allow={delete_allow} | Subtasks count={len(subtasks)}")
 
         checklist_data.append({
             "checklist_id": checklist.checklist_id,
@@ -80,6 +93,8 @@ def get_checklists_by_task(
             "subtasks": subtasks,
             "delete_allow": delete_allow
         })
+
+    logger.info(f"Returning {len(checklist_data)} checklists | Skipped: {skipped_checklists}")
 
     return {
         "page": page,

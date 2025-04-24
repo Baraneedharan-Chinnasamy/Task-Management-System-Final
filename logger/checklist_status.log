@@ -1,0 +1,40 @@
+2025-04-24 12:29:48,161 - checklist_update - INFO - User 1 called /mark_checklist_complete
+2025-04-24 12:29:52,955 - checklist_update - INFO - User 1 called /mark_checklist_complete
+2025-04-24 12:32:04,390 - checklist_update - INFO - User 1 called /mark_checklist_complete
+2025-04-24 12:32:16,868 - checklist_update - INFO - User 1 called /mark_checklist_complete
+2025-04-24 12:32:26,637 - checklist_update - INFO - User 1 called /mark_checklist_complete
+2025-04-24 12:33:12,150 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:33:12,164 - mark_checklist_complete - INFO - Checklist 1 found, current status: True
+2025-04-24 12:33:12,181 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=1, task_type=TaskType.Normal
+2025-04-24 12:33:12,201 - mark_checklist_complete - INFO - Checklist 1 marked as incomplete
+2025-04-24 12:33:12,245 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-04-24 12:33:23,656 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:33:23,660 - mark_checklist_complete - INFO - Checklist 1 found, current status: False
+2025-04-24 12:33:23,660 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=1, task_type=TaskType.Normal
+2025-04-24 12:33:23,674 - mark_checklist_complete - INFO - Checklist 1 marked as completed
+2025-04-24 12:33:23,692 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-04-24 12:33:50,326 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:33:50,337 - mark_checklist_complete - INFO - Checklist 3 found, current status: False
+2025-04-24 12:33:50,351 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=1, task_type=TaskType.Normal
+2025-04-24 12:33:50,358 - mark_checklist_complete - INFO - Checklist 3 marked as completed
+2025-04-24 12:33:50,384 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-04-24 12:34:03,763 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:34:03,768 - mark_checklist_complete - INFO - Checklist 5 found, current status: False
+2025-04-24 12:34:03,777 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=5, task_type=TaskType.Normal
+2025-04-24 12:34:03,784 - mark_checklist_complete - INFO - Checklist 5 marked as completed
+2025-04-24 12:34:03,808 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-04-24 12:34:07,125 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:34:07,125 - mark_checklist_complete - INFO - Checklist 7 found, current status: False
+2025-04-24 12:34:07,144 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=7, task_type=TaskType.Normal
+2025-04-24 12:34:07,144 - mark_checklist_complete - INFO - Checklist 7 marked as completed
+2025-04-24 12:34:07,191 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-04-24 12:34:10,646 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:34:10,646 - mark_checklist_complete - INFO - Checklist 8 found, current status: False
+2025-04-24 12:34:10,663 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=8, task_type=TaskType.Normal
+2025-04-24 12:34:10,674 - mark_checklist_complete - INFO - Checklist 8 marked as completed
+2025-04-24 12:34:10,746 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-04-24 12:34:36,989 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-04-24 12:34:36,996 - mark_checklist_complete - INFO - Checklist 4 found, current status: False
+2025-04-24 12:34:37,003 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=3, task_type=TaskType.Normal
+2025-04-24 12:34:37,015 - mark_checklist_complete - INFO - Checklist 4 marked as completed
+2025-04-24 12:34:37,052 - mark_checklist_complete - INFO - Checklist status updated and committed successfully

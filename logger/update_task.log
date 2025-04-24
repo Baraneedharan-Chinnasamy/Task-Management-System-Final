@@ -1,0 +1,39 @@
+2025-04-24 12:35:45,343 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:35:45,343 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=False
+2025-04-24 12:35:45,374 - update_task - INFO - Output updated across review task 6
+2025-04-24 12:35:45,392 - update_task - INFO - Task 5 updated successfully with changes: {'output': 'string'}
+2025-04-24 12:36:18,812 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:36:18,819 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=False
+2025-04-24 12:36:18,824 - update_task - INFO - Task 5 updated successfully with changes: {}
+2025-04-24 12:36:37,725 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:36:37,735 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
+2025-04-24 12:36:37,747 - update_task - INFO - Review task 6 marked as Completed
+2025-04-24 12:36:37,751 - update_task - INFO - Task 6 updated successfully with changes: {'is_reviewed': True, 'status': 'Completed'}
+2025-04-24 12:37:04,169 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:37:04,174 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
+2025-04-24 12:37:04,189 - update_task - INFO - Parent task 5 marked as Completed
+2025-04-24 12:37:04,194 - update_task - INFO - Task 6 updated successfully with changes: {'parent_task_completed': True}
+2025-04-24 12:37:19,990 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:37:20,002 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=False
+2025-04-24 12:37:20,005 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-04-24 12:37:37,384 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:37:37,389 - update_task - INFO - User 1 is updating Task 4 | Creator=True, Assignee=True
+2025-04-24 12:37:37,401 - update_task - INFO - Parent task 3 marked as Completed
+2025-04-24 12:37:37,410 - update_task - INFO - Task 4 updated successfully with changes: {'parent_task_completed': True}
+2025-04-24 12:39:06,752 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:39:06,752 - update_task - INFO - User 1 is updating Task 4 | Creator=True, Assignee=True
+2025-04-24 12:39:06,752 - update_task - INFO - Task 4 updated successfully with changes: {}
+2025-04-24 12:39:11,270 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:39:11,274 - update_task - INFO - User 1 is updating Task 4 | Creator=True, Assignee=True
+2025-04-24 12:39:11,316 - update_task - ERROR - Unexpected error while updating task
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Update_Task.py", line 184, in update_task
+    Mark_complete_help(parent_task.task_id, db, Current_user)
+  File "D:\Task Management System Final code\Tasks\functions.py", line 59, in Mark_complete_help
+    log_checklist_field_change(db,checklist.checklist_id,"is_compelete",checklist.is_complete,True,Current_user.employee_id)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Checklist' object has no attribute 'is_complete'. Did you mean: 'is_completed'?
+2025-04-24 12:40:08,741 - update_task - INFO - POST /update_task called by user_id=1
+2025-04-24 12:40:08,743 - update_task - INFO - User 1 is updating Task 4 | Creator=True, Assignee=True
+2025-04-24 12:40:08,821 - update_task - INFO - Parent task 3 marked as Completed
+2025-04-24 12:40:08,826 - update_task - INFO - Task 4 updated successfully with changes: {'parent_task_completed': True}

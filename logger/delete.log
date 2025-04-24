@@ -1,0 +1,5 @@
+2025-04-24 12:41:37,010 - delete - INFO - DELETE requested by user_id=1
+2025-04-24 12:42:13,695 - delete - INFO - DELETE requested by user_id=1
+2025-04-24 12:45:12,130 - delete - INFO - DELETE requested by user_id=1
+2025-04-24 12:45:12,161 - delete - INFO - Marked checklists as deleted: [1]
+2025-04-24 12:45:12,178 - delete - INFO - Deletion process completed successfully.
