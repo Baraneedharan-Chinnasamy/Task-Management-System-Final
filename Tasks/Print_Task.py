@@ -6,7 +6,7 @@ from datetime import date, datetime
 from typing import Optional
 from collections import defaultdict
 from Currentuser.currentUser import get_current_user
-from models.models import Task, User, ChatRoom, ChatMessage, ChatMessageRead, Checklist, TaskChecklistLink
+from models.models import Task, User, ChatRoom, ChatMessage, ChatMessageRead, Checklist, TaskChecklistLink,TaskType
 from logger.logger import get_logger
 
 router = APIRouter()
@@ -186,6 +186,7 @@ def get_tasks_by_employees(
         }
     }
 
+
 @router.get("/task/task_id")
 def task_details(
     task_id: int,
@@ -195,6 +196,7 @@ def task_details(
 ):
     logger = get_logger("print_task", "print_task.log")
     logger.info("GET /task/task_id called - task_id=%s by user_id=%s", task_id, current_user.employee_id)
+
     try:
         task = db.query(Task).filter(Task.task_id == task_id).first()
         if not task:
@@ -207,57 +209,124 @@ def task_details(
         users = db.query(User).filter(User.employee_id.in_(user_ids)).all()
         user_map = {u.employee_id: u.username for u in users}
 
-        checklist_progress = 0  # Can be updated if checklist is fetched
+        # ---------------- Checklist processing for given task ----------------
+        checklist_data = []
 
-        chat_room = db.query(ChatRoom).filter(ChatRoom.task_id == task_id).first()
-        unread_message_count = 0
-        visible_messages = []
+        checklist_links = db.query(TaskChecklistLink).filter(
+            TaskChecklistLink.parent_task_id == task_id
+        ).all()
 
-        if chat_room:
-            logger.info("Chat room found for task_id=%s", task_id)
-            read_subq = db.query(ChatMessageRead.message_id).filter(
-                ChatMessageRead.user_id == current_user.employee_id
-            ).subquery()
+        for link in checklist_links:
+            checklist = db.query(Checklist).filter(
+                Checklist.checklist_id == link.checklist_id,
+                Checklist.is_delete == False
+            ).first()
 
-            unread_message_count = db.query(ChatMessage).filter(
-                ChatMessage.chat_room_id == chat_room.chat_room_id,
-                ChatMessage.sender_id != current_user.employee_id,
-                not_(ChatMessage.message_id.in_(read_subq))
-            ).count()
+            if not checklist:
+                continue
 
-            limit = int(request.query_params.get("limit", 50))
-            before_ts_str = request.query_params.get("before_timestamp")
-            before_ts = datetime.fromisoformat(before_ts_str) if before_ts_str else None
+            subtasks = []
 
-            messages_query = db.query(ChatMessage).filter(ChatMessage.chat_room_id == chat_room.chat_room_id)
-            if before_ts:
-                messages_query = messages_query.filter(ChatMessage.timestamp < before_ts)
+            subtask_links = db.query(TaskChecklistLink).filter(
+                TaskChecklistLink.checklist_id == checklist.checklist_id,
+                TaskChecklistLink.sub_task_id.isnot(None)
+            ).all()
 
-            messages = messages_query.order_by(ChatMessage.timestamp.desc()).limit(limit).all()
-            messages.reverse()
+            for subtask_link in subtask_links:
+                subtask = db.query(Task).filter(
+                    Task.task_id == subtask_link.sub_task_id,
+                    Task.is_delete == False
+                ).first()
 
-            read_ids_set = {
-                r.message_id for r in db.query(ChatMessageRead.message_id)
-                .filter_by(user_id=current_user.employee_id)
-                .all()
-            }
-
-            for msg in messages:
-                if not msg.visible_to or current_user.employee_id in msg.visible_to:
-                    visible_messages.append({
-                        "message_id": msg.message_id,
-                        "sender_id": msg.sender_id,
-                        "message": msg.message,
-                        "timestamp": str(msg.timestamp),
-                        "seen": msg.message_id in read_ids_set
+                if subtask:
+                    subtasks.append({
+                        "task_id": subtask.task_id,
+                        "task_name": subtask.task_name,
+                        "description": subtask.description,
+                        "status": subtask.status,
+                        "assigned_to": subtask.assigned_to,
+                        "assigned_to_name": user_map.get(subtask.assigned_to),
+                        "due_date": subtask.due_date,
+                        "created_by": subtask.created_by,
+                        "created_by_name": user_map.get(subtask.created_by),
+                        "created_at": subtask.created_at,
+                        "updated_at": subtask.updated_at,
+                        "task_type": subtask.task_type,
+                        "is_review_required": subtask.is_review_required,
+                        "output": subtask.output
                     })
 
-                    if msg.message_id not in read_ids_set and msg.sender_id != current_user.employee_id:
-                        db.add(ChatMessageRead(message_id=msg.message_id, user_id=current_user.employee_id))
+            delete_allow_checklist = False if subtasks else True
 
-            db.commit()
+            checklist_data.append({
+                "checklist_id": checklist.checklist_id,
+                "checklist_name": checklist.checklist_name,
+                "is_completed": checklist.is_completed,
+                "subtasks": subtasks,
+                "checkbox_status": delete_allow_checklist
+            })
+
+        completed = sum(1 for c in checklist_data if c["is_completed"])
+        total = len(checklist_data)
+        checklist_progress = f"{completed}/{total}" if total > 0 else "0/0"
+
+        # ---------------- Parent Task Chain with Checklists ----------------
+        parent_task_chain = []
+
+        def get_parent_chain(current_task_id):
+            if not current_task_id:
+                return
+
+            current_task = db.query(Task).filter(
+                Task.task_id == current_task_id,
+                Task.is_delete == False
+            ).first()
+
+            if current_task:
+                # Get checklists for current task
+                checklists = []
+                checklist_links = db.query(TaskChecklistLink).filter(
+                    TaskChecklistLink.parent_task_id == current_task.task_id
+                ).all()
+
+                for link in checklist_links:
+                    checklist = db.query(Checklist).filter(
+                        Checklist.checklist_id == link.checklist_id,
+                        Checklist.is_delete == False
+                    ).first()
+
+                    if checklist:
+                        checklists.append({
+                            "checklist_id": checklist.checklist_id,
+                            "checklist_name": checklist.checklist_name,
+                            "is_completed": checklist.is_completed
+                        })
+
+                parent_task_chain.append({
+                    "task_id": current_task.task_id,
+                    "task_name": current_task.task_name,
+                    "status": current_task.status,
+                    "task_type": current_task.task_type,
+                    "assigned_to": current_task.assigned_to,
+                    "assigned_to_name": user_map.get(current_task.assigned_to),
+                    "is_reviewed": current_task.is_reviewed,
+                    "output": current_task.output,
+                    "created_at": current_task.created_at,
+                    "updated_at": current_task.updated_at,
+                    "checklists": checklists
+                })
+
+                if current_task.parent_task_id:
+                    get_parent_chain(current_task.parent_task_id)
+
+        # 🚀 Start from parent_task_id (not task_id) to exclude current task
+        get_parent_chain(task.parent_task_id)
+        parent_task_chain = parent_task_chain[::-1]  # reverse order to show top -> bottom
+
+      
 
         logger.info("Returning task details for task_id=%s", task_id)
+
         return {
             "task_id": task.task_id,
             "task_name": task.task_name,
@@ -275,9 +344,9 @@ def task_details(
             "is_review_required": task.is_review_required,
             "is_reviewed": task.is_reviewed,
             "checklist_progress": checklist_progress,
+            "checklists": checklist_data,
             "delete_allow": delete_allow,
-            "chat_messages": visible_messages,
-            "unread_message_count": unread_message_count
+            "parent_task_chain": parent_task_chain
         }
 
     except Exception as e:

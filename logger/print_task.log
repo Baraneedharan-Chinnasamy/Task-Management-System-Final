@@ -20,3 +20,41 @@
 2025-04-24 13:04:30,047 - print_task - INFO - Sorting by: due_date DESC
 2025-04-24 13:04:30,057 - print_task - INFO - Filter applied: assigned_to
 2025-04-24 13:04:30,070 - print_task - INFO - Total filtered tasks: 3, Returned: 3
+2025-04-29 12:10:37,421 - print_task - INFO - GET /task/task_id called - task_id=11 by user_id=1
+2025-04-29 12:10:37,455 - print_task - INFO - Returning task details for task_id=11
+2025-04-29 12:12:00,875 - print_task - INFO - GET /task/task_id called - task_id=15 by user_id=1
+2025-04-29 12:12:00,884 - print_task - INFO - Returning task details for task_id=15
+2025-04-29 12:12:15,667 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:12:15,679 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:16:50,098 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:16:50,117 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:28:13,189 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:28:13,189 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:29:17,982 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:29:18,034 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:30:05,165 - print_task - INFO - GET /task/task_id called - task_id=11 by user_id=1
+2025-04-29 12:30:05,194 - print_task - INFO - Returning task details for task_id=11
+2025-04-29 12:30:17,308 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:30:17,342 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:32:15,606 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:32:15,640 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:32:15,640 - print_task - ERROR - Error retrieving task details for task_id=14: name 'mark_as_complete' is not defined
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Print_Task.py", line 349, in task_details
+    "mark_as_complete": mark_as_complete,
+                        ^^^^^^^^^^^^^^^^
+NameError: name 'mark_as_complete' is not defined
+2025-04-29 12:32:23,337 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:32:23,361 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:32:23,361 - print_task - ERROR - Error retrieving task details for task_id=14: name 'mark_as_complete' is not defined
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Print_Task.py", line 349, in task_details
+    "parent_task_chain": parent_task_chain
+                        ^^^^^^^^^^^^^^^^
+NameError: name 'mark_as_complete' is not defined
+2025-04-29 12:32:27,342 - print_task - INFO - GET /task/task_id called - task_id=14 by user_id=1
+2025-04-29 12:32:27,367 - print_task - INFO - Returning task details for task_id=14
+2025-04-29 12:32:38,123 - print_task - INFO - GET /task/task_id called - task_id=11 by user_id=1
+2025-04-29 12:32:38,130 - print_task - INFO - Returning task details for task_id=11
+2025-04-29 12:32:52,357 - print_task - INFO - GET /task/task_id called - task_id=15 by user_id=1
+2025-04-29 12:32:52,380 - print_task - INFO - Returning task details for task_id=15

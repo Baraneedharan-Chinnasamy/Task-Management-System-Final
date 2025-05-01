@@ -1,122 +1,657 @@
-2025-04-24 12:14:28,588 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:14:28,588 - create_task - INFO - Creating main task...
-2025-04-24 12:14:28,599 - create_task - INFO - Main task created with ID=1
-2025-04-24 12:14:28,600 - create_task - INFO - Creating chat room for task_id=1
-2025-04-24 12:14:28,601 - create_task - INFO - Logging initial status change for task_id=1
-2025-04-24 12:14:28,612 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:14:28,617 - create_task - INFO - Checklist created with ID=1
-2025-04-24 12:14:28,617 - create_task - INFO - Linked checklist_id=1 to task_id=1
-2025-04-24 12:14:28,617 - create_task - INFO - Creating review task...
-2025-04-24 12:14:28,623 - create_task - INFO - Review task created with parent_task_id=1
-2025-04-24 12:14:28,646 - create_task - INFO - Task 1 created and committed successfully
-2025-04-24 12:15:45,279 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:15:45,282 - create_task - INFO - Creating main task...
-2025-04-24 12:15:45,286 - create_task - INFO - Main task created with ID=3
-2025-04-24 12:15:45,292 - create_task - INFO - Creating chat room for task_id=3
-2025-04-24 12:15:45,292 - create_task - INFO - Logging initial status change for task_id=3
-2025-04-24 12:15:45,298 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:15:45,298 - create_task - INFO - Checklist created with ID=4
-2025-04-24 12:15:45,298 - create_task - INFO - Linked checklist_id=4 to task_id=3
-2025-04-24 12:15:45,318 - create_task - INFO - Task 3 created and committed successfully
-2025-04-24 12:15:56,150 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:15:56,152 - create_task - INFO - Creating main task...
-2025-04-24 12:15:56,158 - create_task - INFO - Main task created with ID=4
-2025-04-24 12:15:56,163 - create_task - INFO - Creating chat room for task_id=4
-2025-04-24 12:15:56,163 - create_task - INFO - Logging initial status change for task_id=4
-2025-04-24 12:15:56,175 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:15:56,180 - create_task - INFO - Checklist created with ID=5
-2025-04-24 12:15:56,182 - create_task - INFO - Linked checklist_id=5 to task_id=4
-2025-04-24 12:15:56,193 - create_task - INFO - Task 4 created and committed successfully
-2025-04-24 12:16:37,587 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:16:37,587 - create_task - INFO - Creating main task...
-2025-04-24 12:16:37,590 - create_task - INFO - Main task created with ID=5
-2025-04-24 12:16:37,590 - create_task - INFO - Creating chat room for task_id=5
-2025-04-24 12:16:37,594 - create_task - INFO - Logging initial status change for task_id=5
-2025-04-24 12:16:37,594 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:16:37,609 - create_task - INFO - Checklist created with ID=7
-2025-04-24 12:16:37,609 - create_task - INFO - Linked checklist_id=7 to task_id=5
-2025-04-24 12:16:37,625 - create_task - INFO - Task 5 created and committed successfully
-2025-04-24 12:19:40,359 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:19:40,371 - create_task - INFO - Creating main task...
-2025-04-24 12:19:40,375 - create_task - INFO - Main task created with ID=6
-2025-04-24 12:19:40,375 - create_task - INFO - Creating chat room for task_id=6
-2025-04-24 12:19:40,387 - create_task - INFO - Logging initial status change for task_id=6
-2025-04-24 12:19:40,397 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:19:40,403 - create_task - INFO - Checklist created with ID=9
-2025-04-24 12:19:40,408 - create_task - INFO - Linked checklist_id=9 to task_id=6
-2025-04-24 12:19:40,430 - create_task - INFO - Task 6 created and committed successfully
-2025-04-24 12:20:41,872 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:20:41,872 - create_task - INFO - Creating main task...
-2025-04-24 12:20:41,884 - create_task - INFO - Main task created with ID=7
-2025-04-24 12:20:41,884 - create_task - INFO - Creating chat room for task_id=7
-2025-04-24 12:20:41,884 - create_task - INFO - Logging initial status change for task_id=7
-2025-04-24 12:20:41,889 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:20:41,890 - create_task - INFO - Checklist created with ID=10
-2025-04-24 12:20:41,891 - create_task - INFO - Linked checklist_id=10 to task_id=7
-2025-04-24 12:20:41,891 - create_task - INFO - Attempting to link to existing checklist_id=6
-2025-04-24 12:20:41,896 - create_task - INFO - Checklist 6 linked to parent_task_id=4
-2025-04-24 12:20:41,900 - create_task - INFO - Linked new task_id=7 as subtask to checklist_id=6
-2025-04-24 12:20:41,912 - create_task - INFO - Task 7 created and committed successfully
-2025-04-24 12:24:47,400 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:24:47,401 - create_task - INFO - Creating main task...
-2025-04-24 12:24:47,403 - create_task - INFO - Main task created with ID=1
-2025-04-24 12:24:47,403 - create_task - INFO - Creating chat room for task_id=1
-2025-04-24 12:24:47,408 - create_task - INFO - Logging initial status change for task_id=1
-2025-04-24 12:24:47,421 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:24:47,425 - create_task - INFO - Checklist created with ID=1
-2025-04-24 12:24:47,425 - create_task - INFO - Linked checklist_id=1 to task_id=1
-2025-04-24 12:24:47,425 - create_task - INFO - Creating review task...
-2025-04-24 12:24:47,428 - create_task - INFO - Review task created with parent_task_id=1
-2025-04-24 12:24:47,445 - create_task - INFO - Task 1 created and committed successfully
-2025-04-24 12:25:31,578 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:25:31,582 - create_task - INFO - Creating main task...
-2025-04-24 12:25:31,582 - create_task - INFO - Main task created with ID=3
-2025-04-24 12:25:31,582 - create_task - INFO - Creating chat room for task_id=3
-2025-04-24 12:25:31,582 - create_task - INFO - Logging initial status change for task_id=3
-2025-04-24 12:25:31,594 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:25:31,599 - create_task - INFO - Checklist created with ID=4
-2025-04-24 12:25:31,599 - create_task - INFO - Linked checklist_id=4 to task_id=3
-2025-04-24 12:25:31,601 - create_task - INFO - Creating review task...
-2025-04-24 12:25:31,603 - create_task - INFO - Review task created with parent_task_id=3
-2025-04-24 12:25:31,603 - create_task - INFO - Attempting to link to existing checklist_id=2
-2025-04-24 12:25:31,603 - create_task - INFO - Checklist 2 linked to parent_task_id=1
-2025-04-24 12:25:31,610 - create_task - INFO - Linked new task_id=3 as subtask to checklist_id=2
-2025-04-24 12:25:31,632 - create_task - INFO - Task 3 created and committed successfully
-2025-04-24 12:25:39,066 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:25:39,066 - create_task - INFO - Creating main task...
-2025-04-24 12:25:39,072 - create_task - INFO - Main task created with ID=5
-2025-04-24 12:25:39,072 - create_task - INFO - Creating chat room for task_id=5
-2025-04-24 12:25:39,072 - create_task - INFO - Logging initial status change for task_id=5
-2025-04-24 12:25:39,082 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:25:39,082 - create_task - INFO - Checklist created with ID=5
-2025-04-24 12:25:39,082 - create_task - INFO - Linked checklist_id=5 to task_id=5
-2025-04-24 12:25:39,082 - create_task - INFO - Creating review task...
-2025-04-24 12:25:39,090 - create_task - INFO - Review task created with parent_task_id=5
-2025-04-24 12:25:39,090 - create_task - INFO - Attempting to link to existing checklist_id=2
-2025-04-24 12:25:39,090 - create_task - INFO - Checklist 2 linked to parent_task_id=1
-2025-04-24 12:25:39,098 - create_task - INFO - Linked new task_id=5 as subtask to checklist_id=2
-2025-04-24 12:25:39,116 - create_task - INFO - Task 5 created and committed successfully
-2025-04-24 12:26:46,369 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:26:46,369 - create_task - INFO - Creating main task...
-2025-04-24 12:26:46,380 - create_task - INFO - Main task created with ID=7
-2025-04-24 12:26:46,380 - create_task - INFO - Creating chat room for task_id=7
-2025-04-24 12:26:46,380 - create_task - INFO - Logging initial status change for task_id=7
-2025-04-24 12:26:46,380 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:26:46,380 - create_task - INFO - Checklist created with ID=7
-2025-04-24 12:26:46,394 - create_task - INFO - Linked checklist_id=7 to task_id=7
-2025-04-24 12:26:46,395 - create_task - INFO - Attempting to link to existing checklist_id=6
-2025-04-24 12:26:46,398 - create_task - INFO - Checklist 6 linked to parent_task_id=5
-2025-04-24 12:26:46,398 - create_task - INFO - Linked new task_id=7 as subtask to checklist_id=6
-2025-04-24 12:26:46,414 - create_task - INFO - Task 7 created and committed successfully
-2025-04-24 12:27:09,360 - create_task - INFO - Create Task endpoint hit by user_id=1
-2025-04-24 12:27:09,360 - create_task - INFO - Creating main task...
-2025-04-24 12:27:09,366 - create_task - INFO - Main task created with ID=8
-2025-04-24 12:27:09,366 - create_task - INFO - Creating chat room for task_id=8
-2025-04-24 12:27:09,366 - create_task - INFO - Logging initial status change for task_id=8
-2025-04-24 12:27:09,370 - create_task - INFO - Creating 1 checklists...
-2025-04-24 12:27:09,378 - create_task - INFO - Checklist created with ID=8
-2025-04-24 12:27:09,378 - create_task - INFO - Linked checklist_id=8 to task_id=8
-2025-04-24 12:27:09,378 - create_task - INFO - Attempting to link to existing checklist_id=6
-2025-04-24 12:27:09,381 - create_task - INFO - Checklist 6 linked to parent_task_id=5
-2025-04-24 12:27:09,386 - create_task - INFO - Linked new task_id=8 as subtask to checklist_id=6
-2025-04-24 12:27:09,399 - create_task - INFO - Task 8 created and committed successfully
+2025-04-29 10:46:25,483 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-29 10:46:25,483 - create_task - INFO - Creating main task...
+2025-04-29 10:46:25,500 - create_task - INFO - Main task created with ID=11
+2025-04-29 10:46:25,500 - create_task - INFO - Creating chat room for task_id=11
+2025-04-29 10:46:25,500 - create_task - INFO - Logging initial status change for task_id=11
+2025-04-29 10:46:25,518 - create_task - INFO - Creating 1 checklists...
+2025-04-29 10:46:25,534 - create_task - INFO - Checklist created with ID=10
+2025-04-29 10:46:25,534 - create_task - INFO - Linked checklist_id=10 to task_id=11
+2025-04-29 10:46:25,534 - create_task - INFO - Creating review task...
+2025-04-29 10:46:25,545 - create_task - INFO - Review task created with parent_task_id=11
+2025-04-29 10:46:25,579 - create_task - INFO - Task 11 created and committed successfully
+2025-04-30 10:54:47,537 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 10:54:47,537 - create_task - INFO - Creating main task...
+2025-04-30 10:54:47,554 - create_task - INFO - Main task created with ID=1
+2025-04-30 10:54:47,554 - create_task - INFO - Creating chat room for task_id=1
+2025-04-30 10:54:47,554 - create_task - INFO - Logging initial status change for task_id=1
+2025-04-30 10:54:47,571 - create_task - INFO - Creating 1 checklists...
+2025-04-30 10:54:47,585 - create_task - INFO - Checklist created with ID=1
+2025-04-30 10:54:47,587 - create_task - INFO - Linked checklist_id=1 to task_id=1
+2025-04-30 10:54:47,587 - create_task - INFO - Creating review task...
+2025-04-30 10:54:47,587 - create_task - INFO - Review task created with parent_task_id=1
+2025-04-30 10:54:47,605 - create_task - ERROR - Unexpected error while creating task: (pymysql.err.DataError) (1265, "Data truncated for column 'status' at row 1")
+[SQL: INSERT INTO tasks (assigned_to, created_by, task_name, description, status, task_type, due_date, is_review_required, is_reviewed, parent_task_id, output, is_delete) VALUES (%(assigned_to)s, %(created_by)s, %(task_name)s, %(description)s, %(status)s, %(task_type)s, %(due_date)s, %(is_review_required)s, %(is_reviewed)s, %(parent_task_id)s, %(output)s, %(is_delete)s)]
+[parameters: {'assigned_to': 1, 'created_by': 1, 'task_name': 'Review - task1', 'description': None, 'status': 'New', 'task_type': 'Review', 'due_date': datetime.date(2025, 5, 30), 'is_review_required': 0, 'is_reviewed': 0, 'parent_task_id': 1, 'output': None, 'is_delete': 0}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1265, "Data truncated for column 'status' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 130, in add_checklist_subtask
+    db.commit()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.DataError: (pymysql.err.DataError) (1265, "Data truncated for column 'status' at row 1")
+[SQL: INSERT INTO tasks (assigned_to, created_by, task_name, description, status, task_type, due_date, is_review_required, is_reviewed, parent_task_id, output, is_delete) VALUES (%(assigned_to)s, %(created_by)s, %(task_name)s, %(description)s, %(status)s, %(task_type)s, %(due_date)s, %(is_review_required)s, %(is_reviewed)s, %(parent_task_id)s, %(output)s, %(is_delete)s)]
+[parameters: {'assigned_to': 1, 'created_by': 1, 'task_name': 'Review - task1', 'description': None, 'status': 'New', 'task_type': 'Review', 'due_date': datetime.date(2025, 5, 30), 'is_review_required': 0, 'is_reviewed': 0, 'parent_task_id': 1, 'output': None, 'is_delete': 0}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-04-30 10:58:06,678 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 10:58:06,678 - create_task - INFO - Creating main task...
+2025-04-30 10:58:06,686 - create_task - INFO - Main task created with ID=1
+2025-04-30 10:58:06,686 - create_task - INFO - Creating chat room for task_id=1
+2025-04-30 10:58:06,686 - create_task - INFO - Logging initial status change for task_id=1
+2025-04-30 10:58:06,699 - create_task - INFO - Creating 1 checklists...
+2025-04-30 10:58:06,703 - create_task - INFO - Checklist created with ID=1
+2025-04-30 10:58:06,703 - create_task - INFO - Linked checklist_id=1 to task_id=1
+2025-04-30 10:58:06,703 - create_task - INFO - Creating review task...
+2025-04-30 10:58:06,703 - create_task - INFO - Review task created with parent_task_id=1
+2025-04-30 10:58:06,737 - create_task - INFO - Task 1 created and committed successfully
+2025-04-30 11:00:21,248 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:00:21,254 - create_task - INFO - Creating main task...
+2025-04-30 11:00:21,260 - create_task - INFO - Main task created with ID=3
+2025-04-30 11:00:21,261 - create_task - INFO - Creating chat room for task_id=3
+2025-04-30 11:00:21,261 - create_task - INFO - Logging initial status change for task_id=3
+2025-04-30 11:00:21,267 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:00:21,270 - create_task - INFO - Checklist created with ID=2
+2025-04-30 11:00:21,270 - create_task - INFO - Linked checklist_id=2 to task_id=3
+2025-04-30 11:00:21,270 - create_task - INFO - Creating review task...
+2025-04-30 11:00:21,274 - create_task - INFO - Review task created with parent_task_id=3
+2025-04-30 11:00:21,294 - create_task - INFO - Task 3 created and committed successfully
+2025-04-30 11:00:52,288 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:00:52,288 - create_task - INFO - Creating main task...
+2025-04-30 11:00:52,288 - create_task - INFO - Main task created with ID=5
+2025-04-30 11:00:52,298 - create_task - INFO - Creating chat room for task_id=5
+2025-04-30 11:00:52,298 - create_task - INFO - Logging initial status change for task_id=5
+2025-04-30 11:00:52,305 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:00:52,314 - create_task - INFO - Checklist created with ID=3
+2025-04-30 11:00:52,314 - create_task - INFO - Linked checklist_id=3 to task_id=5
+2025-04-30 11:00:52,314 - create_task - INFO - Creating review task...
+2025-04-30 11:00:52,339 - create_task - INFO - Review task created with parent_task_id=5
+2025-04-30 11:00:52,339 - create_task - ERROR - Unexpected error while creating task: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1048, "Column 'task_id' cannot be null")
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': None, 'field_name': 'status', 'old_value': 'None', 'new_value': 'New', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 0, 52, 319561)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 130, in add_checklist_subtask
+    db.commit()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 103, in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 973, in _raise_for_prerequisite_state
+    raise sa_exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1048, "Column 'task_id' cannot be null")
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': None, 'field_name': 'status', 'old_value': 'None', 'new_value': 'New', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 0, 52, 319561)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-04-30 11:03:02,412 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:03:02,412 - create_task - INFO - Creating main task...
+2025-04-30 11:03:02,425 - create_task - INFO - Main task created with ID=7
+2025-04-30 11:03:02,427 - create_task - INFO - Creating chat room for task_id=7
+2025-04-30 11:03:02,427 - create_task - INFO - Logging initial status change for task_id=7
+2025-04-30 11:03:02,435 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:03:02,437 - create_task - INFO - Checklist created with ID=4
+2025-04-30 11:03:02,437 - create_task - INFO - Linked checklist_id=4 to task_id=7
+2025-04-30 11:03:02,440 - create_task - INFO - Creating review task...
+2025-04-30 11:03:02,456 - create_task - INFO - Review task created with parent_task_id=7
+2025-04-30 11:03:02,457 - create_task - ERROR - Unexpected error while creating task: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1048, "Column 'task_id' cannot be null")
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': None, 'field_name': 'status', 'old_value': 'None', 'new_value': 'New', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 3, 2, 440884)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 130, in add_checklist_subtask
+    # Final commit
+    ^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 103, in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 973, in _raise_for_prerequisite_state
+    raise sa_exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1048, "Column 'task_id' cannot be null")
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': None, 'field_name': 'status', 'old_value': 'None', 'new_value': 'New', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 3, 2, 440884)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-04-30 11:03:10,190 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:03:10,190 - create_task - INFO - Creating main task...
+2025-04-30 11:03:10,195 - create_task - INFO - Main task created with ID=9
+2025-04-30 11:03:10,200 - create_task - INFO - Creating chat room for task_id=9
+2025-04-30 11:03:10,201 - create_task - INFO - Logging initial status change for task_id=9
+2025-04-30 11:03:10,210 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:03:10,214 - create_task - INFO - Checklist created with ID=5
+2025-04-30 11:03:10,216 - create_task - INFO - Linked checklist_id=5 to task_id=9
+2025-04-30 11:03:10,217 - create_task - INFO - Creating review task...
+2025-04-30 11:03:10,226 - create_task - INFO - Review task created with parent_task_id=9
+2025-04-30 11:03:10,242 - create_task - INFO - Task 9 created and committed successfully
+2025-04-30 11:08:03,802 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:08:03,806 - create_task - INFO - Creating main task...
+2025-04-30 11:08:03,808 - create_task - INFO - Main task created with ID=11
+2025-04-30 11:08:03,810 - create_task - INFO - Creating chat room for task_id=11
+2025-04-30 11:08:03,810 - create_task - INFO - Logging initial status change for task_id=11
+2025-04-30 11:08:03,815 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:08:03,815 - create_task - INFO - Checklist created with ID=7
+2025-04-30 11:08:03,815 - create_task - INFO - Linked checklist_id=7 to task_id=11
+2025-04-30 11:08:03,821 - create_task - INFO - Creating review task...
+2025-04-30 11:08:03,821 - create_task - INFO - Review task created with parent_task_id=11
+2025-04-30 11:08:03,827 - create_task - INFO - Attempting to link to existing checklist_id=6
+2025-04-30 11:08:03,831 - create_task - INFO - Checklist 6 linked to parent_task_id=9
+2025-04-30 11:08:03,833 - create_task - INFO - Linked new task_id=11 as subtask to checklist_id=6
+2025-04-30 11:08:03,844 - create_task - INFO - Task 11 created and committed successfully
+2025-04-30 11:14:02,892 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:14:02,892 - create_task - INFO - Creating main task...
+2025-04-30 11:14:02,914 - create_task - ERROR - Unexpected error while creating task: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO tasks (assigned_to, created_by, task_name, description, status, task_type, due_date, is_review_required, is_reviewed, parent_task_id, output, is_delete) VALUES (%(assigned_to)s, %(created_by)s, %(task_name)s, %(description)s, %(status)s, %(task_type)s, %(due_date)s, %(is_review_required)s, %(is_reviewed)s, %(parent_task_id)s, %(output)s, %(is_delete)s)]
+[parameters: {'assigned_to': 3, 'created_by': 1, 'task_name': 'task1', 'description': 'this is for testing purpose', 'status': 'To_Do', 'task_type': 'Normal', 'due_date': datetime.date(2025, 5, 30), 'is_review_required': 1, 'is_reviewed': 0, 'parent_task_id': None, 'output': None, 'is_delete': 0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 42, in add_checklist_subtask
+    db.flush()  # Get task_id before commit
+    ^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO tasks (assigned_to, created_by, task_name, description, status, task_type, due_date, is_review_required, is_reviewed, parent_task_id, output, is_delete) VALUES (%(assigned_to)s, %(created_by)s, %(task_name)s, %(description)s, %(status)s, %(task_type)s, %(due_date)s, %(is_review_required)s, %(is_reviewed)s, %(parent_task_id)s, %(output)s, %(is_delete)s)]
+[parameters: {'assigned_to': 3, 'created_by': 1, 'task_name': 'task1', 'description': 'this is for testing purpose', 'status': 'To_Do', 'task_type': 'Normal', 'due_date': datetime.date(2025, 5, 30), 'is_review_required': 1, 'is_reviewed': 0, 'parent_task_id': None, 'output': None, 'is_delete': 0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-30 11:14:57,492 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:14:57,492 - create_task - INFO - Creating main task...
+2025-04-30 11:14:57,492 - create_task - INFO - Main task created with ID=2
+2025-04-30 11:14:57,502 - create_task - INFO - Creating chat room for task_id=2
+2025-04-30 11:14:57,502 - create_task - INFO - Logging initial status change for task_id=2
+2025-04-30 11:14:57,520 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:14:57,520 - create_task - ERROR - Unexpected error while creating task: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`task_update_logs`, CONSTRAINT `task_update_logs_ibfk_2` FOREIGN KEY (`updated_by`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': 2, 'field_name': 'status', 'old_value': 'None', 'new_value': 'To_Do', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 14, 57, 502506)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 62, in add_checklist_subtask
+    created_by = Current_user.employee_id
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 103, in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 973, in _raise_for_prerequisite_state
+    raise sa_exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`task_update_logs`, CONSTRAINT `task_update_logs_ibfk_2` FOREIGN KEY (`updated_by`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': 2, 'field_name': 'status', 'old_value': 'None', 'new_value': 'To_Do', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 14, 57, 502506)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-04-30 11:15:28,196 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:15:28,196 - create_task - INFO - Creating main task...
+2025-04-30 11:15:28,207 - create_task - INFO - Main task created with ID=3
+2025-04-30 11:15:28,207 - create_task - INFO - Creating chat room for task_id=3
+2025-04-30 11:15:28,207 - create_task - INFO - Logging initial status change for task_id=3
+2025-04-30 11:15:28,216 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:15:28,221 - create_task - ERROR - Unexpected error while creating task: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`task_update_logs`, CONSTRAINT `task_update_logs_ibfk_2` FOREIGN KEY (`updated_by`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': 3, 'field_name': 'status', 'old_value': 'None', 'new_value': 'To_Do', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 15, 28, 207562)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 62, in add_checklist_subtask
+    created_by = Current_user.employee_id
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 103, in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 973, in _raise_for_prerequisite_state
+    raise sa_exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`task_update_logs`, CONSTRAINT `task_update_logs_ibfk_2` FOREIGN KEY (`updated_by`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
+[parameters: {'task_id': 3, 'field_name': 'status', 'old_value': 'None', 'new_value': 'To_Do', 'updated_by': 2, 'updated_at': datetime.datetime(2025, 4, 30, 11, 15, 28, 207562)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+2025-04-30 11:16:10,200 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:16:10,204 - create_task - INFO - Creating main task...
+2025-04-30 11:16:10,208 - create_task - INFO - Main task created with ID=4
+2025-04-30 11:16:10,208 - create_task - INFO - Creating chat room for task_id=4
+2025-04-30 11:16:10,208 - create_task - INFO - Logging initial status change for task_id=4
+2025-04-30 11:16:10,213 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:16:10,221 - create_task - INFO - Checklist created with ID=1
+2025-04-30 11:16:10,221 - create_task - INFO - Linked checklist_id=1 to task_id=4
+2025-04-30 11:16:10,221 - create_task - INFO - Creating review task...
+2025-04-30 11:16:10,237 - create_task - INFO - Review task created with parent_task_id=4
+2025-04-30 11:16:10,248 - create_task - INFO - Task 4 created and committed successfully
+2025-04-30 11:25:11,390 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:25:11,390 - create_task - INFO - Creating main task...
+2025-04-30 11:25:11,406 - create_task - INFO - Main task created with ID=6
+2025-04-30 11:25:11,409 - create_task - INFO - Creating chat room for task_id=6
+2025-04-30 11:25:11,409 - create_task - INFO - Logging initial status change for task_id=6
+2025-04-30 11:25:11,409 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:25:11,422 - create_task - INFO - Checklist created with ID=3
+2025-04-30 11:25:11,422 - create_task - INFO - Linked checklist_id=3 to task_id=6
+2025-04-30 11:25:11,422 - create_task - INFO - Creating review task...
+2025-04-30 11:25:11,438 - create_task - INFO - Review task created with parent_task_id=6
+2025-04-30 11:25:11,438 - create_task - INFO - Attempting to link to existing checklist_id=1
+2025-04-30 11:25:11,438 - create_task - INFO - Checklist 1 linked to parent_task_id=4
+2025-04-30 11:25:11,454 - create_task - INFO - Linked new task_id=6 as subtask to checklist_id=1
+2025-04-30 11:25:11,470 - create_task - INFO - Task 6 created and committed successfully
+2025-04-30 11:25:22,300 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 11:25:22,300 - create_task - INFO - Creating main task...
+2025-04-30 11:25:22,300 - create_task - INFO - Main task created with ID=8
+2025-04-30 11:25:22,315 - create_task - INFO - Creating chat room for task_id=8
+2025-04-30 11:25:22,315 - create_task - INFO - Logging initial status change for task_id=8
+2025-04-30 11:25:22,321 - create_task - INFO - Creating 1 checklists...
+2025-04-30 11:25:22,321 - create_task - INFO - Checklist created with ID=4
+2025-04-30 11:25:22,321 - create_task - INFO - Linked checklist_id=4 to task_id=8
+2025-04-30 11:25:22,321 - create_task - INFO - Attempting to link to existing checklist_id=1
+2025-04-30 11:25:22,332 - create_task - INFO - Checklist 1 linked to parent_task_id=4
+2025-04-30 11:25:22,339 - create_task - INFO - Linked new task_id=8 as subtask to checklist_id=1
+2025-04-30 11:25:22,359 - create_task - INFO - Task 8 created and committed successfully
+2025-04-30 12:26:16,630 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-04-30 12:26:16,630 - create_task - INFO - Creating main task...
+2025-04-30 12:26:16,646 - create_task - INFO - Main task created with ID=1
+2025-04-30 12:26:16,646 - create_task - INFO - Creating chat room for task_id=1
+2025-04-30 12:26:16,646 - create_task - INFO - Logging initial status change for task_id=1
+2025-04-30 12:26:16,665 - create_task - INFO - Creating 1 checklists...
+2025-04-30 12:26:16,665 - create_task - INFO - Checklist created with ID=1
+2025-04-30 12:26:16,675 - create_task - INFO - Linked checklist_id=1 to task_id=1
+2025-04-30 12:26:16,675 - create_task - INFO - Creating review task...
+2025-04-30 12:26:16,691 - create_task - INFO - Review task created with parent_task_id=1
+2025-04-30 12:26:16,703 - create_task - INFO - Task 1 created and committed successfully
+2025-04-30 17:10:50,848 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-04-30 17:10:50,866 - create_task - INFO - Main task created with ID=1
+2025-04-30 17:10:50,890 - create_task - INFO - Checklist 1 linked to task 1
+2025-04-30 17:10:50,912 - create_task - INFO - Task and dependencies committed successfully
+2025-04-30 17:51:25,377 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-04-30 17:51:25,390 - create_task - INFO - Main task created with ID=4
+2025-04-30 17:51:25,406 - create_task - INFO - Checklist 9 linked to task 4
+2025-04-30 17:51:25,429 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 18:19:32,475 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:19:32,500 - create_task - ERROR - Unexpected error while creating task
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 40, in add_checklist_subtask
+    db.flush()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO tasks (assigned_to, created_by, task_name, description, status, previous_status, task_type, due_date, is_review_required, is_reviewed, parent_task_id, output, is_delete) VALUES (%(assigned_to)s, %(created_by)s, %(task_name)s, %(description)s, %(status)s, %(previous_status)s, %(task_type)s, %(due_date)s, %(is_review_required)s, %(is_reviewed)s, %(parent_task_id)s, %(output)s, %(is_delete)s)]
+[parameters: {'assigned_to': 0, 'created_by': 1, 'task_name': 'string', 'description': 'string', 'status': 'To_Do', 'previous_status': 'To_Do', 'task_type': 'Normal', 'due_date': datetime.date(2025, 5, 1), 'is_review_required': 0, 'is_reviewed': 0, 'parent_task_id': None, 'output': None, 'is_delete': 0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-01 18:19:48,975 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:19:48,983 - create_task - INFO - Main task created with ID=2
+2025-05-01 18:19:49,005 - create_task - INFO - Checklist 1 linked to task 2
+2025-05-01 18:19:49,022 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 18:20:30,937 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:20:30,940 - create_task - INFO - Main task created with ID=3
+2025-05-01 18:20:30,944 - create_task - INFO - Checklist 3 linked to task 3
+2025-05-01 18:20:30,957 - create_task - INFO - Subtask 3 linked to checklist 1
+2025-05-01 18:20:30,960 - create_task - ERROR - Unexpected error while creating task
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 110, in add_checklist_subtask
+    propagate_upwards_from_subtask_create_task(new_task.task_id)
+TypeError: propagate_upwards_from_subtask_create_task() missing 2 required positional arguments: 'db' and 'Current_user'
+2025-05-01 18:21:37,647 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:21:37,647 - create_task - INFO - Main task created with ID=4
+2025-05-01 18:21:37,655 - create_task - INFO - Checklist 4 linked to task 4
+2025-05-01 18:21:37,666 - create_task - INFO - Subtask 4 linked to checklist 1
+2025-05-01 18:21:37,704 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 18:22:11,573 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:22:11,586 - create_task - INFO - Main task created with ID=5
+2025-05-01 18:22:11,590 - create_task - INFO - Checklist 5 linked to task 5
+2025-05-01 18:22:11,590 - create_task - INFO - Subtask 5 linked to checklist 4
+2025-05-01 18:22:11,657 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 18:22:24,885 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:22:24,885 - create_task - INFO - Main task created with ID=6
+2025-05-01 18:22:24,894 - create_task - INFO - Checklist 6 linked to task 6
+2025-05-01 18:22:24,905 - create_task - INFO - Subtask 6 linked to checklist 5
+2025-05-01 18:22:24,979 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 18:46:10,180 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 18:46:10,180 - create_task - INFO - Main task created with ID=7
+2025-05-01 18:46:10,197 - create_task - INFO - Checklist 11 linked to task 7
+2025-05-01 18:46:10,216 - create_task - INFO - Subtask 7 linked to checklist 10
+2025-05-01 18:46:10,352 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 20:49:06,621 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 20:49:06,637 - create_task - INFO - Main task created with ID=1
+2025-05-01 20:49:06,645 - create_task - INFO - Checklist 1 linked to task 1
+2025-05-01 20:49:06,658 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 20:49:30,977 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 20:49:30,977 - create_task - INFO - Main task created with ID=2
+2025-05-01 20:49:30,977 - create_task - INFO - Checklist 3 linked to task 2
+2025-05-01 20:49:30,999 - create_task - INFO - Subtask 2 linked to checklist 1
+2025-05-01 20:49:31,017 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 20:49:38,697 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 20:49:38,697 - create_task - INFO - Main task created with ID=3
+2025-05-01 20:49:38,714 - create_task - INFO - Checklist 4 linked to task 3
+2025-05-01 20:49:38,714 - create_task - INFO - Subtask 3 linked to checklist 3
+2025-05-01 20:49:38,730 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 20:49:55,911 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 20:49:55,917 - create_task - INFO - Main task created with ID=4
+2025-05-01 20:49:55,927 - create_task - INFO - Checklist 6 linked to task 4
+2025-05-01 20:49:55,936 - create_task - INFO - Subtask 4 linked to checklist 4
+2025-05-01 20:49:55,950 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 21:20:06,333 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 21:20:06,350 - create_task - INFO - Main task created with ID=1
+2025-05-01 21:20:06,376 - create_task - INFO - Checklist 1 linked to task 1
+2025-05-01 21:20:06,387 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 21:20:44,024 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 21:20:44,024 - create_task - INFO - Main task created with ID=2
+2025-05-01 21:20:44,033 - create_task - INFO - Checklist 2 linked to task 2
+2025-05-01 21:20:44,052 - create_task - INFO - Subtask 2 linked to checklist 1
+2025-05-01 21:20:44,064 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 21:20:47,768 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 21:20:47,768 - create_task - INFO - Main task created with ID=3
+2025-05-01 21:20:47,768 - create_task - INFO - Checklist 3 linked to task 3
+2025-05-01 21:20:47,786 - create_task - INFO - Subtask 3 linked to checklist 2
+2025-05-01 21:20:47,806 - create_task - INFO - Task and dependencies committed successfully
+2025-05-01 21:20:51,352 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-01 21:20:51,352 - create_task - INFO - Main task created with ID=4
+2025-05-01 21:20:51,369 - create_task - INFO - Checklist 4 linked to task 4
+2025-05-01 21:20:51,370 - create_task - INFO - Subtask 4 linked to checklist 3
+2025-05-01 21:20:51,390 - create_task - INFO - Task and dependencies committed successfully

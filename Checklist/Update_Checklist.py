@@ -24,12 +24,13 @@ def update_checklist(data: UpdateChecklistRequest, db: Session = Depends(get_db)
         # Step 1: Fetch checklist
         checklist = db.query(Checklist).filter(
             Checklist.checklist_id == data.checklist_id,
-            Checklist.is_delete == False
+            Checklist.is_delete == False,
+            Checklist.created_by ==  current_user.employee_id
         ).first()
 
         if not checklist:
-            logger.warning(f"Checklist {data.checklist_id} not found or already deleted")
-            raise HTTPException(status_code=404, detail="Checklist not found")
+            logger.warning(f"Checklist {data.checklist_id} not found or already deleted or Creator is not you")
+            raise HTTPException(status_code=404, detail="Checklist not found or Creator is not you")
 
         # Step 2: Log and update the name
         log_checklist_field_change(

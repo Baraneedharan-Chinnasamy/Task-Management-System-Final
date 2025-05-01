@@ -23,7 +23,7 @@ class UpdateTaskRequest(BaseModel):
     output :Optional[str] = None
     is_review_required: Optional[bool] = None
     is_reviewed: Optional[bool] = None
-    mark_complete : Optional[bool] = None
+    
 
 
 class SendForReview(BaseModel):

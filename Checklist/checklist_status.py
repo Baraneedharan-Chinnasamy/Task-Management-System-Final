@@ -119,28 +119,23 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
 
             if child_task:
                 if data.is_completed and all_complete:
+                    parent_task.status = TaskStatus.In_Review
                     old_status = child_task.status
+                    child_task.previous_status = old_status
                     child_task.status = TaskStatus.To_Do
                     logger.info(f"All review checklists done, setting child_task {child_task.task_id} status to To_Do")
                     log_task_field_change(db, child_task.task_id, "status", old_status, TaskStatus.To_Do, 2)
 
-                    log_task_field_change(db, child_task.task_id, "output", child_task.output, parent_task.output, Current_user.employee_id)
-                    child_task.output = parent_task.output
 
                 elif not data.is_completed:
                     logger.info(f"Checklist marked incomplete, reverting parent_task and child_task statuses")
-                    if parent_task.is_reviewed:
-                        parent_task.is_reviewed = False
-                        log_task_field_change(db, parent_task.task_id, "is_reviewed", True, False, Current_user.employee_id)
+                    log_task_field_change(db, parent_task.task_id, "status", parent_task.status, TaskStatus.To_Do, Current_user.employee_id)
+                    parent_task.status = parent_task.previous_status
+                    db.flush()
 
-                        log_task_field_change(db, parent_task.task_id, "status", parent_task.status, TaskStatus.To_Do, Current_user.employee_id)
-                        parent_task.status = TaskStatus.To_Do
-                        db.flush()
-
-                    old_status = child_task.status
-                    child_task.status = TaskStatus.Completed
-                    log_task_field_change(db, child_task.task_id, "status", old_status, TaskStatus.Completed, 2)
-                    logger.info(f"Child task {child_task.task_id} marked as Completed")
+                    child_task.status = child_task.previous_status
+                    log_task_field_change(db, child_task.task_id, "status", old_status, child_task.previous_status, 2)
+                    logger.info(f"Child task {child_task.task_id} marked as {child_task.previous_status}")
 
                     # Clear output
                     child_task.output = None

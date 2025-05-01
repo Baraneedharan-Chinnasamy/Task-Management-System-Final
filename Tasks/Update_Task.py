@@ -7,11 +7,10 @@ from Logs.functions import log_task_field_change
 from database.database import get_db
 from Currentuser.currentUser import get_current_user
 from Tasks.inputs import UpdateTaskRequest, SendForReview
-from Tasks.functions import Mark_complete_help, upload_output_to_all_reviews
+from Tasks.functions import reverse_completion_from_review,propagate_completion_upwards
 from logger.logger import get_logger
 
 router = APIRouter()
-
 
 @router.post("/update_task")
 def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)):
@@ -58,56 +57,59 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
 
             if task_data.is_review_required is not None:
                 log_task_field_change(db, task.task_id, "is_review_required", task.is_review_required, task_data.is_review_required, Current_user.employee_id)
-                if task_data.is_review_required:
-                    if not task.is_review_required:
-                        existing_review = db.query(Task).filter(
+                if task.task_type == TaskType.Normal:
+                    if task_data.is_review_required:
+                        task.is_review_required = True
+                        log_task_field_change(db, task.task_id, "is_review_required", False, True, Current_user.employee_id)
+                        if task.is_review_required:
+                            existing_review = db.query(Task).filter(
+                                Task.parent_task_id == task_id,
+                                Task.task_type == TaskType.Review
+                            ).first()
+
+                            if existing_review and existing_review.is_delete:
+                                print("Hi")
+                                existing_review.is_delete = False
+                                task.is_review_required = True
+                                log_task_field_change(db, existing_review.task_id, "is_delete", True, False, Current_user.employee_id)
+                                logger.info(f"Re-enabled review task {existing_review.task_id}")
+                            elif not existing_review:
+                                review_task = Task(
+                                    task_name=f"Review - {task.task_name}",
+                                    status=TaskStatus.New.name,
+                                    assigned_to=task.created_by,
+                                    created_by=Current_user.employee_id,
+                                    due_date=task.due_date,
+                                    task_type=TaskType.Review,
+                                    parent_task_id=task.task_id,
+                                    previous_status = TaskStatus.New.name)
+                                db.add(review_task)
+                                db.flush()
+                                log_task_field_change(db, review_task.task_id, "status", None, "New", 2)
+                                logger.info(f"Review task created: {review_task.task_id}")
+                        update_fields['is_review_required'] = True
+                    else:
+                        task.is_review_required = False
+                        update_fields['is_review_required'] = False
+                        review_task = db.query(Task).filter(
                             Task.parent_task_id == task_id,
-                            Task.task_type == TaskType.Review
-                        ).first()
-
-                        if existing_review and existing_review.is_delete:
-                            existing_review.is_delete = False
-                            task.is_review_required = True
-                            log_task_field_change(db, existing_review.task_id, "is_delete", True, False, Current_user.employee_id)
-                            logger.info(f"Re-enabled review task {existing_review.task_id}")
-                        elif not existing_review:
-                            review_task = Task(
-                                task_name=f"Review - {task.task_name}",
-                                description="Review task",
-                                status=TaskStatus.To_Do.name,
-                                assigned_to=task.created_by,
-                                created_by=Current_user.employee_id,
-                                due_date=task.due_date,
-                                task_type=TaskType.Review,
-                                parent_task_id=task.task_id
-                            )
-                            db.add(review_task)
-                            db.flush()
-                            log_task_field_change(db, review_task.task_id, "status", None, "To_Do", 2)
-                            logger.info(f"Review task created: {review_task.task_id}")
-                    update_fields['is_review_required'] = True
-                else:
-                    task.is_review_required = False
-                    update_fields['is_review_required'] = False
-                    review_task = db.query(Task).filter(
-                        Task.parent_task_id == task_id,
-                        Task.task_type == TaskType.Review,
-                        Task.is_delete == False
-                    ).first()
-
-                    if review_task:
-                        dependent_tasks = db.query(Task).filter(
-                            Task.parent_task_id == review_task.task_id,
+                            Task.task_type == TaskType.Review,
                             Task.is_delete == False
                         ).first()
 
-                        if dependent_tasks:
-                            logger.warning(f"Cannot remove review requirement for task {task_id} — has dependents")
-                            raise HTTPException(status_code=400, detail="Cannot remove review requirement - there are tasks linked to the review task")
+                        if review_task:
+                            dependent_tasks = db.query(Task).filter(
+                                Task.parent_task_id == review_task.task_id,
+                                Task.is_delete == False
+                            ).first()
 
-                        log_task_field_change(db, review_task.task_id, "is_delete", False, True, Current_user.employee_id)
-                        review_task.is_delete = True
-                        logger.info(f"Review task {review_task.task_id} marked as deleted")
+                            if dependent_tasks:
+                                logger.warning(f"Cannot remove review requirement for task {task_id} — has dependents")
+                                raise HTTPException(status_code=400, detail="Cannot remove review requirement - there are tasks linked to the review task")
+
+                            log_task_field_change(db, review_task.task_id, "is_delete", False, True, Current_user.employee_id)
+                            review_task.is_delete = True
+                            logger.info(f"Review task {review_task.task_id} marked as deleted")
 
         else:
             for field in ['assigned_to', 'due_date', 'is_review_required']:
@@ -130,59 +132,48 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
             task.output = task_data.output
             update_fields['output'] = task_data.output
 
-            if task.is_review_required:
-                review_task = db.query(Task).filter(
-                    Task.task_type == TaskType.Review,
-                    Task.parent_task_id == task.task_id,
-                    Task.is_delete == False
-                ).first()
-                upload_output_to_all_reviews(review_task.task_id, task_data.output, db, Current_user)
-                logger.info(f"Output updated across review task {review_task.task_id}")
 
         if task_data.is_reviewed is not None and task.task_type == TaskType.Review:
             checklists = db.query(Checklist).join(TaskChecklistLink).filter(
                 TaskChecklistLink.parent_task_id == task.task_id,
-                Checklist.is_delete == False,
-                TaskChecklistLink.checklist_id != None,
+                Checklist.is_delete == False
             ).all()
 
-            if task_data.is_reviewed and checklists and not all(c.is_completed for c in checklists):
-                logger.warning("Cannot mark review task as reviewed — not all checklist items are completed")
-                raise HTTPException(status_code=403, detail="All checklist items must be completed before marking the review task as reviewed.")
-
-            task.is_reviewed = task_data.is_reviewed
-            update_fields['is_reviewed'] = task_data.is_reviewed
-
-            new_status = TaskStatus.Completed if task_data.is_reviewed else TaskStatus.To_Do
-            if task.status != new_status:
-                log_task_field_change(db, task.task_id, "status", task.status, new_status, Current_user.employee_id)
-                task.status = new_status
-                update_fields['status'] = new_status.name
-                logger.info(f"Review task {task_id} marked as {new_status.name}")
-
-        if task_data.mark_complete and task.task_type == TaskType.Review:
-            parent_task = db.query(Task).filter(
-                Task.task_id == task.parent_task_id,
+            # Step 1: Prevent non-leaf review tasks from setting is_reviewed=True
+            child_review_exists = db.query(Task).filter(
+                Task.parent_task_id == task.task_id,
+                Task.task_type == TaskType.Review,
                 Task.is_delete == False
             ).first()
+            if child_review_exists:
+                    logger.warning("Only the final review task can mark is_reviewed=True")
+                    raise HTTPException(status_code=403, detail="Only the last review task in the chain can mark this")
 
-            if parent_task and parent_task.task_type == TaskType.Normal:
-                incomplete_checklists = db.query(Checklist).join(TaskChecklistLink).filter(
-                    TaskChecklistLink.parent_task_id == parent_task.task_id,
-                    Checklist.is_completed == False,
+            if task_data.is_reviewed:
+                checklists = db.query(Checklist).join(TaskChecklistLink).filter(
+                    TaskChecklistLink.parent_task_id == task_data.task_id,
                     Checklist.is_delete == False
-                ).count()
-
-                if incomplete_checklists > 0:
-                    logger.warning("Cannot mark task complete — incomplete checklists exist")
-                    raise HTTPException(status_code=400, detail="All linked checklists must be completed before marking this task complete.")
-
-                old_status = parent_task.status
-                parent_task.status = TaskStatus.Completed
-                log_task_field_change(db, parent_task.task_id, "status", old_status, TaskStatus.Completed, Current_user.employee_id)
-                update_fields['parent_task_completed'] = True
-                Mark_complete_help(parent_task.task_id, db, Current_user)
-                logger.info(f"Parent task {parent_task.task_id} marked as Completed")
+                ).all()
+                if checklists and not all(c.is_completed for c in checklists):
+                    logger.warning("Not all checklists completed in review chain")
+                    raise HTTPException(status_code=403, detail="All checklists must be completed before marking reviewed")
+                if checklists and  all(c.is_completed for c in checklists):
+                    task.is_reviewed = True
+                    log_task_field_change(db, task.task_id, "is_reviewed", False, True, Current_user.employee_id)
+                    task.previous_status == task.status
+                    task.status == TaskStatus.Completed.name
+                    propagate_completion_upwards(task, db, Current_user.employee_id, logger)
+                task.is_reviewed = True
+                log_task_field_change(db, task.task_id, "is_reviewed", True, False, Current_user.employee_id)
+                task.previous_status = task.status
+                task.status = TaskStatus.Completed.name
+                propagate_completion_upwards(task, db, Current_user.employee_id, logger,Current_user)
+            else:
+                
+                task.is_reviewed = False
+                log_task_field_change(db, task.task_id, "is_reviewed", True, False, Current_user.employee_id)
+                reverse_completion_from_review(task, db, Current_user.employee_id, logger,Current_user)
+    
 
         db.commit()
         logger.info(f"Task {task_id} updated successfully with changes: {update_fields}")
@@ -199,38 +190,55 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
 
 @router.post("/send_for_review")
 def send_for_review(data: SendForReview, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)):
-    logger = get_logger("update_task", "update_task.log")
+    logger = get_logger("send_for_review", "send_for_review.log")
     logger.info(f"POST /send_for_review called by user_id={Current_user.employee_id} for task_id={data.task_id}")
     try:
         task = db.query(Task).filter(
             Task.task_id == data.task_id,
+            Task.is_delete == False,
+            or_(Task.created_by == Current_user.employee_id, Task.assigned_to == Current_user.employee_id)
+        ).first()
+
+        if not task:
+            logger.warning(f"Task not found or unauthorized for user {Current_user.employee_id}")
+            raise HTTPException(status_code=404, detail="Task not found or unauthorized")
+
+        if task.task_type != TaskType.Review:
+            raise HTTPException(status_code=400, detail="Only review tasks can send for further review.")
+
+        # Check if a child review task already exists
+        next_review = db.query(Task).filter(
+            Task.parent_task_id == task.task_id,
             Task.task_type == TaskType.Review,
-            or_(Task.created_by == Current_user.employee_id, Task.assigned_to == Current_user.employee_id),
             Task.is_delete == False
         ).first()
 
+        if next_review:
+            raise HTTPException(status_code=400, detail="Already sent for further review. Cannot send again.")
+
+        # Mark that review is required
         task.is_review_required = True
-        db.flush()
+        task.status = TaskStatus.In_Review
 
-        if not task:
-            logger.warning(f"Review task not found or not authorized for user {Current_user.employee_id}")
-            raise HTTPException(status_code=404, detail="Review task not found or unauthorized")
-
+        # Create a new review task
         review_task = Task(
-            task_name=task.task_name,
-            description="Review task",
-            status=TaskStatus.To_Do.name,
+            task_name=f"{task.task_name}",
+            status=TaskStatus.To_Do.name,  
             assigned_to=data.assigned_to,
             created_by=Current_user.employee_id,
             due_date=task.due_date,
             task_type=TaskType.Review,
             parent_task_id=task.task_id,
-            output=task.output
+            previous_status = TaskStatus.To_Do.name
+
         )
         db.add(review_task)
+        db.flush()  
+
         db.commit()
         logger.info(f"Review task {review_task.task_id} created successfully")
-        return {"message": "Review Task Created successfully"}
+
+        return {"message": "Review task created successfully", "review_task_id": review_task.task_id}
 
     except Exception as e:
         db.rollback()

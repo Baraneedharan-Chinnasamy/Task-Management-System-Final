@@ -14,7 +14,9 @@ class TaskStatus(PyEnum):
     To_Do = "To_Do"
     In_Process = "In_Process"
     In_Review = "In_Review"
+    In_ReEdit = "In_ReEdit"
     Completed = "Completed"
+    New = "New"
 
 # Updated TaskType Enum
 class TaskType(PyEnum):
@@ -42,6 +44,7 @@ class Task(Base):
     task_name = Column(String(60), nullable=False, index=True)
     description = Column(LONGTEXT, nullable=True)
     status = Column(Enum(TaskStatus), nullable=False, default=TaskStatus.To_Do.name, index=True)
+    previous_status = Column(Enum(TaskStatus), nullable=True, index=True)
     task_type = Column(Enum(TaskType), nullable=False, default=TaskType.Normal.name, index=True)
     due_date = Column(Date, nullable=True, index=True)
 
@@ -62,6 +65,7 @@ class Checklist(Base):
     checklist_id = Column(Integer, primary_key=True, autoincrement=True)
     checklist_name = Column(String(60), nullable=False, index=True)
     is_completed = Column(Boolean, default=False, index=True)
+    created_by = Column(Integer, ForeignKey("users.employee_id"), nullable=True, index=True)
     is_delete = Column(Boolean, default=False, index=True)
     created_at = Column(TIMESTAMP, server_default=func.current_timestamp())
     updated_at = Column(TIMESTAMP, server_default=func.current_timestamp(), onupdate=func.current_timestamp())

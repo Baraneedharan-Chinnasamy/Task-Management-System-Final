@@ -1,35 +1,135 @@
-2025-04-24 12:15:00,785 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:15:00,796 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
-2025-04-24 12:15:00,796 - create_checklist - INFO - Checklist created with ID=2 for task_id=1
-2025-04-24 12:15:00,796 - create_checklist - INFO - Checklist 2 linked to parent_task_id=1
-2025-04-24 12:15:00,812 - create_checklist - INFO - Checklist creation and task update committed successfully
-2025-04-24 12:15:06,054 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:15:06,054 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
-2025-04-24 12:15:06,066 - create_checklist - INFO - Checklist created with ID=3 for task_id=1
-2025-04-24 12:15:06,066 - create_checklist - INFO - Checklist 3 linked to parent_task_id=1
-2025-04-24 12:15:06,083 - create_checklist - INFO - Checklist creation and task update committed successfully
-2025-04-24 12:16:15,474 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:16:15,478 - create_checklist - INFO - Target task found: task_id=4, task_type=TaskType.Normal
-2025-04-24 12:16:15,488 - create_checklist - INFO - Checklist created with ID=6 for task_id=4
-2025-04-24 12:16:15,490 - create_checklist - INFO - Checklist 6 linked to parent_task_id=4
-2025-04-24 12:16:15,490 - create_checklist - INFO - Checklist creation and task update committed successfully
-2025-04-24 12:18:48,300 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:18:48,316 - create_checklist - INFO - Target task found: task_id=4, task_type=TaskType.Normal
-2025-04-24 12:18:48,316 - create_checklist - INFO - Checklist created with ID=8 for task_id=4
-2025-04-24 12:18:48,316 - create_checklist - INFO - Checklist 8 linked to parent_task_id=4
-2025-04-24 12:18:48,332 - create_checklist - INFO - Checklist creation and task update committed successfully
-2025-04-24 12:25:02,730 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:25:02,734 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
-2025-04-24 12:25:02,744 - create_checklist - INFO - Checklist created with ID=2 for task_id=1
-2025-04-24 12:25:02,744 - create_checklist - INFO - Checklist 2 linked to parent_task_id=1
-2025-04-24 12:25:02,759 - create_checklist - INFO - Checklist creation and task update committed successfully
-2025-04-24 12:25:06,346 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:25:06,363 - create_checklist - INFO - Target task found: task_id=1, task_type=TaskType.Normal
-2025-04-24 12:25:06,363 - create_checklist - INFO - Checklist created with ID=3 for task_id=1
-2025-04-24 12:25:06,363 - create_checklist - INFO - Checklist 3 linked to parent_task_id=1
-2025-04-24 12:25:06,381 - create_checklist - INFO - Checklist creation and task update committed successfully
-2025-04-24 12:25:52,612 - create_checklist - INFO - POST /add_checklist called by user_id=1
-2025-04-24 12:25:52,620 - create_checklist - INFO - Target task found: task_id=5, task_type=TaskType.Normal
-2025-04-24 12:25:52,622 - create_checklist - INFO - Checklist created with ID=6 for task_id=5
-2025-04-24 12:25:52,622 - create_checklist - INFO - Checklist 6 linked to parent_task_id=5
-2025-04-24 12:25:52,638 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-30 11:06:32,101 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-30 11:06:32,108 - create_checklist - INFO - Target task found: task_id=9, task_type=TaskType.Normal
+2025-04-30 11:06:32,114 - create_checklist - INFO - Checklist created with ID=6 for task_id=9
+2025-04-30 11:06:32,115 - create_checklist - INFO - Checklist 6 linked to parent_task_id=9
+2025-04-30 11:06:32,124 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-30 11:16:35,936 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-30 11:16:35,936 - create_checklist - WARNING - Task 3 not found or already deleted
+2025-04-30 11:16:45,561 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-04-30 11:16:45,561 - create_checklist - INFO - Target task found: task_id=4, task_type=TaskType.Normal
+2025-04-30 11:16:45,572 - create_checklist - INFO - Checklist created with ID=2 for task_id=4
+2025-04-30 11:16:45,572 - create_checklist - INFO - Checklist 2 linked to parent_task_id=4
+2025-04-30 11:16:45,583 - create_checklist - INFO - Checklist creation and task update committed successfully
+2025-04-30 17:11:48,045 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:11:48,054 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-04-30 17:11:48,060 - create_checklist - INFO - Checklist created with ID=2
+2025-04-30 17:11:48,060 - create_checklist - INFO - Checklist linked to task_id=1
+2025-04-30 17:11:48,070 - create_checklist - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Checklist\Create_Checklist.py", line 79, in add_checklist
+    propagate_status_upwards(target_task)
+TypeError: propagate_status_upwards() missing 2 required positional arguments: 'task' and 'Current_user'
+2025-04-30 17:13:19,485 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:13:19,501 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-04-30 17:13:19,505 - create_checklist - INFO - Checklist created with ID=3
+2025-04-30 17:13:19,513 - create_checklist - INFO - Checklist linked to task_id=1
+2025-04-30 17:13:19,539 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 17:14:53,919 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:14:53,923 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-04-30 17:14:53,926 - create_checklist - INFO - Checklist created with ID=4
+2025-04-30 17:14:53,926 - create_checklist - INFO - Checklist linked to task_id=1
+2025-04-30 17:14:53,946 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 17:16:11,327 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:16:11,332 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-04-30 17:16:11,340 - create_checklist - INFO - Checklist created with ID=5
+2025-04-30 17:16:11,340 - create_checklist - INFO - Checklist linked to task_id=1
+2025-04-30 17:16:11,346 - create_checklist - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Checklist\Create_Checklist.py", line 77, in add_checklist
+    log_task_field_change(db, target_task.task_id, "status", old_status, target_task.status, updated_by=Current_user.employee_id)
+TypeError: log_task_field_change() got an unexpected keyword argument 'updated_by'
+2025-04-30 17:16:44,304 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:16:44,313 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-04-30 17:16:44,315 - create_checklist - INFO - Checklist created with ID=6
+2025-04-30 17:16:44,321 - create_checklist - INFO - Checklist linked to task_id=1
+2025-04-30 17:16:44,326 - create_checklist - INFO - Task 1 status changed from TaskStatus.In_Review to TaskStatus.In_Process
+2025-04-30 17:16:44,343 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 17:18:18,306 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:18:18,315 - create_checklist - INFO - Task found: task_id=3, type=TaskType.Review
+2025-04-30 17:18:18,317 - create_checklist - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Checklist\Create_Checklist.py", line 43, in add_checklist
+    log_task_field_change(db, task.task_id, "status", old_status, task.status, updated_by=Current_user.employee_id)
+TypeError: log_task_field_change() got an unexpected keyword argument 'updated_by'
+2025-04-30 17:18:42,022 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:18:42,034 - create_checklist - INFO - Task found: task_id=3, type=TaskType.Review
+2025-04-30 17:18:42,049 - create_checklist - INFO - Review task 3 status updated to In_ReEdit
+2025-04-30 17:18:42,051 - create_checklist - INFO - Checklist created with ID=7
+2025-04-30 17:18:42,051 - create_checklist - INFO - Checklist linked to task_id=2
+2025-04-30 17:18:42,067 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 17:21:33,012 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 17:21:33,019 - create_checklist - INFO - Task found: task_id=3, type=TaskType.Review
+2025-04-30 17:21:33,023 - create_checklist - INFO - Review task 3 status updated to In_ReEdit
+2025-04-30 17:21:33,036 - create_checklist - INFO - Checklist created with ID=8
+2025-04-30 17:21:33,036 - create_checklist - INFO - Checklist linked to task_id=2
+2025-04-30 17:21:33,043 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 18:06:56,034 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 18:06:56,034 - create_checklist - INFO - Task found: task_id=6, type=TaskType.Review
+2025-04-30 18:06:56,034 - create_checklist - INFO - Review task 6 status updated to In_ReEdit
+2025-04-30 18:06:56,051 - create_checklist - INFO - Checklist created with ID=10
+2025-04-30 18:06:56,051 - create_checklist - INFO - Checklist linked to task_id=5
+2025-04-30 18:06:56,070 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 18:07:53,079 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 18:07:53,079 - create_checklist - INFO - Task found: task_id=6, type=TaskType.Review
+2025-04-30 18:07:53,093 - create_checklist - INFO - Review task 6 status updated to In_ReEdit
+2025-04-30 18:07:53,093 - create_checklist - INFO - Checklist created with ID=11
+2025-04-30 18:07:53,093 - create_checklist - INFO - Checklist linked to task_id=5
+2025-04-30 18:07:53,109 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-04-30 18:08:05,096 - create_checklist - INFO - POST /add_checklist called by user_id=2
+2025-04-30 18:08:05,100 - create_checklist - INFO - Task found: task_id=5, type=TaskType.Review
+2025-04-30 18:08:05,107 - create_checklist - INFO - Review task 5 status updated to In_ReEdit
+2025-04-30 18:08:05,107 - create_checklist - INFO - Checklist created with ID=12
+2025-04-30 18:08:05,107 - create_checklist - INFO - Checklist linked to task_id=4
+2025-04-30 18:08:05,141 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-05-01 18:20:01,711 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 18:20:01,716 - create_checklist - INFO - Task found: task_id=2, type=TaskType.Normal
+2025-05-01 18:20:01,716 - create_checklist - INFO - Checklist created with ID=2
+2025-05-01 18:20:01,716 - create_checklist - INFO - Checklist linked to task_id=2
+2025-05-01 18:20:01,774 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-05-01 18:31:37,329 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 18:31:37,331 - create_checklist - INFO - Task found: task_id=6, type=TaskType.Normal
+2025-05-01 18:31:37,338 - create_checklist - INFO - Checklist created with ID=7
+2025-05-01 18:31:37,338 - create_checklist - INFO - Checklist linked to task_id=6
+2025-05-01 18:31:37,342 - create_checklist - INFO - Task 6 status changed from TaskStatus.Completed to TaskStatus.In_Process
+2025-05-01 18:31:37,380 - create_checklist - INFO - Checklist 5 marked as incomplete due to sub-task
+2025-05-01 18:31:37,392 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-05-01 18:35:23,748 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 18:35:23,762 - create_checklist - INFO - Task found: task_id=6, type=TaskType.Normal
+2025-05-01 18:35:23,762 - create_checklist - INFO - Checklist created with ID=8
+2025-05-01 18:35:23,762 - create_checklist - INFO - Checklist linked to task_id=6
+2025-05-01 18:35:23,780 - create_checklist - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Checklist\Create_Checklist.py", line 79, in add_checklist
+    propagate_incomplete_upwards(checklist.checklist_id, db,Current_user)
+  File "D:\Task Management System Final code\Checklist\functions.py", line 133, in propagate_incomplete_upwards
+    parent_task_id = parent_tasks[0]
+                     ~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-05-01 18:36:20,239 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 18:36:20,241 - create_checklist - INFO - Task found: task_id=6, type=TaskType.Normal
+2025-05-01 18:36:20,241 - create_checklist - INFO - Checklist created with ID=9
+2025-05-01 18:36:20,245 - create_checklist - INFO - Checklist linked to task_id=6
+2025-05-01 18:36:20,252 - create_checklist - ERROR - Unexpected error occurred
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Checklist\Create_Checklist.py", line 79, in add_checklist
+    if target_task.task_type == TaskType.Normal and (target_task.status == TaskStatus.Completed or target_task.status == TaskStatus.In_Review):
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\Checklist\functions.py", line 133, in propagate_incomplete_upwards
+    parent_task_id = parent_tasks[0]
+                     ~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-05-01 18:36:26,879 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 18:36:26,885 - create_checklist - INFO - Task found: task_id=6, type=TaskType.Normal
+2025-05-01 18:36:26,893 - create_checklist - INFO - Checklist created with ID=10
+2025-05-01 18:36:26,893 - create_checklist - INFO - Checklist linked to task_id=6
+2025-05-01 18:36:26,982 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-05-01 20:49:19,637 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 20:49:19,637 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-05-01 20:49:19,637 - create_checklist - INFO - Checklist created with ID=2
+2025-05-01 20:49:19,648 - create_checklist - INFO - Checklist linked to task_id=1
+2025-05-01 20:49:19,652 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-05-01 20:49:50,476 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-01 20:49:50,489 - create_checklist - INFO - Task found: task_id=3, type=TaskType.Normal
+2025-05-01 20:49:50,490 - create_checklist - INFO - Checklist created with ID=5
+2025-05-01 20:49:50,490 - create_checklist - INFO - Checklist linked to task_id=3
+2025-05-01 20:49:50,508 - create_checklist - INFO - Checklist creation and task updates committed successfully
