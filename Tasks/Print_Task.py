@@ -103,13 +103,10 @@ def get_tasks_by_employees(
     tasks = query.offset(offset).limit(limit).all()
     logger.info("Total filtered tasks: %d, Returned: %d", total_count, len(tasks))
 
-    # Fetch related user data
-    user_ids = {task.assigned_to for task in tasks if task.assigned_to} | \
-               {task.created_by for task in tasks if task.created_by}
+   
     user_map = {}
-    if user_ids:
-        users = db.query(User).filter(User.employee_id.in_(user_ids)).all()
-        user_map = {u.employee_id: u.username for u in users}
+    users = db.query(User).filter().all()
+    user_map = {u.employee_id: u.username for u in users}
 
     # Checklist processing
     checklist_counts = defaultdict(lambda: {"total": 0, "completed": 0})
@@ -205,8 +202,8 @@ def task_details(
 
         delete_allow = task.created_by == current_user.employee_id
 
-        user_ids = {task.assigned_to, task.created_by}
-        users = db.query(User).filter(User.employee_id.in_(user_ids)).all()
+        
+        users = db.query(User).filter().all()
         user_map = {u.employee_id: u.username for u in users}
 
         # ---------------- Checklist processing for given task ----------------

@@ -2,8 +2,7 @@ from fastapi import APIRouter, Depends, WebSocket, WebSocketDisconnect, HTTPExce
 from sqlalchemy.orm import Session
 from datetime import datetime
 from typing import Optional
-
-from models.models import ChatMessage, ChatRoom, ChatMessageRead,Task,TaskType
+from models.models import ChatMessage, ChatRoom, ChatMessageRead,Task,TaskType,User
 from database.database import get_db, SessionLocal
 from Chat.chat_manager import ChatManager
 
@@ -122,6 +121,9 @@ def get_chat_history(
         .filter_by(user_id=user_id)
         .all()
     }
+    user_map = {}
+    users = db.query(User).filter().all()
+    user_map = {u.employee_id: u.username for u in users}
 
     visible_messages = []
     for msg in messages:

@@ -2847,3 +2847,71 @@ IndexError: list index out of range
 2025-05-02 18:05:33,057 - print_task - INFO - Returning task details for task_id=12
 2025-05-02 18:05:33,192 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
 2025-05-02 18:05:33,210 - print_task - INFO - Returning task details for task_id=12
+2025-05-02 18:11:50,202 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:11:50,203 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:11:50,203 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:11:50,204 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:11:50,207 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:11:50,240 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:11:50,719 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:11:50,719 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:11:50,720 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:11:50,720 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:11:50,722 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:11:50,730 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:11:51,211 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:11:51,212 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:11:51,212 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:11:51,213 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:11:51,214 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:11:51,221 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:12:22,704 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:12:22,705 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:12:22,707 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:12:22,708 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:12:22,711 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:12:22,748 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:12:24,685 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
+2025-05-02 18:12:24,764 - print_task - INFO - Returning task details for task_id=12
+2025-05-02 18:12:24,988 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
+2025-05-02 18:12:25,029 - print_task - INFO - Returning task details for task_id=12
+2025-05-02 18:12:30,508 - print_task - INFO - GET /task/task_id called - task_id=9 by user_id=3
+2025-05-02 18:12:30,528 - print_task - INFO - Returning task details for task_id=9
+2025-05-02 18:12:30,739 - print_task - INFO - GET /task/task_id called - task_id=9 by user_id=3
+2025-05-02 18:12:30,752 - print_task - INFO - Returning task details for task_id=9
+2025-05-02 18:12:35,028 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:12:35,029 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:12:35,029 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:12:35,030 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:12:35,031 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:12:35,038 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:12:35,203 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:12:35,203 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:12:35,204 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:12:35,204 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:12:35,206 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:12:35,213 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:12:36,354 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
+2025-05-02 18:12:36,439 - print_task - INFO - Returning task details for task_id=12
+2025-05-02 18:12:36,646 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
+2025-05-02 18:12:36,729 - print_task - INFO - Returning task details for task_id=12
+2025-05-02 18:12:41,063 - print_task - INFO - GET /task/task_id called - task_id=10 by user_id=3
+2025-05-02 18:12:41,121 - print_task - INFO - Returning task details for task_id=10
+2025-05-02 18:12:41,317 - print_task - INFO - GET /task/task_id called - task_id=10 by user_id=3
+2025-05-02 18:12:41,385 - print_task - INFO - Returning task details for task_id=10
+2025-05-02 18:12:44,508 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:12:44,509 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:12:44,511 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:12:44,514 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:12:44,525 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:12:44,562 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:12:44,770 - print_task - INFO - GET /tasks - Called by user_id=3
+2025-05-02 18:12:44,770 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 18:12:44,771 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 18:12:44,771 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 18:12:44,772 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 18:12:44,779 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 18:12:46,054 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
+2025-05-02 18:12:46,139 - print_task - INFO - Returning task details for task_id=12
+2025-05-02 18:12:46,309 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=3
+2025-05-02 18:12:46,395 - print_task - INFO - Returning task details for task_id=12
