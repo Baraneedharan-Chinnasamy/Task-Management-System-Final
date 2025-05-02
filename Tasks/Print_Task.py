@@ -302,9 +302,11 @@ def task_details(
                             "is_completed": checklist.is_completed
                         })
 
+                    
                 parent_task_chain.append({
                     "task_id": current_task.task_id,
                     "task_name": current_task.task_name,
+                    "description":current_task.description,
                     "status": current_task.status,
                     "task_type": current_task.task_type,
                     "assigned_to": current_task.assigned_to,
@@ -314,6 +316,7 @@ def task_details(
                     "created_at": current_task.created_at,
                     "updated_at": current_task.updated_at,
                     "checklists": checklists
+                    
                 })
 
                 if current_task.parent_task_id:
@@ -322,22 +325,27 @@ def task_details(
         # 🚀 Start from parent_task_id (not task_id) to exclude current task
         get_parent_chain(task.parent_task_id)
         parent_task_chain = parent_task_chain[::-1]  # reverse order to show top -> bottom
+        first_task = parent_task_chain[0]
+        output = first_task.get("output")
+        description = first_task.get("description")
+
 
       
-
+        is_parent = task.task_id not in [task_id for (task_id,) in db.query(Task.task_id).filter(Task.parent_task_id == task.task_id).all()]
+                    
         logger.info("Returning task details for task_id=%s", task_id)
 
         return {
             "task_id": task.task_id,
             "task_name": task.task_name,
-            "description": task.description,
+            "description": task.description if task.task_type == TaskType.Normal else description,
             "due_date": task.due_date if task.due_date else None,
             "assigned_to": task.assigned_to,
             "assigned_to_name": user_map.get(task.assigned_to),
             "created_by": task.created_by,
             "created_by_name": user_map.get(task.created_by),
             "status": task.status,
-            "output": task.output,
+            "output": task.output if task.task_type == TaskType.Normal else output,
             "created_at": task.created_at,
             "updated_at": task.updated_at,
             "task_type": task.task_type,
@@ -346,7 +354,8 @@ def task_details(
             "checklist_progress": checklist_progress,
             "checklists": checklist_data,
             "delete_allow": delete_allow,
-            "parent_task_chain": parent_task_chain
+            "parent_task_chain": parent_task_chain,
+            "last_review":is_parent
         }
 
     except Exception as e:

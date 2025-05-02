@@ -66,3 +66,5 @@
 2025-05-01 21:19:43,401 - auth - INFO - New user created: user_id=2, username=Advart
 2025-05-01 21:19:50,311 - auth - INFO - Login attempt for username='Baranee'
 2025-05-01 21:19:50,923 - auth - INFO - Login successful for user_id=1, username=Baranee
+2025-05-02 09:31:47,889 - auth - INFO - Login attempt for username='Baranee'
+2025-05-02 09:31:48,618 - auth - INFO - Login successful for user_id=1, username=Baranee
