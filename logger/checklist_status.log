@@ -1376,3 +1376,30 @@ UnboundLocalError: cannot access local variable 'old_status' where it is not ass
 2025-05-02 15:12:04,744 - mark_checklist_complete - INFO - All review checklists completed: True
 2025-05-02 15:12:04,749 - mark_checklist_complete - INFO - All review checklists done, setting child_task 8 status to To_Do
 2025-05-02 15:12:04,764 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 15:44:29,578 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-05-02 15:44:29,581 - mark_checklist_complete - INFO - Checklist 21 found, current status: False
+2025-05-02 15:44:29,585 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=1, task_type=TaskType.Normal
+2025-05-02 15:44:29,590 - mark_checklist_complete - INFO - Checklist 21 marked as completed
+2025-05-02 15:44:29,614 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 15:45:02,720 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-05-02 15:45:02,723 - mark_checklist_complete - INFO - Checklist 14 found, current status: False
+2025-05-02 15:45:02,728 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=2, task_type=TaskType.Review
+2025-05-02 15:45:02,731 - mark_checklist_complete - INFO - Checklist 14 marked as completed
+2025-05-02 15:45:02,734 - mark_checklist_complete - INFO - All review checklists completed: True
+2025-05-02 15:45:02,740 - mark_checklist_complete - INFO - All review checklists done, setting child_task 3 status to To_Do
+2025-05-02 15:45:02,752 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 15:45:19,992 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-05-02 15:45:19,994 - mark_checklist_complete - INFO - Checklist 14 found, current status: True
+2025-05-02 15:45:19,997 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=2, task_type=TaskType.Review
+2025-05-02 15:45:20,002 - mark_checklist_complete - INFO - Checklist 14 marked as incomplete
+2025-05-02 15:45:20,006 - mark_checklist_complete - INFO - All review checklists completed: False
+2025-05-02 15:45:20,009 - mark_checklist_complete - INFO - Checklist marked incomplete, reverting parent_task and child_task statuses
+2025-05-02 15:45:20,013 - mark_checklist_complete - INFO - Child task 3 marked as TaskStatus.Completed
+2025-05-02 15:45:20,023 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 15:45:43,607 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-05-02 15:45:43,609 - mark_checklist_complete - INFO - Checklist 14 found, current status: False
+2025-05-02 15:45:43,612 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=2, task_type=TaskType.Review
+2025-05-02 15:45:43,616 - mark_checklist_complete - INFO - Checklist 14 marked as completed
+2025-05-02 15:45:43,618 - mark_checklist_complete - INFO - All review checklists completed: True
+2025-05-02 15:45:43,620 - mark_checklist_complete - INFO - All review checklists done, setting child_task 3 status to To_Do
+2025-05-02 15:45:43,631 - mark_checklist_complete - INFO - Checklist status updated and committed successfully

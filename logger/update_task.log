@@ -1523,3 +1523,27 @@ sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' a
 2025-05-02 15:12:37,045 - update_task - INFO - Child task 6 of review task 7 marked as Completed
 2025-05-02 15:12:37,049 - update_task - INFO - propagate_completion_upwards completed for task_id=6
 2025-05-02 15:12:37,056 - update_task - INFO - Task 8 updated successfully with changes: {}
+2025-05-02 15:45:11,301 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:45:11,303 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 15:45:11,316 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 15:45:11,321 - update_task - INFO - Review task 3 reverted to TaskStatus.Completed
+2025-05-02 15:45:11,329 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
+2025-05-02 15:45:11,338 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 15:45:11,347 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 15:45:11,973 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:45:11,976 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 15:45:11,986 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 15:45:11,989 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 15:45:11,992 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 15:45:11,995 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 15:45:12,000 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 15:45:12,003 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 15:45:12,007 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 15:45:57,098 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:45:57,101 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 15:45:57,110 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 15:45:57,115 - update_task - INFO - Review task 3 reverted to TaskStatus.Completed
+2025-05-02 15:45:57,121 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
+2025-05-02 15:45:57,128 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 15:45:57,131 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 15:45:57,138 - update_task - INFO - Task 3 updated successfully with changes: {}

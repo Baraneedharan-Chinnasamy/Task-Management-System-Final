@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session, joinedload
 from sqlalchemy.sql import or_, update, asc, desc
-from models.models import ChatMessage
+from models.models import ChatMessage,ChatRoom
 from database.database import get_db
 from datetime import datetime
 from typing import Optional
@@ -14,13 +14,15 @@ router = APIRouter()
 
 chat_manager = ChatManager()
 
-@router.websocket("/chat/{chat_room_id}")
+@router.websocket("/chat")
 async def chat_websocket(
     websocket: WebSocket,
-    chat_room_id: int,
+    task_id: int,
     user_id: int,
     db: Session = Depends(get_db)
 ):
+    chat_room = db.query(ChatRoom).filter(ChatRoom.task_id == task_id).first()
+    chat_room_id = chat_room.chat_room_id
     websocket.scope["user_id"] = user_id
     await chat_manager.connect(websocket, chat_room_id)
 
@@ -59,14 +61,16 @@ async def chat_websocket(
         chat_manager.disconnect(websocket, chat_room_id)
 
 
-@router.get("/chat_history/{chat_room_id}")
+@router.get("/chat_history")
 def get_chat_history(
-    chat_room_id: int,
+    task_id: int,
     user_id: int,
     limit: int = 20,
     before_timestamp: Optional[datetime] = None,
     db: Session = Depends(get_db)
 ):
+    chat_room = db.query(ChatRoom).filter(ChatRoom.task_id == task_id).first()
+    chat_room_id = chat_room.chat_room_id
     query = db.query(ChatMessage).filter(ChatMessage.chat_room_id == chat_room_id)
     if before_timestamp:
         query = query.filter(ChatMessage.timestamp < before_timestamp)

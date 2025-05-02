@@ -239,3 +239,8 @@ TypeError: 'NoneType' object is not subscriptable
 2025-05-02 13:56:34,094 - create_checklist - INFO - Checklist created with ID=19
 2025-05-02 13:56:34,097 - create_checklist - INFO - Checklist linked to task_id=6
 2025-05-02 13:56:34,103 - create_checklist - INFO - Checklist creation and task updates committed successfully
+2025-05-02 15:44:21,358 - create_checklist - INFO - POST /add_checklist called by user_id=1
+2025-05-02 15:44:21,364 - create_checklist - INFO - Task found: task_id=1, type=TaskType.Normal
+2025-05-02 15:44:21,373 - create_checklist - INFO - Checklist created with ID=21
+2025-05-02 15:44:21,381 - create_checklist - INFO - Checklist linked to task_id=1
+2025-05-02 15:44:21,437 - create_checklist - INFO - Checklist creation and task updates committed successfully

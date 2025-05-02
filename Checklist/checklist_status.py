@@ -124,6 +124,7 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
                     if child_task.previous_status != old_status:
                         child_task.previous_status = old_status
                     child_task.status = TaskStatus.To_Do
+                    child_task.is_reviewed = False
                     logger.info(f"All review checklists done, setting child_task {child_task.task_id} status to To_Do")
                     log_task_field_change(db, child_task.task_id, "status", old_status, TaskStatus.To_Do, 2)
 
