@@ -1403,3 +1403,18 @@ UnboundLocalError: cannot access local variable 'old_status' where it is not ass
 2025-05-02 15:45:43,618 - mark_checklist_complete - INFO - All review checklists completed: True
 2025-05-02 15:45:43,620 - mark_checklist_complete - INFO - All review checklists done, setting child_task 3 status to To_Do
 2025-05-02 15:45:43,631 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 17:21:07,222 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-05-02 17:21:07,224 - mark_checklist_complete - INFO - Checklist 20 found, current status: False
+2025-05-02 17:21:07,231 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=9, task_type=TaskType.Normal
+2025-05-02 17:21:07,237 - mark_checklist_complete - INFO - Checklist 20 marked as completed
+2025-05-02 17:21:07,268 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 17:55:07,921 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=1
+2025-05-02 17:55:07,926 - mark_checklist_complete - INFO - Checklist 20 found, current status: True
+2025-05-02 17:55:07,937 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=9, task_type=TaskType.Normal
+2025-05-02 17:55:07,945 - mark_checklist_complete - INFO - Checklist 20 marked as incomplete
+2025-05-02 17:55:07,989 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-02 18:03:25,215 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=2
+2025-05-02 18:03:25,217 - mark_checklist_complete - INFO - Checklist 20 found, current status: False
+2025-05-02 18:03:25,220 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=9, task_type=TaskType.Normal
+2025-05-02 18:03:25,224 - mark_checklist_complete - INFO - Checklist 20 marked as completed
+2025-05-02 18:03:25,243 - mark_checklist_complete - INFO - Checklist status updated and committed successfully

@@ -1547,3 +1547,15 @@ sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' a
 2025-05-02 15:45:57,128 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
 2025-05-02 15:45:57,131 - update_task - INFO - reverse_completion_from_review completed for task_id=1
 2025-05-02 15:45:57,138 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 16:22:59,402 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 16:22:59,408 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
+2025-05-02 16:22:59,414 - update_task - INFO - Task 9 updated successfully with changes: {'description': 'chat test'}
+2025-05-02 17:21:01,836 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 17:21:01,840 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
+2025-05-02 17:21:01,846 - update_task - INFO - is_review_required set to True
+2025-05-02 17:21:01,859 - update_task - INFO - Review task created: 10
+2025-05-02 17:21:01,864 - update_task - INFO - Task 9 updated successfully with changes: {'is_review_required': True}
+2025-05-02 17:55:10,629 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 17:55:10,635 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
+2025-05-02 17:55:10,639 - update_task - INFO - Assigned_to updated
+2025-05-02 17:55:10,652 - update_task - INFO - Task 9 updated successfully with changes: {'assigned_to': 2}

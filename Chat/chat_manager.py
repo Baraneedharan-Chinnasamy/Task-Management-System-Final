@@ -2,13 +2,14 @@ from models.models import ChatMessageRead
 from sqlalchemy.orm import Session
 from fastapi import WebSocket
 from typing import Dict, List
+from sqlalchemy.exc import IntegrityError
 
 class ChatManager:
     def __init__(self):
         self.active_connections: Dict[int, List[WebSocket]] = {}
 
     async def connect(self, websocket: WebSocket, chat_room_id: int):
-        await websocket.accept()
+        # WebSocket should be accepted externally in the route handler
         if chat_room_id not in self.active_connections:
             self.active_connections[chat_room_id] = []
         self.active_connections[chat_room_id].append(websocket)
@@ -27,10 +28,12 @@ class ChatManager:
                 user_id = connection.scope.get("user_id")
                 await connection.send_json(message)
 
-                # Log read if DB and user_id are available
                 if db and user_id:
-                    db.add(ChatMessageRead(message_id=message["message_id"], user_id=user_id))
-                    db.commit()
+                    try:
+                        db.add(ChatMessageRead(message_id=message["message_id"], user_id=user_id))
+                        db.commit()
+                    except IntegrityError:
+                        db.rollback()
             except Exception:
                 to_remove.append(connection)
 
@@ -48,8 +51,11 @@ class ChatManager:
                     await connection.send_json(message)
 
                     if db and user_id:
-                        db.add(ChatMessageRead(message_id=message["message_id"], user_id=user_id))
-                        db.commit()
+                        try:
+                            db.add(ChatMessageRead(message_id=message["message_id"], user_id=user_id))
+                            db.commit()
+                        except IntegrityError:
+                            db.rollback()
             except Exception:
                 to_remove.append(connection)
 
