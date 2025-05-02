@@ -77,7 +77,7 @@ async def chat_websocket(
                 "sender_name" : user_map.get(sender_id),
                 "message": message_text,
                 "visible_to": visible_to,
-                "timestamp": str(chat_message.timestamp)
+                "timestamp": chat_message.timestamp.isoformat()
             }
 
             # Broadcast to users
@@ -141,7 +141,7 @@ def get_chat_history(
                 "sender_id": msg.sender_id,
                 "sender_name" : user_map.get(msg.sender_id),
                 "message": msg.message,
-                "timestamp": str(msg.timestamp),
+                "timestamp": msg.timestamp.isoformat(),
                 "seen": msg.message_id in read_message_ids
             })
 
