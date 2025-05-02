@@ -1261,3 +1261,43 @@
 2025-05-02 18:27:25,725 - auth - INFO - Fetching all users for user_id=1
 2025-05-02 18:27:25,799 - auth - INFO - Fetching all users for user_id=1
 2025-05-02 18:27:25,876 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 18:28:59,377 - auth - INFO - Login attempt for username='Test'
+2025-05-02 18:29:00,073 - auth - INFO - Login successful for user_id=3, username=Test
+2025-05-02 18:29:00,248 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:03,641 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:05,181 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:05,324 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:05,541 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:05,699 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:05,793 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:05,896 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:06,137 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:29:06,265 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:36:33,789 - auth - INFO - Login attempt for username='Baranee'
+2025-05-02 18:36:34,320 - auth - WARNING - Login failed for username='Baranee'
+2025-05-02 18:36:45,265 - auth - INFO - Login attempt for username='Baranee'
+2025-05-02 18:36:45,797 - auth - WARNING - Login failed for username='Baranee'
+2025-05-02 18:37:00,750 - auth - INFO - Signup attempt for username='Baranee', email='baranee@example.com'
+2025-05-02 18:37:00,755 - auth - WARNING - Signup failed: Username or email already exists - Baranee / baranee@example.com
+2025-05-02 18:37:10,559 - auth - INFO - Signup attempt for username='baranee123', email='baranee@example.com'
+2025-05-02 18:37:11,134 - auth - INFO - New user created: user_id=4, username=baranee123
+2025-05-02 18:37:28,386 - auth - INFO - Login attempt for username='baranee123'
+2025-05-02 18:37:28,919 - auth - INFO - Login successful for user_id=4, username=baranee123
+2025-05-02 18:37:38,879 - auth - INFO - Login attempt for username='baranee123'
+2025-05-02 18:37:39,459 - auth - INFO - Login successful for user_id=4, username=baranee123
+2025-05-02 18:39:45,183 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:45,364 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:45,675 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:45,802 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:45,936 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:46,084 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:46,182 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:39:46,261 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:05,761 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:05,826 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:05,949 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:05,990 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:06,030 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:06,077 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:06,126 - auth - INFO - Fetching all users for user_id=3
+2025-05-02 18:40:06,165 - auth - INFO - Fetching all users for user_id=3

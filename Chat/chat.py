@@ -99,7 +99,7 @@ async def chat_websocket(
 def get_chat_history(
     task_id: int,
     user_id: int,
-    limit: int = 20,
+    limit: int = 30,
     before_timestamp: Optional[datetime] = None,
     db: Session = Depends(get_db)
 ):
