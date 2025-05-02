@@ -2313,3 +2313,19 @@ IndexError: list index out of range
 2025-05-02 15:12:45,754 - print_task - INFO - Sorting by: due_date DESC
 2025-05-02 15:12:45,755 - print_task - INFO - Filter applied: assigned_to
 2025-05-02 15:12:45,761 - print_task - INFO - Total filtered tasks: 0, Returned: 0
+2025-05-02 15:20:18,199 - print_task - INFO - GET /tasks - Called by user_id=1
+2025-05-02 15:20:18,201 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 15:20:18,202 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 15:20:18,204 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 15:20:18,207 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 15:20:18,270 - print_task - INFO - Total filtered tasks: 0, Returned: 0
+2025-05-02 15:20:45,189 - print_task - INFO - GET /tasks - Called by user_id=1
+2025-05-02 15:20:45,190 - print_task - INFO - Pagination: Page=1, Limit=50
+2025-05-02 15:20:45,191 - print_task - INFO - Filters - task_name=, description=None, status=To_Do, due_date=None, task_type=None, is_reviewed=None, is_review_required=None
+2025-05-02 15:20:45,192 - print_task - INFO - Sorting by: due_date DESC
+2025-05-02 15:20:45,195 - print_task - INFO - Filter applied: assigned_to
+2025-05-02 15:20:45,209 - print_task - INFO - Total filtered tasks: 1, Returned: 1
+2025-05-02 15:20:47,183 - print_task - INFO - GET /task/task_id called - task_id=9 by user_id=1
+2025-05-02 15:20:47,206 - print_task - INFO - Returning task details for task_id=9
+2025-05-02 15:20:47,379 - print_task - INFO - GET /task/task_id called - task_id=9 by user_id=1
+2025-05-02 15:20:47,392 - print_task - INFO - Returning task details for task_id=9

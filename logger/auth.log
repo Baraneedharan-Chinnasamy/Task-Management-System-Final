@@ -784,3 +784,18 @@
 2025-05-02 15:12:34,916 - auth - INFO - Fetching all users for user_id=1
 2025-05-02 15:12:34,974 - auth - INFO - Fetching all users for user_id=1
 2025-05-02 15:12:35,033 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:02,713 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:02,788 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:14,408 - auth - INFO - Login attempt for username='Baranee'
+2025-05-02 15:20:15,078 - auth - INFO - Login successful for user_id=1, username=Baranee
+2025-05-02 15:20:15,177 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:18,146 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:22,162 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:22,247 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:45,124 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:47,165 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:47,253 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:47,429 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:47,489 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:47,558 - auth - INFO - Fetching all users for user_id=1
+2025-05-02 15:20:47,651 - auth - INFO - Fetching all users for user_id=1

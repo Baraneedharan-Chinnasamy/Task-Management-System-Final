@@ -775,3 +775,7 @@ sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add o
 2025-05-02 13:48:29,591 - create_task - INFO - Main task created with ID=6
 2025-05-02 13:48:29,598 - create_task - INFO - Checklist 15 linked to task 6
 2025-05-02 13:48:29,612 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 15:20:43,432 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 15:20:43,439 - create_task - INFO - Main task created with ID=9
+2025-05-02 15:20:43,454 - create_task - INFO - Checklist 20 linked to task 9
+2025-05-02 15:20:43,469 - create_task - INFO - Task and dependencies committed successfully

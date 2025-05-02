@@ -299,7 +299,10 @@ def task_details(
                         checklists.append({
                             "checklist_id": checklist.checklist_id,
                             "checklist_name": checklist.checklist_name,
-                            "is_completed": checklist.is_completed
+                            "is_completed": checklist.is_completed,
+                            "created_by_name":user_map.get(checklist.created_by),
+                            "created_by":checklist.created_by
+
                         })
 
                     
