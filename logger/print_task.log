@@ -57,3 +57,31 @@ TypeError: object of type 'bool' has no len()
 2025-05-02 09:37:24,063 - print_task - INFO - Returning task details for task_id=5
 2025-05-02 09:41:42,874 - print_task - INFO - GET /task/task_id called - task_id=5 by user_id=1
 2025-05-02 09:41:42,908 - print_task - INFO - Returning task details for task_id=5
+2025-05-02 10:51:07,056 - print_task - INFO - GET /task/task_id called - task_id=6 by user_id=1
+2025-05-02 10:51:07,114 - print_task - INFO - Returning task details for task_id=6
+2025-05-02 10:51:47,838 - print_task - INFO - GET /task/task_id called - task_id=6 by user_id=1
+2025-05-02 10:51:47,890 - print_task - INFO - Returning task details for task_id=6
+2025-05-02 10:51:55,227 - print_task - INFO - GET /task/task_id called - task_id=7 by user_id=1
+2025-05-02 10:51:55,255 - print_task - INFO - Returning task details for task_id=7
+2025-05-02 10:56:10,246 - print_task - INFO - GET /task/task_id called - task_id=7 by user_id=1
+2025-05-02 10:56:10,268 - print_task - INFO - Returning task details for task_id=7
+2025-05-02 10:57:11,354 - print_task - INFO - GET /task/task_id called - task_id=7 by user_id=1
+2025-05-02 10:57:11,393 - print_task - INFO - Returning task details for task_id=7
+2025-05-02 10:57:18,562 - print_task - INFO - GET /task/task_id called - task_id=6 by user_id=1
+2025-05-02 10:57:18,596 - print_task - INFO - Returning task details for task_id=6
+2025-05-02 10:57:26,912 - print_task - INFO - GET /task/task_id called - task_id=4 by user_id=1
+2025-05-02 10:57:26,936 - print_task - ERROR - Error retrieving task details for task_id=4: list index out of range
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Print_Task.py", line 328, in task_details
+    first_task = parent_task_chain[0]
+                 ~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-05-02 10:57:44,800 - print_task - INFO - GET /task/task_id called - task_id=4 by user_id=1
+2025-05-02 10:57:44,807 - print_task - ERROR - Error retrieving task details for task_id=4: list index out of range
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Print_Task.py", line 328, in task_details
+    if parent_task_chain:
+                 ^^^^^^^^^
+IndexError: list index out of range
+2025-05-02 10:57:49,567 - print_task - INFO - GET /task/task_id called - task_id=4 by user_id=1
+2025-05-02 10:57:49,576 - print_task - INFO - Returning task details for task_id=4

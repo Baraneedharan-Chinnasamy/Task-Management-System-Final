@@ -325,13 +325,23 @@ def task_details(
         # 🚀 Start from parent_task_id (not task_id) to exclude current task
         get_parent_chain(task.parent_task_id)
         parent_task_chain = parent_task_chain[::-1]  # reverse order to show top -> bottom
-        first_task = parent_task_chain[0]
-        output = first_task.get("output")
-        description = first_task.get("description")
+        if parent_task_chain:
+            first_task = parent_task_chain[0]
+            output = first_task.get("output")
+            description = first_task.get("description")
 
 
       
-        is_parent = task.task_id not in [task_id for (task_id,) in db.query(Task.task_id).filter(Task.parent_task_id == task.task_id).all()]
+        is_last_review = False
+        if task.task_type == TaskType.Review:
+            # Check if there are any other review tasks with this task as parent
+            newer_review_tasks = db.query(Task).filter(
+                Task.parent_task_id == task.task_id,
+                Task.task_type == "Review",
+                Task.is_delete == False
+            ).all()
+            
+            is_last_review = len(newer_review_tasks) == 0
                     
         logger.info("Returning task details for task_id=%s", task_id)
 
@@ -355,7 +365,7 @@ def task_details(
             "checklists": checklist_data,
             "delete_allow": delete_allow,
             "parent_task_chain": parent_task_chain,
-            "last_review":is_parent
+            "last_review":is_last_review 
         }
 
     except Exception as e:

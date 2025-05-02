@@ -10,7 +10,6 @@ from logger.logger import get_logger
 router = APIRouter()
 
 
-
 @router.post("/Print_Checklist")
 def get_checklists_by_task(
     payload: checklist_sub,

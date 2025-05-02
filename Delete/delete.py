@@ -12,7 +12,6 @@ from Logs.functions import log_checklist_field_change,log_task_field_change
 from logger.logger import get_logger
 from datetime import datetime
 
-
 router = APIRouter()
 
 @router.post("/delete")
@@ -38,14 +37,14 @@ def delete_related_items(
         if not parent_task_link:
             logger.warning(f"Checklist deletion failed. Checklist {checklist_id} not linked to any parent task.")
             raise HTTPException(status_code=404, detail="Checklist is not linked to any parent task.")
-        parent_task = db.query(Task).filter(Task.task_id == parent_task_link.parent_task_id).first()
+        parent_task = db.query(Checklist).filter(Checklist.checklist_id == checklist_id , Checklist.created_by == Current_user.employee_id ).first()
         if parent_task.created_by != Current_user.employee_id:
-            logger.warning(f"Checklist deletion denied. Checklist {checklist_id} linked to task not owned by user {Current_user.employee_id}")
+            logger.warning(f"Checklist deletion denied. Checklist {checklist_id} is  not owned by user {Current_user.employee_id}")
             raise HTTPException(status_code=403, detail="You don't have permission to delete this checklist.")
 
     result = get_related_tasks_checklists_logic(db, task_id, checklist_id)
     tasks_to_delete = result.get("tasks", [])
-    checklists_to_delete = result.get("checklists", [])
+    checklists_to_delete = result.get("checklists",[])
 
     if not tasks_to_delete and not checklists_to_delete:
         logger.info("No related tasks or checklists found for deletion.")
@@ -87,11 +86,11 @@ def delete_related_items(
             "updated_by": Current_user.employee_id,
             "updated_at": datetime.now()
         } for c_id in checklists_to_delete]
+        
         db.bulk_insert_mappings(ChecklistUpdateLog, logs)
+        
         logger.info(f"Marked checklists as deleted: {checklists_to_delete}")
-
     db.commit()
-
     logger.info("Deletion process completed successfully.")
     return {
         "message": "Related tasks and checklists marked as deleted",

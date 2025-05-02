@@ -68,3 +68,5 @@
 2025-05-01 21:19:50,923 - auth - INFO - Login successful for user_id=1, username=Baranee
 2025-05-02 09:31:47,889 - auth - INFO - Login attempt for username='Baranee'
 2025-05-02 09:31:48,618 - auth - INFO - Login successful for user_id=1, username=Baranee
+2025-05-02 10:50:54,849 - auth - INFO - Login attempt for username='Baranee'
+2025-05-02 10:50:55,662 - auth - INFO - Login successful for user_id=1, username=Baranee
