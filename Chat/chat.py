@@ -33,6 +33,10 @@ async def chat_websocket(
 ):
     await websocket.accept()
     try:
+        user_map = {}
+        users = db.query(User).filter().all()
+        user_map = {u.employee_id: u.username for u in users}
+        
         task = db.query(Task).filter(Task.task_id==task_id).first()
         if task.task_type == TaskType.Review:
             original_task = get_original_normal_task(db, task_id)
@@ -70,6 +74,7 @@ async def chat_websocket(
             message_payload = {
                 "message_id": chat_message.message_id,
                 "sender_id": sender_id,
+                "sender_name" : user_map.get(sender_id),
                 "message": message_text,
                 "visible_to": visible_to,
                 "timestamp": str(chat_message.timestamp)
@@ -98,6 +103,9 @@ def get_chat_history(
     before_timestamp: Optional[datetime] = None,
     db: Session = Depends(get_db)
 ):
+    user_map = {}
+    users = db.query(User).filter().all()
+    user_map = {u.employee_id: u.username for u in users}
     task = db.query(Task).filter(Task.task_id==task_id).first()
     if task.task_type == TaskType.Review:
         original_task = get_original_normal_task(db, task_id)
@@ -131,6 +139,7 @@ def get_chat_history(
             visible_messages.append({
                 "message_id": msg.message_id,
                 "sender_id": msg.sender_id,
+                "sender_name" : user_map.get(msg.sender_id),
                 "message": msg.message,
                 "timestamp": str(msg.timestamp),
                 "seen": msg.message_id in read_message_ids
