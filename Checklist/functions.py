@@ -29,14 +29,16 @@ def update_parent_task_status(task_id, db,Current_user):
         new_status = "In_Review" if task.is_review_required else "Completed"
         if task.status != new_status:
             old_status = task.status
-            task.previous_status = task.status
+            if task.previous_status != task.status:
+                task.previous_status = task.status
             print(f"Marking task {task_id} as {new_status}")
             task.status = new_status
             log_task_field_change(db, task.task_id,"status", old_status, task.status,2)
             
             review_task = db.query(Task).filter(Task.parent_task_id == task.task_id).first()
             if review_task is not None:
-                review_task.previous_status = review_task.status if review_task and review_task.status is not None else "To_Do"
+                print("re",review_task.task_id)
+                review_task.previous_status = review_task.status 
                 review_task.status = TaskStatus.To_Do
                 log_task_field_change(db, task.task_id,"status",review_task.status, TaskStatus.To_Do,2)
             db.flush()
@@ -51,12 +53,13 @@ def update_parent_task_status(task_id, db,Current_user):
         for parent_checklist in parent_checklists:
             update_checklist_for_subtask_completion(parent_checklist[0], db,Current_user)
     else:
-        if task.status != "In_Process":
+        if task.status != "In_Progress":
             old_status = task.status
+            
             task.previous_status = task.status
-            print(f"Marking task {task_id} as In_Process")
-            task.previous_status = task.status
-            task.status = TaskStatus.In_Process
+            print(f"Marking task {task_id} as In_Progress")
+            
+            task.status = "In_Progress"
             log_task_field_change(db, task.task_id,"status", old_status, task.status,2)
             db.flush()
 
@@ -69,7 +72,7 @@ def update_checklist_for_subtask_completion(checklist_id, db,Current_user):
         TaskChecklistLink.sub_task_id.isnot(None)
     ).all()
     subtask_ids = [st_id[0] for st_id in subtask_ids if st_id[0] is not None]
-    print(subtask_ids)
+   
     if not subtask_ids:
         return
     
@@ -132,12 +135,32 @@ def propagate_incomplete_upwards(checklist_id, db,Current_user, visited_checklis
 
     parent_task_id = parent_tasks[0]
     task = db.query(Task).filter(Task.task_id == parent_task_id).first()
-    if task and task.status != "In_Process":
+    if task and task.status not in ("In_Progress", "To_Do"):
+        # Get all checklist IDs linked to this task
+        checklist_id_tuples = db.query(TaskChecklistLink.checklist_id).filter(
+            TaskChecklistLink.parent_task_id == task.task_id
+        ).all()
+        
+        checklist_ids = [cid for (cid,) in checklist_id_tuples]
+
+        # Get all checklist objects
+        checklists = db.query(Checklist).filter(Checklist.checklist_id.in_(checklist_ids)).all()
+
+        # Count how many are completed
+        completed_count = sum(1 for checklist in checklists if checklist.is_completed)
+
         old_status = task.status
-        print(f"🔄 Marking parent task {parent_task_id} as In_Process due to child checklist incomplete")
-        task.status = task.previous_status
-        log_task_field_change(db, task.task_id,"status", old_status, task.status,2)
+
+        if completed_count == 0:
+            new_status = "To_Do"
+        else:
+            new_status = "In_Progress"
+
+        task.previous_status = task.status
+        task.status = new_status
+        log_task_field_change(db, task.task_id, "status", old_status, new_status, 2)
         db.flush()
+
 
     parent_checklists = db.query(TaskChecklistLink.checklist_id).filter(
         TaskChecklistLink.sub_task_id == parent_task_id

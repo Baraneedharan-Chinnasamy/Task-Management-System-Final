@@ -655,3 +655,123 @@ TypeError: propagate_upwards_from_subtask_create_task() missing 2 required posit
 2025-05-01 21:20:51,369 - create_task - INFO - Checklist 4 linked to task 4
 2025-05-01 21:20:51,370 - create_task - INFO - Subtask 4 linked to checklist 3
 2025-05-01 21:20:51,390 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 12:10:52,166 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 12:10:52,166 - create_task - INFO - Main task created with ID=8
+2025-05-02 12:10:52,199 - create_task - INFO - Checklist 5 linked to task 8
+2025-05-02 12:10:52,216 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 12:11:39,081 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 12:11:39,097 - create_task - INFO - Main task created with ID=10
+2025-05-02 12:11:39,097 - create_task - INFO - Checklist 8 linked to task 10
+2025-05-02 12:11:39,129 - create_task - INFO - Subtask 10 linked to checklist 8
+2025-05-02 12:11:39,129 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 12:17:48,498 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 12:17:48,507 - create_task - ERROR - Unexpected error while creating task
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Task Management System Final code\Tasks\Create_Task.py", line 40, in add_checklist_subtask
+    db.flush()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Task Management System Final code\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`employeee_task`.`tasks`, CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`employee_id`))')
+[SQL: INSERT INTO tasks (assigned_to, created_by, task_name, description, status, previous_status, task_type, due_date, is_review_required, is_reviewed, parent_task_id, output, is_delete) VALUES (%(assigned_to)s, %(created_by)s, %(task_name)s, %(description)s, %(status)s, %(previous_status)s, %(task_type)s, %(due_date)s, %(is_review_required)s, %(is_reviewed)s, %(parent_task_id)s, %(output)s, %(is_delete)s)]
+[parameters: {'assigned_to': 0, 'created_by': 1, 'task_name': 'string', 'description': 'string', 'status': 'To_Do', 'previous_status': 'To_Do', 'task_type': 'Normal', 'due_date': datetime.date(2025, 5, 2), 'is_review_required': 0, 'is_reviewed': 0, 'parent_task_id': None, 'output': None, 'is_delete': 0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-02 12:37:11,240 - create_task - INFO - Create Task endpoint hit by user_id=4
+2025-05-02 12:37:11,245 - create_task - INFO - Main task created with ID=2
+2025-05-02 12:37:11,253 - create_task - INFO - Checklist 1 linked to task 2
+2025-05-02 12:37:11,264 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 12:50:09,697 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 12:50:09,705 - create_task - INFO - Main task created with ID=1
+2025-05-02 12:50:09,721 - create_task - INFO - Checklist 1 linked to task 1
+2025-05-02 12:50:09,737 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 13:15:31,653 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 13:15:31,655 - create_task - INFO - Main task created with ID=4
+2025-05-02 13:15:31,658 - create_task - INFO - Checklist 12 linked to task 4
+2025-05-02 13:15:31,669 - create_task - INFO - Subtask 4 linked to checklist 10
+2025-05-02 13:15:31,675 - create_task - INFO - Task and dependencies committed successfully
+2025-05-02 13:48:29,586 - create_task - INFO - Create Task endpoint hit by user_id=1
+2025-05-02 13:48:29,591 - create_task - INFO - Main task created with ID=6
+2025-05-02 13:48:29,598 - create_task - INFO - Checklist 15 linked to task 6
+2025-05-02 13:48:29,612 - create_task - INFO - Task and dependencies committed successfully

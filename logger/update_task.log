@@ -1299,3 +1299,227 @@ sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' a
 2025-05-01 21:23:55,272 - update_task - INFO - Child task 2 of review task 5 marked as Completed
 2025-05-01 21:23:55,295 - update_task - INFO - Checklist 1 marked as completed
 2025-05-01 21:23:55,322 - update_task - INFO - Task 5 updated successfully with changes: {}
+2025-05-02 12:12:11,531 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 12:12:11,531 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
+2025-05-02 12:12:11,549 - update_task - INFO - Task 11 updated successfully with changes: {}
+2025-05-02 12:12:28,300 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 12:12:28,300 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
+2025-05-02 12:12:28,300 - update_task - INFO - Task 11 updated successfully with changes: {}
+2025-05-02 12:13:09,146 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 12:13:09,146 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
+2025-05-02 12:13:09,156 - update_task - INFO - Task 11 updated successfully with changes: {}
+2025-05-02 12:14:21,623 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 12:14:21,631 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
+2025-05-02 12:14:21,647 - update_task - INFO - Review task 11 marked as deleted
+2025-05-02 12:14:21,663 - update_task - INFO - Task 10 updated successfully with changes: {'is_review_required': False}
+2025-05-02 12:50:17,364 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 12:50:17,370 - update_task - INFO - User 1 is updating Task 1 | Creator=True, Assignee=True
+2025-05-02 12:50:17,375 - update_task - INFO - is_review_required set to True
+2025-05-02 12:50:17,404 - update_task - INFO - Review task created: 2
+2025-05-02 12:50:17,412 - update_task - INFO - Task 1 updated successfully with changes: {'is_review_required': True}
+2025-05-02 13:13:44,036 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:13:44,041 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:13:44,050 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:13:44,052 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:13:44,054 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:13:44,057 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:13:44,063 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:13:44,065 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:13:44,072 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:13:52,437 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:13:52,439 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:13:52,443 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:13:52,447 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:13:52,450 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
+2025-05-02 13:13:52,454 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 13:13:52,455 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:13:52,459 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:14:02,500 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:14:02,502 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:14:02,508 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:14:02,510 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:14:02,513 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:14:02,514 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:14:02,518 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:14:02,520 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:14:02,523 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:14:08,757 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:14:08,760 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:14:08,766 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:14:08,768 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:14:08,772 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
+2025-05-02 13:14:08,776 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 13:14:08,777 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:14:08,784 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:18:50,464 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:18:50,467 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
+2025-05-02 13:18:50,479 - update_task - INFO - Starting propagate_completion_upwards for task_id=5
+2025-05-02 13:18:50,485 - update_task - INFO - Marking child task 4 as Completed
+2025-05-02 13:18:50,491 - update_task - INFO - Child task 4 of review task 5 marked as Completed
+2025-05-02 13:18:50,510 - update_task - INFO - Checklist 10 marked as completed
+2025-05-02 13:18:50,539 - update_task - INFO - propagate_completion_upwards completed for task_id=4
+2025-05-02 13:18:50,546 - update_task - INFO - Task 5 updated successfully with changes: {}
+2025-05-02 13:19:05,588 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:19:05,591 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:19:05,598 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:19:05,600 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:19:05,606 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:19:05,611 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:19:05,616 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:19:05,620 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:19:05,628 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:20:44,875 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:20:44,878 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
+2025-05-02 13:20:44,888 - update_task - INFO - Task 2 updated successfully with changes: {'description': 'testing'}
+2025-05-02 13:20:55,370 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:20:55,372 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
+2025-05-02 13:20:55,375 - update_task - INFO - Task 2 updated successfully with changes: {'description': 'testing'}
+2025-05-02 13:22:20,080 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:22:20,084 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:22:20,100 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:22:20,103 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:22:20,110 - update_task - INFO - Review task 2 reverted to TaskStatus.To_Do
+2025-05-02 13:22:20,119 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:22:20,130 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:22:20,837 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:22:20,840 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:22:20,848 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:22:20,853 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:22:20,860 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:22:20,864 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:22:20,871 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:22:20,876 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:22:20,883 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:26:17,845 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:26:17,848 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:26:17,858 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:26:17,863 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:26:17,872 - update_task - INFO - Review task 2 reverted to TaskStatus.To_Do
+2025-05-02 13:26:17,876 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 13:26:17,879 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:26:17,887 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:27:18,947 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:27:18,950 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:27:18,957 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:27:18,961 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:27:18,970 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:27:18,972 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:27:18,978 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:27:18,981 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:27:18,987 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:27:28,155 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:27:28,159 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:27:28,168 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:27:28,171 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:27:28,183 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
+2025-05-02 13:27:28,189 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 13:27:28,192 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:27:28,202 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:27:39,651 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:27:39,655 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:27:39,665 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:27:39,669 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:27:39,674 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:27:39,678 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:27:39,685 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:27:39,688 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:27:39,695 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:29:38,685 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:29:38,688 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:29:38,697 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:29:38,702 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:29:38,708 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
+2025-05-02 13:29:38,714 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 13:29:38,718 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:29:38,724 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:37:18,961 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:37:18,965 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:37:18,977 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:37:18,982 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:37:18,990 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:37:18,995 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:37:19,004 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:37:19,008 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:37:19,015 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:37:51,198 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:37:51,202 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
+2025-05-02 13:37:51,211 - update_task - INFO - Starting reverse_completion_from_review for task_id=5
+2025-05-02 13:37:51,214 - update_task - INFO - Review task 5 reverted to TaskStatus.Completed
+2025-05-02 13:37:51,219 - update_task - INFO - reverse_completion_from_review completed for task_id=4
+2025-05-02 13:37:51,226 - update_task - INFO - Task 5 updated successfully with changes: {}
+2025-05-02 13:38:14,768 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:38:14,774 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
+2025-05-02 13:38:14,782 - update_task - INFO - Starting propagate_completion_upwards for task_id=5
+2025-05-02 13:38:14,784 - update_task - INFO - Marking child task 4 as Completed
+2025-05-02 13:38:14,786 - update_task - INFO - Child task 4 of review task 5 marked as Completed
+2025-05-02 13:38:14,802 - update_task - INFO - Checklist 10 marked as completed
+2025-05-02 13:38:14,827 - update_task - INFO - propagate_completion_upwards completed for task_id=4
+2025-05-02 13:38:14,833 - update_task - INFO - Task 5 updated successfully with changes: {}
+2025-05-02 13:41:21,154 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:41:21,157 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:41:21,171 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:41:21,175 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
+2025-05-02 13:41:21,183 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
+2025-05-02 13:41:21,188 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:41:21,194 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:41:22,014 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:41:22,019 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:41:22,035 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:41:22,040 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:41:22,045 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:41:22,052 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:41:22,060 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:41:22,064 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:41:22,071 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:42:56,630 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:42:56,634 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:42:56,643 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
+2025-05-02 13:42:56,648 - update_task - INFO - Review task 3 reverted to TaskStatus.Completed
+2025-05-02 13:42:56,657 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
+2025-05-02 13:42:56,664 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
+2025-05-02 13:42:56,667 - update_task - INFO - reverse_completion_from_review completed for task_id=1
+2025-05-02 13:42:56,674 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:45:38,978 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:45:38,981 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
+2025-05-02 13:45:38,993 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
+2025-05-02 13:45:38,998 - update_task - INFO - Marking child task 2 as Completed
+2025-05-02 13:45:39,003 - update_task - INFO - Child task 2 of review task 3 marked as Completed
+2025-05-02 13:45:39,007 - update_task - INFO - Marking child task 1 as Completed
+2025-05-02 13:45:39,016 - update_task - INFO - Child task 1 of review task 2 marked as Completed
+2025-05-02 13:45:39,019 - update_task - INFO - propagate_completion_upwards completed for task_id=1
+2025-05-02 13:45:39,027 - update_task - INFO - Task 3 updated successfully with changes: {}
+2025-05-02 13:48:43,738 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:48:43,740 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 13:48:43,742 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
+2025-05-02 13:48:43,746 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
+2025-05-02 13:48:43,759 - update_task - INFO - Task 6 updated successfully with changes: {'output': 'done da mapla'}
+2025-05-02 13:48:43,766 - update_task - INFO - Task 6 updated successfully with changes: {'output': 'done da mapla'}
+2025-05-02 15:12:07,057 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:12:07,062 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=True
+2025-05-02 15:12:07,076 - update_task - WARNING - Only the final review task can mark is_reviewed=True
+2025-05-02 15:12:26,163 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:12:26,167 - update_task - INFO - User 1 is updating Task 8 | Creator=True, Assignee=True
+2025-05-02 15:12:26,181 - update_task - INFO - Starting propagate_completion_upwards for task_id=8
+2025-05-02 15:12:26,187 - update_task - INFO - Marking child task 7 as Completed
+2025-05-02 15:12:26,195 - update_task - INFO - Child task 7 of review task 8 marked as Completed
+2025-05-02 15:12:26,200 - update_task - INFO - Marking child task 6 as Completed
+2025-05-02 15:12:26,209 - update_task - INFO - Child task 6 of review task 7 marked as Completed
+2025-05-02 15:12:26,215 - update_task - INFO - propagate_completion_upwards completed for task_id=6
+2025-05-02 15:12:26,223 - update_task - INFO - Task 8 updated successfully with changes: {}
+2025-05-02 15:12:28,151 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:12:28,156 - update_task - INFO - User 1 is updating Task 8 | Creator=True, Assignee=True
+2025-05-02 15:12:28,176 - update_task - INFO - Starting reverse_completion_from_review for task_id=8
+2025-05-02 15:12:28,188 - update_task - INFO - Review task 8 reverted to TaskStatus.To_Do
+2025-05-02 15:12:28,205 - update_task - INFO - Review task 7 reverted to TaskStatus.In_Review
+2025-05-02 15:12:28,219 - update_task - INFO - Reverting normal task 6 from Completed to TaskStatus.In_Review
+2025-05-02 15:12:28,226 - update_task - INFO - reverse_completion_from_review completed for task_id=6
+2025-05-02 15:12:28,244 - update_task - INFO - Task 8 updated successfully with changes: {}
+2025-05-02 15:12:37,016 - update_task - INFO - POST /update_task called by user_id=1
+2025-05-02 15:12:37,020 - update_task - INFO - User 1 is updating Task 8 | Creator=True, Assignee=True
+2025-05-02 15:12:37,029 - update_task - INFO - Starting propagate_completion_upwards for task_id=8
+2025-05-02 15:12:37,033 - update_task - INFO - Marking child task 7 as Completed
+2025-05-02 15:12:37,037 - update_task - INFO - Child task 7 of review task 8 marked as Completed
+2025-05-02 15:12:37,039 - update_task - INFO - Marking child task 6 as Completed
+2025-05-02 15:12:37,045 - update_task - INFO - Child task 6 of review task 7 marked as Completed
+2025-05-02 15:12:37,049 - update_task - INFO - propagate_completion_upwards completed for task_id=6
+2025-05-02 15:12:37,056 - update_task - INFO - Task 8 updated successfully with changes: {}

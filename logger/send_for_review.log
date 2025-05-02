@@ -53,3 +53,9 @@ fastapi.exceptions.HTTPException: 404: Task not found or unauthorized
 2025-05-02 10:50:59,007 - send_for_review - INFO - POST /send_for_review called by user_id=1 for task_id=6
 2025-05-02 10:50:59,032 - send_for_review - INFO - Marked task 6 as in review
 2025-05-02 10:50:59,079 - send_for_review - INFO - Review task 7 created successfully
+2025-05-02 13:12:42,064 - send_for_review - INFO - POST /send_for_review called by user_id=1 for task_id=2
+2025-05-02 13:12:42,076 - send_for_review - INFO - Marked task 2 as in review
+2025-05-02 13:12:42,092 - send_for_review - INFO - Review task 3 created successfully
+2025-05-02 13:49:44,269 - send_for_review - INFO - POST /send_for_review called by user_id=1 for task_id=7
+2025-05-02 13:49:44,278 - send_for_review - INFO - Marked task 7 as in review
+2025-05-02 13:49:44,298 - send_for_review - INFO - Review task 8 created successfully

@@ -12,7 +12,7 @@ Base = declarative_base()
 # Updated TaskStatus Enum
 class TaskStatus(PyEnum):
     To_Do = "To_Do"
-    In_Process = "In_Process"
+    In_Progress = "In_Progress"
     In_Review = "In_Review"
     In_ReEdit = "In_ReEdit"
     Completed = "Completed"
