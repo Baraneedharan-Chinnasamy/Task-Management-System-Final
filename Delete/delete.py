@@ -37,8 +37,10 @@ def delete_related_items(
         if not parent_task_link:
             logger.warning(f"Checklist deletion failed. Checklist {checklist_id} not linked to any parent task.")
             raise HTTPException(status_code=404, detail="Checklist is not linked to any parent task.")
-        parent_task = db.query(Checklist).filter(Checklist.checklist_id == checklist_id , Checklist.created_by == Current_user.employee_id ).first()
-        if parent_task.created_by != Current_user.employee_id:
+        checklist = db.query(Checklist).filter(Checklist.checklist_id == checklist_id , Checklist.created_by == Current_user.employee_id ).first()
+        parent_task = db.query(Task).filter(Task.task_id == parent_task_link.parent_task_id,Task.is_delete == False).first()
+        if parent_task.created_by != Current_user.employee_id and checklist.created_by != Current_user.employee_id:
+    # Enter this block only if BOTH are not created by the current user
             logger.warning(f"Checklist deletion denied. Checklist {checklist_id} is  not owned by user {Current_user.employee_id}")
             raise HTTPException(status_code=403, detail="You don't have permission to delete this checklist.")
 

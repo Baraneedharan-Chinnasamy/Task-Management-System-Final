@@ -260,7 +260,10 @@ def task_details(
                 "checklist_name": checklist.checklist_name,
                 "is_completed": checklist.is_completed,
                 "subtasks": subtasks,
-                "checkbox_status": delete_allow_checklist
+                "checkbox_status": delete_allow_checklist,
+                "created_by_name":user_map.get(checklist.created_by),
+                "created_by":checklist.created_by
+
             })
 
         completed = sum(1 for c in checklist_data if c["is_completed"])
