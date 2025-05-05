@@ -63,7 +63,7 @@ class Checklist(Base):
     __tablename__ = "checklist"
 
     checklist_id = Column(Integer, primary_key=True, autoincrement=True)
-    checklist_name = Column(String(60), nullable=False, index=True)
+    checklist_name = Column(LONGTEXT, nullable=False, index=True)
     is_completed = Column(Boolean, default=False, index=True)
     created_by = Column(Integer, ForeignKey("users.employee_id"), nullable=True, index=True)
     is_delete = Column(Boolean, default=False, index=True)

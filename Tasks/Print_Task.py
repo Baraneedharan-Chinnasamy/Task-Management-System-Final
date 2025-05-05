@@ -195,7 +195,7 @@ def task_details(
     logger.info("GET /task/task_id called - task_id=%s by user_id=%s", task_id, current_user.employee_id)
 
     try:
-        task = db.query(Task).filter(Task.task_id == task_id).first()
+        task = db.query(Task).filter(Task.task_id == task_id,Task.is_delete == False).first()
         if not task:
             logger.warning("Task not found for task_id=%s", task_id)
             return {"error": "Task not found"}
