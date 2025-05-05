@@ -107,58 +107,55 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
                             log_task_field_change(db, review_task.task_id, "is_delete", False, True, Current_user.employee_id)
                             review_task.is_delete = True
                             logger.info(f"Review task {review_task.task_id} marked as deleted")
-        else:
-            for field in ['assigned_to', 'due_date', 'is_review_required']:
-                if getattr(task_data, field) is not None:
-                    logger.warning(f"Non-creator user tried to update '{field}', ignoring")
 
-        if task_data.task_name is not None:
-            log_task_field_change(db, task.task_id, "task_name", task.task_name, task_data.task_name, Current_user.employee_id)
-            task.task_name = task_data.task_name
-            update_fields['task_name'] = task_data.task_name
+                        if task_data.task_name is not None:
+                            log_task_field_change(db, task.task_id, "task_name", task.task_name, task_data.task_name, Current_user.employee_id)
+                            task.task_name = task_data.task_name
+                            update_fields['task_name'] = task_data.task_name
+        
+        if is_assignee or is_creator:
+            if task_data.description is not None:
+                log_task_field_change(db, task.task_id, "description", task.description, task_data.description, Current_user.employee_id)
+                task.description = task_data.description
+                update_fields['description'] = task_data.description
+        if is_assignee:
+            if task_data.output is not None:
+                log_task_field_change(db, task.task_id, "output", task.output, task_data.output, Current_user.employee_id)
+                task.output = task_data.output
+                update_fields['output'] = task_data.output
+        if is_assignee or is_creator:
+            if task_data.is_reviewed is not None and task.task_type == TaskType.Review:
+                checklists = db.query(Checklist).join(TaskChecklistLink).filter(
+                    TaskChecklistLink.parent_task_id == task.task_id,
+                    Checklist.is_delete == False
+                ).all()
 
-        if task_data.description is not None:
-            log_task_field_change(db, task.task_id, "description", task.description, task_data.description, Current_user.employee_id)
-            task.description = task_data.description
-            update_fields['description'] = task_data.description
+                child_review_exists = db.query(Task).filter(
+                    Task.parent_task_id == task.task_id,
+                    Task.task_type == TaskType.Review,
+                    Task.is_delete == False
+                ).first()
 
-        if task_data.output is not None:
-            log_task_field_change(db, task.task_id, "output", task.output, task_data.output, Current_user.employee_id)
-            task.output = task_data.output
-            update_fields['output'] = task_data.output
+                if child_review_exists:
+                    logger.warning("Only the final review task can mark is_reviewed=True")
+                    return {"message": "Only the last review task in the chain can mark this"}
 
-        if task_data.is_reviewed is not None and task.task_type == TaskType.Review:
-            checklists = db.query(Checklist).join(TaskChecklistLink).filter(
-                TaskChecklistLink.parent_task_id == task.task_id,
-                Checklist.is_delete == False
-            ).all()
-
-            child_review_exists = db.query(Task).filter(
-                Task.parent_task_id == task.task_id,
-                Task.task_type == TaskType.Review,
-                Task.is_delete == False
-            ).first()
-
-            if child_review_exists:
-                logger.warning("Only the final review task can mark is_reviewed=True")
-                return {"message": "Only the last review task in the chain can mark this"}
-
-            if task_data.is_reviewed:
-                if checklists and not all(c.is_completed for c in checklists):
-                    logger.warning("Not all checklists completed in review chain")
-                    return {"message": "All checklists must be completed before marking reviewed"}
-                if checklists:
-                    for checklist in checklists:
-                        log_checklist_field_change(db, checklist.checklist_id, "is_completed", checklist.is_completed, True, Current_user.employee_id)
-                task.is_reviewed = True
-                log_task_field_change(db, task.task_id, "is_reviewed", False, True, Current_user.employee_id)
-                task.previous_status = task.status
-                task.status = TaskStatus.Completed.name
-                propagate_completion_upwards(task, db, Current_user.employee_id, logger, Current_user)
-            else:
-                task.is_reviewed = False
-                log_task_field_change(db, task.task_id, "is_reviewed", True, False, Current_user.employee_id)
-                reverse_completion_from_review(task, db, Current_user.employee_id, logger, Current_user)
+                if task_data.is_reviewed:
+                    if checklists and not all(c.is_completed for c in checklists):
+                        logger.warning("Not all checklists completed in review chain")
+                        return {"message": "All checklists must be completed before marking reviewed"}
+                    if checklists:
+                        for checklist in checklists:
+                            log_checklist_field_change(db, checklist.checklist_id, "is_completed", checklist.is_completed, True, Current_user.employee_id)
+                    task.is_reviewed = True
+                    log_task_field_change(db, task.task_id, "is_reviewed", False, True, Current_user.employee_id)
+                    task.previous_status = task.status
+                    task.status = TaskStatus.Completed.name
+                    propagate_completion_upwards(task, db, Current_user.employee_id, logger, Current_user)
+                else:
+                    task.is_reviewed = False
+                    log_task_field_change(db, task.task_id, "is_reviewed", True, False, Current_user.employee_id)
+                    reverse_completion_from_review(task, db, Current_user.employee_id, logger, Current_user)
 
         db.commit()
         logger.info(f"Task {task_id} updated successfully with changes: {update_fields}")
