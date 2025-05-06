@@ -6,7 +6,7 @@ LOG_FOLDER = 'logger'
 os.makedirs(LOG_FOLDER, exist_ok=True)
 
 def trim_old_log_lines(file_path, days_to_keep=5):
-    print(f"🧼 Cleaning {file_path}...")  # DEBUG — you'll see this in terminal
+    print(f"🧼 Cleaning {file_path}...")
     if not os.path.exists(file_path):
         return
 
@@ -14,7 +14,8 @@ def trim_old_log_lines(file_path, days_to_keep=5):
     new_lines = []
     deleted_count = 0
 
-    with open(file_path, 'r', encoding='utf-8') as f:
+    # 🛠 Safe read — skip bad characters
+    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         for line in f:
             try:
                 timestamp_str = line.split(" - ")[0].strip()
@@ -24,10 +25,10 @@ def trim_old_log_lines(file_path, days_to_keep=5):
                 else:
                     deleted_count += 1
             except Exception:
-                # If line can't be parsed, keep it to avoid accidental deletion
                 new_lines.append(line)
 
-    with open(file_path, 'w', encoding='utf-8') as f:
+    # 🛠 Safe write
+    with open(file_path, 'w', encoding='utf-8', errors='ignore') as f:
         f.writelines(new_lines)
 
     print(f"[LOG CLEAN] {file_path}: Deleted {deleted_count} old lines.")
