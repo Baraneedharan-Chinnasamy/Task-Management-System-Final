@@ -131,7 +131,7 @@ def propagate_incomplete_upwards(checklist_id, db,Current_user, visited_checklis
         TaskChecklistLink.checklist_id == checklist_id,
         TaskChecklistLink.parent_task_id.isnot(None)
     ).first()
-    print(parent_tasks)
+    
 
     parent_task_id = parent_tasks[0]
     task = db.query(Task).filter(Task.task_id == parent_task_id).first()
@@ -160,6 +160,16 @@ def propagate_incomplete_upwards(checklist_id, db,Current_user, visited_checklis
         task.status = new_status
         log_task_field_change(db, task.task_id, "status", old_status, new_status, 2)
         db.flush()
+
+        if task.is_review_required:
+            review_task = db.query(Task).filter(Task.parent_task_id == task.task_id).first()
+            if review_task is not None:
+                cur = review_task.status
+                old = review_task.previous_status
+                review_task.status = old
+                review_task.previous_status = cur
+                log_task_field_change(db, task.task_id, "status", review_task.status, TaskStatus.To_Do, 2)
+                db.flush()
 
 
     parent_checklists = db.query(TaskChecklistLink.checklist_id).filter(

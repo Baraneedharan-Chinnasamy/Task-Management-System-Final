@@ -142,10 +142,27 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
                     db.flush()
 
         db.commit()
+        # Step 6: Calculate checklist progress for the parent task
+        parent_checklist_links = db.query(TaskChecklistLink).filter(
+            TaskChecklistLink.parent_task_id == parent_task_id
+        ).all()
+
+        parent_checklist_ids = [link.checklist_id for link in parent_checklist_links if link.checklist_id]
+
+        parent_checklists = db.query(Checklist).filter(
+            Checklist.checklist_id.in_(parent_checklist_ids),
+            Checklist.is_delete == False
+        ).all()
+
+        completed_count = sum(1 for c in parent_checklists if c.is_completed)
+        total_count = len(parent_checklists)
+        parent_checklist_progress = f"{completed_count}/{total_count}" if total_count > 0 else "0/0"
         logger.info(f"Checklist status updated and committed successfully")
         return {
             "message": f"Checklist marked as {'complete' if data.is_completed else 'incomplete'} successfully",
-            "checklist_id": data.checklist_id
+            "checklist_id": data.checklist_id,
+            "parent_task_id": parent_task_id,
+            "parent_checklist_progress": parent_checklist_progress
         }
 
     except HTTPException:

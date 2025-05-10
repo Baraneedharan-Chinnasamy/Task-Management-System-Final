@@ -236,6 +236,23 @@ def task_details(
                 ).first()
 
                 if subtask:
+                    # Fetch checklists for the subtask
+                    subtask_checklist_links = db.query(TaskChecklistLink).filter(
+                        TaskChecklistLink.parent_task_id == subtask.task_id
+                    ).all()
+
+                    subtask_checklist_data = []
+                    for st_link in subtask_checklist_links:
+                        st_checklist = db.query(Checklist).filter(
+                            Checklist.checklist_id == st_link.checklist_id,
+                            Checklist.is_delete == False
+                        ).first()
+                        if st_checklist:
+                            subtask_checklist_data.append(st_checklist)
+
+                    st_completed = sum(1 for c in subtask_checklist_data if c.is_completed)
+                    st_total = len(subtask_checklist_data)
+                    st_checklist_progress = f"{st_completed}/{st_total}" if st_total > 0 else "0/0"
                     subtasks.append({
                         "task_id": subtask.task_id,
                         "task_name": subtask.task_name,
@@ -250,7 +267,8 @@ def task_details(
                         "updated_at": subtask.updated_at,
                         "task_type": subtask.task_type,
                         "is_review_required": subtask.is_review_required,
-                        "output": subtask.output
+                        "output": subtask.output,
+                        "checklist_progress": st_checklist_progress
                     })
 
             delete_allow_checklist = False if subtasks else True
@@ -289,6 +307,8 @@ def task_details(
                     TaskChecklistLink.parent_task_id == current_task.task_id
                 ).all()
 
+                total_count = 0
+                completed_count = 0
                 for link in checklist_links:
                     checklist = db.query(Checklist).filter(
                         Checklist.checklist_id == link.checklist_id,
@@ -296,16 +316,12 @@ def task_details(
                     ).first()
 
                     if checklist:
-                        checklists.append({
-                            "checklist_id": checklist.checklist_id,
-                            "checklist_name": checklist.checklist_name,
-                            "is_completed": checklist.is_completed,
-                            "created_by_name":user_map.get(checklist.created_by),
-                            "created_by":checklist.created_by
-
-                        })
-
+                        total_count += 1
+                        if checklist.is_completed:
+                            completed_count += 1
                     
+                checklist_progress = f"{completed_count}/{total_count}" if total_count > 0 else "0/0"
+
                 parent_task_chain.append({
                     "task_id": current_task.task_id,
                     "task_name": current_task.task_name,
@@ -314,11 +330,14 @@ def task_details(
                     "task_type": current_task.task_type,
                     "assigned_to": current_task.assigned_to,
                     "assigned_to_name": user_map.get(current_task.assigned_to),
+                    "created_by": current_task.created_by,
+                    "created_by_name": user_map.get(current_task.created_by),
+                    "due_date": current_task.due_date if current_task.due_date else None,
                     "is_reviewed": current_task.is_reviewed,
                     "output": current_task.output,
                     "created_at": current_task.created_at,
                     "updated_at": current_task.updated_at,
-                    "checklists": checklists
+                    "checklist_progress": checklist_progress
                     
                 })
 

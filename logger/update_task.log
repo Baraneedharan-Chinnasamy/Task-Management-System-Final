@@ -5,71 +5,6 @@ Traceback (most recent call last):
     log_checklist_field_change(db,checklist.checklist_id,"is_compelete",checklist.is_complete,True,Current_user.employee_id)
                                                                         ^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'Checklist' object has no attribute 'is_complete'. Did you mean: 'is_completed'?
-2025-04-29 10:50:04,774 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:50:04,780 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 10:50:04,787 - update_task - INFO - Output updated across review task 13
-2025-04-29 10:50:04,795 - update_task - INFO - Task 12 updated successfully with changes: {'output': 'string'}
-2025-04-29 10:51:07,160 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:51:07,162 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-29 10:51:07,166 - update_task - INFO - Output updated across review task 12
-2025-04-29 10:51:07,175 - update_task - INFO - Task 11 updated successfully with changes: {'output': 'string'}
-2025-04-29 10:52:22,512 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:52:22,512 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-29 10:52:22,520 - update_task - INFO - Output updated across review task 12
-2025-04-29 10:52:22,520 - update_task - INFO - Task 11 updated successfully with changes: {'output': 'string'}
-2025-04-29 10:52:34,104 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:52:34,121 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-29 10:52:34,121 - update_task - INFO - Output updated across review task 12
-2025-04-29 10:52:34,137 - update_task - INFO - Task 11 updated successfully with changes: {'output': 'string'}
-2025-04-29 10:53:41,928 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:53:41,940 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-29 10:53:41,947 - update_task - INFO - Output updated across review task 12
-2025-04-29 10:53:41,953 - update_task - INFO - Task 11 updated successfully with changes: {'output': 'string'}
-2025-04-29 10:54:08,114 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:54:08,120 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 10:54:08,150 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:55:53,576 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:55:53,576 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 10:55:53,595 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:56:25,462 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:56:25,471 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 10:56:25,507 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:56:48,540 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:56:48,546 - update_task - INFO - User 1 is updating Task 13 | Creator=True, Assignee=False
-2025-04-29 10:56:48,575 - update_task - INFO - Task 13 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:57:06,645 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:57:06,645 - update_task - INFO - User 1 is updating Task 13 | Creator=True, Assignee=False
-2025-04-29 10:57:06,669 - update_task - INFO - Task 13 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 10:57:32,849 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:57:32,859 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 10:57:32,868 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 10:57:52,205 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:57:52,209 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 10:57:52,226 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:57:56,786 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:57:56,795 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-29 10:57:56,795 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-29 10:57:59,860 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:57:59,862 - update_task - INFO - User 1 is updating Task 13 | Creator=True, Assignee=False
-2025-04-29 10:57:59,873 - update_task - INFO - Task 13 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:58:15,198 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:58:15,203 - update_task - INFO - User 1 is updating Task 14 | Creator=True, Assignee=True
-2025-04-29 10:58:15,216 - update_task - INFO - Task 14 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 10:58:20,581 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 10:58:20,585 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 10:58:20,614 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:00:44,343 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:00:44,355 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:00:44,409 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:01:20,436 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:01:20,441 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:01:20,469 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:01:27,270 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:01:27,279 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:01:27,332 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:09:31,747 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:09:31,752 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:09:31,797 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 180, in update_task
     rollback_parent_task_if_needed(task, db)
@@ -79,15 +14,6 @@ Traceback (most recent call last):
     next_review_task.status = TaskStatus.Pending.name  # Deactivate it
                               ^^^^^^^^^^^^^^^^^^
 AttributeError: type object 'TaskStatus' has no attribute 'Pending'
-2025-04-29 11:10:04,775 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:10:04,781 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:10:04,808 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:13:06,207 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:13:06,224 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:13:06,291 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:13:17,010 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:13:17,017 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:13:17,051 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 180, in update_task
     rollback_parent_task_if_needed(task, db)
@@ -97,27 +23,6 @@ Traceback (most recent call last):
     next_review_task.status = TaskStatus.Pending.name
                               ^^^^^^^^^^^^^^^^^^
 AttributeError: type object 'TaskStatus' has no attribute 'Pending'
-2025-04-29 11:14:18,438 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:14:18,445 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:14:18,489 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:15:32,197 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:15:32,204 - update_task - INFO - User 1 is updating Task 13 | Creator=True, Assignee=False
-2025-04-29 11:15:32,233 - update_task - INFO - Task 13 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:15:52,809 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:15:52,815 - update_task - INFO - User 1 is updating Task 14 | Creator=True, Assignee=True
-2025-04-29 11:15:52,838 - update_task - INFO - Task 14 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:16:01,999 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:16:02,007 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:16:02,078 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:16:27,791 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:16:27,791 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:16:27,854 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:20:38,841 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:20:38,849 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:20:39,000 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:27:52,692 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:27:52,697 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:27:52,727 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 180, in update_task
     rollback_parent_task_if_needed(task, db)
@@ -127,52 +32,6 @@ Traceback (most recent call last):
     next_review_task.status = TaskStatus.Pending.name
                               ^^^^^^^^^^^^^^^^^^
 AttributeError: type object 'TaskStatus' has no attribute 'Pending'
-2025-04-29 11:28:17,845 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:28:17,859 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:28:17,914 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:28:39,047 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:28:39,049 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:28:39,141 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:32:55,409 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:32:55,409 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:32:55,475 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:33:11,722 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:33:11,722 - update_task - INFO - User 1 is updating Task 14 | Creator=True, Assignee=True
-2025-04-29 11:33:11,756 - update_task - INFO - Task 14 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:33:55,817 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:33:55,826 - update_task - INFO - User 1 is updating Task 14 | Creator=True, Assignee=True
-2025-04-29 11:33:55,850 - update_task - INFO - Task 14 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:34:04,139 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:34:04,141 - update_task - INFO - User 1 is updating Task 13 | Creator=True, Assignee=False
-2025-04-29 11:34:04,180 - update_task - INFO - Task 13 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:34:15,087 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:34:15,091 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 11:34:15,119 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': False}
-2025-04-29 11:34:23,965 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:34:23,970 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-29 11:34:23,978 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-29 11:34:35,331 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:34:35,341 - update_task - INFO - User 1 is updating Task 12 | Creator=True, Assignee=True
-2025-04-29 11:34:35,359 - update_task - INFO - Task 12 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:34:49,711 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:34:49,725 - update_task - INFO - User 1 is updating Task 13 | Creator=True, Assignee=False
-2025-04-29 11:34:49,757 - update_task - INFO - Task 13 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:35:00,251 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:35:00,257 - update_task - INFO - User 1 is updating Task 14 | Creator=True, Assignee=True
-2025-04-29 11:35:00,280 - update_task - INFO - Task 14 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 11:35:05,345 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 11:35:05,351 - update_task - INFO - User 1 is updating Task 15 | Creator=True, Assignee=True
-2025-04-29 11:35:05,416 - update_task - INFO - Task 15 updated successfully with changes: {'is_reviewed': True}
-2025-04-29 14:48:40,080 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 14:48:40,081 - update_task - INFO - User 1 is updating Task 1 | Creator=True, Assignee=False
-2025-04-29 14:48:40,081 - update_task - INFO - Assigned_to updated
-2025-04-29 14:48:40,081 - update_task - INFO - Task 1 updated successfully with changes: {'assigned_to': 2}
-2025-04-29 14:49:25,405 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 14:49:25,405 - update_task - INFO - User 1 is updating Task 1 | Creator=True, Assignee=False
-2025-04-29 14:49:25,405 - update_task - INFO - Task 1 updated successfully with changes: {}
-2025-04-29 14:49:35,883 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 14:49:35,893 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
-2025-04-29 14:49:35,893 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
     self.dialect.do_execute(
@@ -265,9 +124,6 @@ FROM checklist INNER JOIN task_checklist_link ON checklist.checklist_id = task_c
 WHERE task_checklist_link.parent_task_id = %(parent_task_id_1)s AND checklist.is_delete = false AND task_checklist_link.checklist_id IS NOT NULL]
 [parameters: {'parent_task_id_1': 2}]
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
-2025-04-29 14:51:09,377 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-29 14:51:09,381 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
-2025-04-29 14:51:09,385 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
     self.dialect.do_execute(
@@ -360,15 +216,6 @@ FROM checklist INNER JOIN task_checklist_link ON checklist.checklist_id = task_c
 WHERE task_checklist_link.parent_task_id = %(parent_task_id_1)s AND checklist.is_delete = false AND task_checklist_link.checklist_id IS NOT NULL]
 [parameters: {'parent_task_id_1': 2}]
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
-2025-04-30 11:42:16,710 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:42:16,724 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=True
-2025-04-30 11:42:16,730 - update_task - WARNING - Only the final review task can mark is_reviewed=True
-2025-04-30 11:42:45,846 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:42:45,852 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:42:45,939 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 11:43:12,058 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:43:12,058 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:43:12,098 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db)
@@ -412,9 +259,6 @@ sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled 
 [SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
 [parameters: {'task_id': 11, 'field_name': 'status', 'old_value': 'Completed', 'new_value': 'New', 'updated_by': 0, 'updated_at': datetime.datetime(2025, 4, 30, 11, 43, 12, 72626)}]
 (Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
-2025-04-30 11:44:34,075 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:44:34,089 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:44:34,112 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db)
@@ -458,24 +302,12 @@ sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled 
 [SQL: INSERT INTO task_update_logs (task_id, field_name, old_value, new_value, updated_by, updated_at) VALUES (%(task_id)s, %(field_name)s, %(old_value)s, %(new_value)s, %(updated_by)s, %(updated_at)s)]
 [parameters: {'task_id': 11, 'field_name': 'status', 'old_value': 'Completed', 'new_value': 'New', 'updated_by': 0, 'updated_at': datetime.datetime(2025, 4, 30, 11, 44, 34, 100422)}]
 (Background on this error at: https://sqlalche.me/e/20/gkpj) (Background on this error at: https://sqlalche.me/e/20/7s2a)
-2025-04-30 11:44:48,960 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:44:48,969 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:44:49,006 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 11:47:55,005 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:47:55,005 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:47:55,089 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 11:47:59,953 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:47:59,960 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:47:59,993 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db)
   File "D:\Task Management System Final code\Tasks\functions.py", line 186, in start_rollback_from_task
     rollback_review_chain(task, db)
 TypeError: rollback_review_chain() missing 1 required positional argument: 'Current_user'
-2025-04-30 11:48:30,770 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:48:30,770 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:48:30,793 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db,Current_user)
@@ -484,33 +316,6 @@ Traceback (most recent call last):
     rollback_review_chain(task, db,Current_user)
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: rollback_review_chain() missing 1 required positional argument: 'Current_user'
-2025-04-30 11:48:37,028 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:48:37,029 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:48:37,132 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 11:48:49,484 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 11:48:49,486 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 11:48:49,669 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 12:24:40,099 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:24:40,111 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 12:24:40,171 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 12:24:56,230 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:24:56,244 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-04-30 12:24:56,392 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-04-30 12:27:18,779 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:27:18,779 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:27:18,901 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-04-30 12:27:27,644 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:27:27,644 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:27:27,788 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-04-30 12:30:10,125 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:30:10,138 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:30:10,255 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-04-30 12:32:47,190 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:32:47,205 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:32:47,331 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-04-30 12:36:55,346 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:36:55,368 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:36:55,443 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db,Current_user)
@@ -520,9 +325,6 @@ Traceback (most recent call last):
     status_log = get_rollback_log(task.task_id, "status", task.status.value, Current_user.employee_id, db)
                  ^^^^^^^^^^^^^^^^
 NameError: name 'get_rollback_log' is not defined
-2025-04-30 12:37:24,047 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:37:24,063 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:37:24,103 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db,Current_user)
@@ -533,9 +335,6 @@ Traceback (most recent call last):
     def rollback_review_chain(task, db, Current_user):
                      ^^^^^^^^^^^^^^^^
 NameError: name 'get_rollback_log' is not defined
-2025-04-30 12:37:32,525 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:37:32,525 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:37:32,562 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 211, in update_task
     start_rollback_from_task(task, db,Current_user)
@@ -548,45 +347,16 @@ Traceback (most recent call last):
     return db.query(TaskUpdateLog).filter(
                     ^^^^^^^^^^^^^
 NameError: name 'TaskUpdateLog' is not defined
-2025-04-30 12:37:51,656 - update_task - INFO - POST /update_task called by user_id=1
-2025-04-30 12:37:51,660 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-04-30 12:37:51,764 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-04-30 17:22:18,406 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:22:18,406 - update_task - INFO - User 2 is updating Task 2 | Creator=True, Assignee=True
-2025-04-30 17:22:18,415 - update_task - WARNING - Only the final review task can mark is_reviewed=True
-2025-04-30 17:22:22,858 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:22:22,861 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:22:22,869 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:23:54,487 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:23:54,510 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:23:54,531 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 165, in update_task
     log_task_field_change(db, review_task.task_id, "is_reviewed", False, True, Current_user.employee_id)
                               ^^^^^^^^^^^
 UnboundLocalError: cannot access local variable 'review_task' where it is not associated with a value
-2025-04-30 17:24:34,420 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:24:34,422 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:24:34,432 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 165, in update_task
     log_task_field_change(db, task.task_id, "is_reviewed", False, True, Current_user.employee_id)
                               ^^^^^^^^^^^
 UnboundLocalError: cannot access local variable 'review_task' where it is not associated with a value
-2025-04-30 17:24:41,180 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:24:41,189 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:24:41,215 - update_task - INFO - Task 3 marked as Completed by propagation
-2025-04-30 17:24:41,226 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:27:51,736 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:27:51,743 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:27:51,769 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:28:32,173 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:28:32,179 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:28:32,210 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:28:47,803 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:28:47,806 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:28:47,825 - update_task - INFO - Review task 3 unmarked as reviewed and reverted to TaskStatus.In_ReEdit
-2025-04-30 17:28:47,839 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 173, in update_task
     reverse_completion_from_review(task, db, Current_user.employee_id, logger)
@@ -666,15 +436,6 @@ Traceback (most recent call last):
   File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1576, in _joincond_trim_constraints
     raise exc.AmbiguousForeignKeysError(
 sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' and 'task_checklist_link'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
-2025-04-30 17:28:56,815 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:28:56,820 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:28:56,847 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:29:27,770 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:29:27,770 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:29:27,819 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:30:17,817 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:30:17,827 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:30:17,852 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 169, in update_task
     propagate_completion_upwards(task, db, Current_user.employee_id, logger)
@@ -684,9 +445,6 @@ Traceback (most recent call last):
     child.previous_status = child.status
                             ^^^^^^^^^^^^
 AttributeError: 'list' object has no attribute 'status'
-2025-04-30 17:30:41,677 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:30:41,680 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:30:41,715 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 169, in update_task
     propagate_completion_upwards(task, db, Current_user.employee_id, logger)
@@ -696,9 +454,6 @@ Traceback (most recent call last):
     child.previous_status = child.status
                             ^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'status'
-2025-04-30 17:32:37,456 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:32:37,458 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:32:37,489 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 169, in update_task
     propagate_completion_upwards(task, db, Current_user.employee_id, logger)
@@ -708,15 +463,6 @@ Traceback (most recent call last):
     print(child.task_id)
           ^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'task_id'
-2025-04-30 17:34:07,255 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:34:07,262 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:34:07,285 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-04-30 17:34:07,287 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-04-30 17:34:07,300 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:34:29,316 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:34:29,320 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:34:29,337 - update_task - INFO - Review task 3 unmarked as reviewed and reverted to TaskStatus.In_ReEdit
-2025-04-30 17:34:29,353 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 174, in update_task
     reverse_completion_from_review(task, db, Current_user.employee_id, logger)
@@ -796,183 +542,20 @@ Traceback (most recent call last):
   File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1576, in _joincond_trim_constraints
     raise exc.AmbiguousForeignKeysError(
 sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' and 'task_checklist_link'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
-2025-04-30 17:39:58,742 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:39:58,761 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:39:58,794 - update_task - INFO - Review task 3 unmarked as reviewed and reverted to TaskStatus.In_ReEdit
-2025-04-30 17:39:58,840 - update_task - INFO - Parent task 2 reverted from TaskStatus.Completed to TaskStatus.To_Do
-2025-04-30 17:39:58,848 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:42:44,426 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:42:44,429 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:42:44,446 - update_task - INFO - Task 3 marked as Completed by propagation
-2025-04-30 17:42:44,463 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-04-30 17:42:44,473 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-04-30 17:42:44,489 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:42:55,732 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:42:55,732 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:42:55,763 - update_task - INFO - Review task 3 unmarked as reviewed and reverted to TaskStatus.In_ReEdit
-2025-04-30 17:42:55,779 - update_task - INFO - Task 2 reverted from TaskStatus.Completed to TaskStatus.To_Do
-2025-04-30 17:42:55,817 - update_task - INFO - Task 1 reverted from TaskStatus.Completed to TaskStatus.Completed
-2025-04-30 17:42:55,826 - update_task - INFO - Checklist 1 marked as incomplete during reversal
-2025-04-30 17:42:55,858 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:50:46,124 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:50:46,132 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:50:46,174 - update_task - INFO - Task 3 marked as Completed by propagation
-2025-04-30 17:50:46,178 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-04-30 17:50:46,178 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-04-30 17:50:46,203 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:50:49,286 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:50:49,286 - update_task - INFO - User 2 is updating Task 3 | Creator=True, Assignee=False
-2025-04-30 17:50:49,305 - update_task - INFO - Review task 3 unmarked as reviewed and reverted to TaskStatus.In_ReEdit
-2025-04-30 17:50:49,320 - update_task - INFO - Reviewed task 2 reverted from TaskStatus.Completed to TaskStatus.To_Do
-2025-04-30 17:50:49,329 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-04-30 17:51:49,736 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:51:49,741 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 17:51:49,757 - update_task - INFO - Task 6 marked as Completed by propagation
-2025-04-30 17:51:49,773 - update_task - INFO - Child task 5 of review task 6 marked as Completed
-2025-04-30 17:51:49,773 - update_task - INFO - Child task 4 of review task 5 marked as Completed
-2025-04-30 17:51:49,789 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-04-30 17:51:57,722 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:51:57,723 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 17:51:57,741 - update_task - INFO - Review task 6 unmarked as reviewed and reverted to TaskStatus.In_ReEdit
-2025-04-30 17:51:57,755 - update_task - INFO - Reviewed task 5 reverted from TaskStatus.Completed to TaskStatus.In_Review
-2025-04-30 17:51:57,772 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-04-30 17:57:18,605 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 17:57:18,619 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 17:57:18,656 - update_task - INFO - Task 6 marked as Completed by propagation
-2025-04-30 17:57:18,667 - update_task - INFO - Child task 5 of review task 6 marked as Completed
-2025-04-30 17:57:18,667 - update_task - INFO - Child task 4 of review task 5 marked as Completed
-2025-04-30 17:57:18,692 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-04-30 18:00:16,216 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 18:00:16,231 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 18:00:16,250 - update_task - INFO - Review task 6 reverted to TaskStatus.In_ReEdit
-2025-04-30 18:00:16,266 - update_task - INFO - Normal task 4 reverted from TaskStatus.Completed to TaskStatus.In_Process
-2025-04-30 18:00:16,267 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-04-30 18:04:08,250 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 18:04:08,252 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 18:04:08,277 - update_task - INFO - Task 6 marked as Completed by propagation
-2025-04-30 18:04:08,283 - update_task - INFO - Child task 5 of review task 6 marked as Completed
-2025-04-30 18:04:08,292 - update_task - INFO - Child task 4 of review task 5 marked as Completed
-2025-04-30 18:04:08,305 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-04-30 18:04:19,485 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 18:04:19,501 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 18:04:19,514 - update_task - INFO - Review task 6 reverted to TaskStatus.In_ReEdit
-2025-04-30 18:04:19,534 - update_task - INFO - Normal task 4 reverted from TaskStatus.Completed to TaskStatus.In_Process
-2025-04-30 18:04:19,535 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-04-30 18:07:42,022 - update_task - INFO - POST /update_task called by user_id=2
-2025-04-30 18:07:42,022 - update_task - INFO - User 2 is updating Task 6 | Creator=True, Assignee=False
-2025-04-30 18:07:42,052 - update_task - INFO - Task 6 marked as Completed by propagation
-2025-04-30 18:07:42,054 - update_task - INFO - Child task 5 of review task 6 marked as Completed
-2025-04-30 18:07:42,054 - update_task - INFO - Child task 4 of review task 5 marked as Completed
-2025-04-30 18:07:42,069 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-05-01 19:22:31,186 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:22:31,186 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:22:31,214 - update_task - INFO - Review task created: 8
-2025-05-01 19:22:31,230 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:25:06,089 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:25:06,090 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:25:06,106 - update_task - INFO - Review task 8 marked as deleted
-2025-05-01 19:25:06,122 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': False}
-2025-05-01 19:26:49,633 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:26:49,650 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:26:49,680 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 63, in update_task
     log_task_field_change(db, existing_review.task_id, "is_review_required", False, True, Current_user.employee_id)
                               ^^^^^^^^^^^^^^^
 UnboundLocalError: cannot access local variable 'existing_review' where it is not associated with a value
-2025-05-01 19:27:05,593 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:27:05,593 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:27:05,599 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 63, in update_task
     log_task_field_change(db, task.task_id, "is_review_required", False, True, Current_user.employee_id)
                               ^^^^^^^^^^^^^^^
 UnboundLocalError: cannot access local variable 'existing_review' where it is not associated with a value
-2025-05-01 19:27:11,316 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:27:11,319 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:27:11,369 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:30:55,253 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:30:55,253 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:30:55,283 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:31:29,497 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:31:29,503 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:31:29,521 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:31:40,365 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:31:40,374 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:31:40,390 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:32:23,769 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:32:23,777 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:32:23,778 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:32:42,276 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:32:42,286 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:32:42,309 - update_task - INFO - Re-enabled review task 8
-2025-05-01 19:32:42,318 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:33:01,351 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:33:01,351 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:33:01,383 - update_task - INFO - Review task 8 marked as deleted
-2025-05-01 19:33:01,383 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': False}
-2025-05-01 19:33:11,935 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:33:11,942 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:33:11,950 - update_task - INFO - Re-enabled review task 8
-2025-05-01 19:33:11,967 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 19:33:57,304 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:33:57,313 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=False
-2025-05-01 19:33:57,313 - update_task - INFO - Task 7 updated successfully with changes: {}
-2025-05-01 19:34:18,371 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:34:18,372 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
-2025-05-01 19:34:18,385 - update_task - WARNING - Only the final review task can mark is_reviewed=True
-2025-05-01 19:34:23,242 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 19:34:23,243 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 19:34:23,259 - update_task - INFO - Task 10 marked as Completed by propagation
-2025-05-01 19:34:23,259 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 19:34:23,271 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 19:34:23,276 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 19:34:23,292 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:05:38,558 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:05:38,558 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:05:38,590 - update_task - INFO - Review task 10 reverted to TaskStatus.In_ReEdit
-2025-05-01 20:05:38,606 - update_task - INFO - Normal task 7 reverted from TaskStatus.Completed to TaskStatus.In_Review
-2025-05-01 20:05:38,610 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:06:16,443 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:06:16,458 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:06:16,476 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 179, in update_task
     reverse_completion_from_review(task, db, Current_user.employee_id, logger)
 TypeError: reverse_completion_from_review() missing 1 required positional argument: 'Current_user'
-2025-05-01 20:07:16,731 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:07:16,738 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:07:16,765 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:08:39,160 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:08:39,167 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:08:39,180 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:09:14,663 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:09:14,663 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:09:14,693 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:10:04,222 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:10:04,229 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:10:04,266 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:10:12,225 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:10:12,227 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:10:12,243 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:11:37,229 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:11:37,237 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:11:37,266 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:11:44,135 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:11:44,147 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:11:44,180 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:13:58,177 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:13:58,182 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:13:58,193 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:13:58,203 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:13:58,207 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:13:58,216 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:14:14,846 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:14:14,849 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:14:14,862 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:14:14,862 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:14:14,862 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:14:14,874 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 170, in update_task
     propagate_completion_upwards(task, db, Current_user.employee_id, logger,Current_user)
@@ -982,12 +565,6 @@ Traceback (most recent call last):
     checklist = db.query(Checklist).filter(Checklist.checklist_id == link.checklist_id, Checklist.is_delete == False).first()
                                                                      ^^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'checklist_id'
-2025-05-01 20:15:18,799 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:15:18,810 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:15:18,826 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:15:18,832 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:15:18,835 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:15:18,841 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 170, in update_task
     propagate_completion_upwards(task, db, Current_user.employee_id, logger,Current_user)
@@ -997,132 +574,6 @@ Traceback (most recent call last):
     if checklist:
        ^^^^^^^^^
 UnboundLocalError: cannot access local variable 'checklist' where it is not associated with a value
-2025-05-01 20:16:49,113 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:16:49,117 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:16:49,135 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:16:49,139 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:16:49,141 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:16:49,143 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:17:12,819 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:17:12,835 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:17:12,852 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:17:12,859 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:17:12,870 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:17:12,902 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:18:34,136 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:18:34,146 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:18:34,168 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:18:34,170 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:18:34,181 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:18:34,197 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:22:55,619 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:22:55,627 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:22:55,654 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:22:55,654 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:22:55,670 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:22:55,699 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:23:05,478 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:23:05,483 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:23:05,495 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:23:05,495 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:23:05,495 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:23:05,511 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:23:46,446 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:23:46,462 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:23:46,463 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:23:46,479 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:23:46,479 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:23:46,496 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:25:32,483 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:25:32,483 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:25:32,501 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:25:32,516 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:25:32,516 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:25:32,533 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:25:42,573 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:25:42,574 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:25:42,605 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:25:42,609 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:25:42,615 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:25:42,624 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:25:56,086 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:25:56,086 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:25:56,103 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:25:56,112 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:25:56,119 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:25:56,136 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:27:29,802 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:27:29,804 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:27:29,811 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:27:29,816 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:27:29,820 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:27:29,824 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:27:36,211 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:27:36,211 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:27:36,228 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:27:36,237 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:27:36,241 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:27:36,251 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:28:19,290 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:28:19,312 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:28:19,341 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:28:19,352 - update_task - INFO - Review task 9 reverted to TaskStatus.Completed
-2025-05-01 20:28:19,360 - update_task - INFO - Review task 8 reverted to TaskStatus.Completed
-2025-05-01 20:28:19,388 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:28:28,381 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:28:28,381 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:28:28,396 - update_task - INFO - Review task 10 reverted to TaskStatus.Completed
-2025-05-01 20:28:28,407 - update_task - INFO - Review task 9 reverted to TaskStatus.Completed
-2025-05-01 20:28:28,412 - update_task - INFO - Review task 8 reverted to TaskStatus.Completed
-2025-05-01 20:28:28,428 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:29:49,981 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:29:49,981 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:29:49,997 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:29:50,013 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:29:50,030 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:29:50,045 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:35:31,271 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:35:31,275 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:35:31,293 - update_task - INFO - Review task 10 reverted to TaskStatus.In_Review
-2025-05-01 20:35:31,298 - update_task - INFO - Review task 9 reverted to TaskStatus.Completed
-2025-05-01 20:35:31,305 - update_task - INFO - Review task 8 reverted to TaskStatus.Completed
-2025-05-01 20:35:31,315 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:35:46,025 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:35:46,028 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:35:46,035 - update_task - INFO - Review task 10 reverted to TaskStatus.In_Review
-2025-05-01 20:35:46,040 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:35:46,048 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:35:46,059 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:35:57,852 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:35:57,852 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:35:57,872 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:35:57,876 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:35:57,880 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:35:57,888 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:38:18,672 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:38:18,684 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:38:18,701 - update_task - INFO - Review task 10 reverted to TaskStatus.In_Review
-2025-05-01 20:38:18,723 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:38:18,734 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:38:18,768 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:38:26,811 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:38:26,811 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:38:26,840 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:38:26,840 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:38:26,862 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:38:26,862 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:39:16,502 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:39:16,505 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:39:16,525 - update_task - INFO - Review task 10 reverted to TaskStatus.In_Review
-2025-05-01 20:39:16,531 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:39:16,539 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:39:16,551 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:39:20,734 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:39:20,737 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:39:20,747 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:39:20,758 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:39:20,763 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:39:20,770 - update_task - ERROR - Unexpected error while updating task
 Traceback (most recent call last):
   File "D:\Task Management System Final code\Tasks\Update_Task.py", line 170, in update_task
     propagate_completion_upwards(task, db, Current_user.employee_id, logger,Current_user)
@@ -1202,360 +653,19 @@ Traceback (most recent call last):
   File "D:\Task Management System Final code\.venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1576, in _joincond_trim_constraints
     raise exc.AmbiguousForeignKeysError(
 sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' and 'task_checklist_link'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
-2025-05-01 20:42:19,301 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:42:19,301 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:42:19,329 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:42:19,339 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:42:19,344 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:42:19,362 - update_task - INFO - Checklist 10 marked as completed
-2025-05-01 20:42:19,453 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:42:35,414 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:42:35,414 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:42:35,430 - update_task - INFO - Review task 10 reverted to TaskStatus.In_Review
-2025-05-01 20:42:35,445 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:42:35,446 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:42:35,580 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:43:11,893 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:43:11,893 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:43:11,926 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:43:11,932 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:43:11,945 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:43:11,954 - update_task - INFO - Checklist 10 marked as completed
-2025-05-01 20:43:12,077 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:44:19,867 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:44:19,872 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:44:19,889 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:44:19,893 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:44:19,898 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:44:19,914 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:45:00,936 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:45:00,940 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:45:00,955 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:45:00,957 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:45:00,960 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:45:00,969 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:45:13,386 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:45:13,398 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:45:13,427 - update_task - INFO - Child task 9 of review task 10 marked as Completed
-2025-05-01 20:45:13,439 - update_task - INFO - Child task 8 of review task 9 marked as Completed
-2025-05-01 20:45:13,448 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-01 20:45:13,478 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:45:40,840 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:45:40,840 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-01 20:45:40,852 - update_task - INFO - Review task 10 reverted to TaskStatus.In_Review
-2025-05-01 20:45:40,857 - update_task - INFO - Review task 9 reverted to TaskStatus.In_Review
-2025-05-01 20:45:40,861 - update_task - INFO - Review task 8 reverted to TaskStatus.In_Review
-2025-05-01 20:45:40,907 - update_task - INFO - Task 10 updated successfully with changes: {}
-2025-05-01 20:50:38,933 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:50:38,933 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=False
-2025-05-01 20:50:38,971 - update_task - INFO - Review task created: 5
-2025-05-01 20:50:38,978 - update_task - INFO - Task 2 updated successfully with changes: {'is_review_required': True}
-2025-05-01 20:50:48,289 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:50:48,289 - update_task - INFO - User 1 is updating Task 4 | Creator=True, Assignee=False
-2025-05-01 20:50:48,304 - update_task - INFO - Review task created: 6
-2025-05-01 20:50:48,304 - update_task - INFO - Task 4 updated successfully with changes: {'is_review_required': True}
-2025-05-01 20:51:03,984 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:51:03,988 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
-2025-05-01 20:51:04,000 - update_task - INFO - Review task created: 7
-2025-05-01 20:51:04,002 - update_task - INFO - Task 6 updated successfully with changes: {'is_review_required': True}
-2025-05-01 20:51:07,115 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:51:07,119 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=True
-2025-05-01 20:51:07,121 - update_task - INFO - Review task created: 8
-2025-05-01 20:51:07,137 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': True}
-2025-05-01 20:52:05,904 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:52:05,913 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=True
-2025-05-01 20:52:05,937 - update_task - INFO - Review task 8 marked as deleted
-2025-05-01 20:52:05,945 - update_task - INFO - Task 7 updated successfully with changes: {'is_review_required': False}
-2025-05-01 20:53:26,940 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 20:53:26,948 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=True
-2025-05-01 20:53:26,957 - update_task - INFO - Task 7 updated successfully with changes: {}
-2025-05-01 21:21:26,066 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:21:26,066 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
-2025-05-01 21:21:26,099 - update_task - INFO - Review task created: 5
-2025-05-01 21:21:26,099 - update_task - INFO - Task 2 updated successfully with changes: {'is_review_required': True}
-2025-05-01 21:21:32,137 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:21:32,155 - update_task - INFO - User 1 is updating Task 4 | Creator=True, Assignee=True
-2025-05-01 21:21:32,170 - update_task - INFO - Review task created: 6
-2025-05-01 21:21:32,170 - update_task - INFO - Task 4 updated successfully with changes: {'is_review_required': True}
-2025-05-01 21:21:36,206 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:21:36,209 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-05-01 21:21:36,224 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-05-01 21:22:47,617 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:22:47,617 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
-2025-05-01 21:22:47,655 - update_task - INFO - Child task 4 of review task 6 marked as Completed
-2025-05-01 21:22:47,665 - update_task - INFO - Checklist 3 marked as completed
-2025-05-01 21:22:47,862 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-05-01 21:23:10,452 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:23:10,469 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
-2025-05-01 21:23:10,485 - update_task - INFO - Review task 6 reverted to TaskStatus.To_Do
-2025-05-01 21:23:10,602 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-05-01 21:23:48,068 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:23:48,083 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
-2025-05-01 21:23:48,119 - update_task - INFO - Child task 4 of review task 6 marked as Completed
-2025-05-01 21:23:48,134 - update_task - INFO - Checklist 3 marked as completed
-2025-05-01 21:23:48,249 - update_task - INFO - Task 6 updated successfully with changes: {}
-2025-05-01 21:23:55,254 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-01 21:23:55,256 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-05-01 21:23:55,272 - update_task - INFO - Child task 2 of review task 5 marked as Completed
-2025-05-01 21:23:55,295 - update_task - INFO - Checklist 1 marked as completed
-2025-05-01 21:23:55,322 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-05-02 12:12:11,531 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 12:12:11,531 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-05-02 12:12:11,549 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-05-02 12:12:28,300 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 12:12:28,300 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-05-02 12:12:28,300 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-05-02 12:13:09,146 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 12:13:09,146 - update_task - INFO - User 1 is updating Task 11 | Creator=True, Assignee=True
-2025-05-02 12:13:09,156 - update_task - INFO - Task 11 updated successfully with changes: {}
-2025-05-02 12:14:21,623 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 12:14:21,631 - update_task - INFO - User 1 is updating Task 10 | Creator=True, Assignee=True
-2025-05-02 12:14:21,647 - update_task - INFO - Review task 11 marked as deleted
-2025-05-02 12:14:21,663 - update_task - INFO - Task 10 updated successfully with changes: {'is_review_required': False}
-2025-05-02 12:50:17,364 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 12:50:17,370 - update_task - INFO - User 1 is updating Task 1 | Creator=True, Assignee=True
-2025-05-02 12:50:17,375 - update_task - INFO - is_review_required set to True
-2025-05-02 12:50:17,404 - update_task - INFO - Review task created: 2
-2025-05-02 12:50:17,412 - update_task - INFO - Task 1 updated successfully with changes: {'is_review_required': True}
-2025-05-02 13:13:44,036 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:13:44,041 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:13:44,050 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:13:44,052 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:13:44,054 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:13:44,057 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:13:44,063 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:13:44,065 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:13:44,072 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:13:52,437 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:13:52,439 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:13:52,443 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:13:52,447 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:13:52,450 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
-2025-05-02 13:13:52,454 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 13:13:52,455 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:13:52,459 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:14:02,500 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:14:02,502 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:14:02,508 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:14:02,510 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:14:02,513 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:14:02,514 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:14:02,518 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:14:02,520 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:14:02,523 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:14:08,757 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:14:08,760 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:14:08,766 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:14:08,768 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:14:08,772 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
-2025-05-02 13:14:08,776 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 13:14:08,777 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:14:08,784 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:18:50,464 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:18:50,467 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-05-02 13:18:50,479 - update_task - INFO - Starting propagate_completion_upwards for task_id=5
-2025-05-02 13:18:50,485 - update_task - INFO - Marking child task 4 as Completed
-2025-05-02 13:18:50,491 - update_task - INFO - Child task 4 of review task 5 marked as Completed
-2025-05-02 13:18:50,510 - update_task - INFO - Checklist 10 marked as completed
-2025-05-02 13:18:50,539 - update_task - INFO - propagate_completion_upwards completed for task_id=4
-2025-05-02 13:18:50,546 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-05-02 13:19:05,588 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:19:05,591 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:19:05,598 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:19:05,600 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:19:05,606 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:19:05,611 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:19:05,616 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:19:05,620 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:19:05,628 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:20:44,875 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:20:44,878 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
-2025-05-02 13:20:44,888 - update_task - INFO - Task 2 updated successfully with changes: {'description': 'testing'}
-2025-05-02 13:20:55,370 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:20:55,372 - update_task - INFO - User 1 is updating Task 2 | Creator=True, Assignee=True
-2025-05-02 13:20:55,375 - update_task - INFO - Task 2 updated successfully with changes: {'description': 'testing'}
-2025-05-02 13:22:20,080 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:22:20,084 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:22:20,100 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:22:20,103 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:22:20,110 - update_task - INFO - Review task 2 reverted to TaskStatus.To_Do
-2025-05-02 13:22:20,119 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:22:20,130 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:22:20,837 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:22:20,840 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:22:20,848 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:22:20,853 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:22:20,860 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:22:20,864 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:22:20,871 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:22:20,876 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:22:20,883 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:26:17,845 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:26:17,848 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:26:17,858 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:26:17,863 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:26:17,872 - update_task - INFO - Review task 2 reverted to TaskStatus.To_Do
-2025-05-02 13:26:17,876 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 13:26:17,879 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:26:17,887 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:27:18,947 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:27:18,950 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:27:18,957 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:27:18,961 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:27:18,970 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:27:18,972 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:27:18,978 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:27:18,981 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:27:18,987 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:27:28,155 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:27:28,159 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:27:28,168 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:27:28,171 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:27:28,183 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
-2025-05-02 13:27:28,189 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 13:27:28,192 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:27:28,202 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:27:39,651 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:27:39,655 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:27:39,665 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:27:39,669 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:27:39,674 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:27:39,678 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:27:39,685 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:27:39,688 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:27:39,695 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:29:38,685 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:29:38,688 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:29:38,697 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:29:38,702 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:29:38,708 - update_task - INFO - Review task 2 reverted to TaskStatus.In_Review
-2025-05-02 13:29:38,714 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 13:29:38,718 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:29:38,724 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:37:18,961 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:37:18,965 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:37:18,977 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:37:18,982 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:37:18,990 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:37:18,995 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:37:19,004 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:37:19,008 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:37:19,015 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:37:51,198 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:37:51,202 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-05-02 13:37:51,211 - update_task - INFO - Starting reverse_completion_from_review for task_id=5
-2025-05-02 13:37:51,214 - update_task - INFO - Review task 5 reverted to TaskStatus.Completed
-2025-05-02 13:37:51,219 - update_task - INFO - reverse_completion_from_review completed for task_id=4
-2025-05-02 13:37:51,226 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-05-02 13:38:14,768 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:38:14,774 - update_task - INFO - User 1 is updating Task 5 | Creator=True, Assignee=True
-2025-05-02 13:38:14,782 - update_task - INFO - Starting propagate_completion_upwards for task_id=5
-2025-05-02 13:38:14,784 - update_task - INFO - Marking child task 4 as Completed
-2025-05-02 13:38:14,786 - update_task - INFO - Child task 4 of review task 5 marked as Completed
-2025-05-02 13:38:14,802 - update_task - INFO - Checklist 10 marked as completed
-2025-05-02 13:38:14,827 - update_task - INFO - propagate_completion_upwards completed for task_id=4
-2025-05-02 13:38:14,833 - update_task - INFO - Task 5 updated successfully with changes: {}
-2025-05-02 13:41:21,154 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:41:21,157 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:41:21,171 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:41:21,175 - update_task - INFO - Review task 3 reverted to TaskStatus.To_Do
-2025-05-02 13:41:21,183 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
-2025-05-02 13:41:21,188 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:41:21,194 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:41:22,014 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:41:22,019 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:41:22,035 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:41:22,040 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:41:22,045 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:41:22,052 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:41:22,060 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:41:22,064 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:41:22,071 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:42:56,630 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:42:56,634 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:42:56,643 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 13:42:56,648 - update_task - INFO - Review task 3 reverted to TaskStatus.Completed
-2025-05-02 13:42:56,657 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
-2025-05-02 13:42:56,664 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 13:42:56,667 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 13:42:56,674 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:45:38,978 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:45:38,981 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 13:45:38,993 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 13:45:38,998 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 13:45:39,003 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 13:45:39,007 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 13:45:39,016 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 13:45:39,019 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 13:45:39,027 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 13:48:43,738 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:48:43,740 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 13:48:43,742 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
-2025-05-02 13:48:43,746 - update_task - INFO - User 1 is updating Task 6 | Creator=True, Assignee=True
-2025-05-02 13:48:43,759 - update_task - INFO - Task 6 updated successfully with changes: {'output': 'done da mapla'}
-2025-05-02 13:48:43,766 - update_task - INFO - Task 6 updated successfully with changes: {'output': 'done da mapla'}
-2025-05-02 15:12:07,057 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:12:07,062 - update_task - INFO - User 1 is updating Task 7 | Creator=True, Assignee=True
-2025-05-02 15:12:07,076 - update_task - WARNING - Only the final review task can mark is_reviewed=True
-2025-05-02 15:12:26,163 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:12:26,167 - update_task - INFO - User 1 is updating Task 8 | Creator=True, Assignee=True
-2025-05-02 15:12:26,181 - update_task - INFO - Starting propagate_completion_upwards for task_id=8
-2025-05-02 15:12:26,187 - update_task - INFO - Marking child task 7 as Completed
-2025-05-02 15:12:26,195 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-02 15:12:26,200 - update_task - INFO - Marking child task 6 as Completed
-2025-05-02 15:12:26,209 - update_task - INFO - Child task 6 of review task 7 marked as Completed
-2025-05-02 15:12:26,215 - update_task - INFO - propagate_completion_upwards completed for task_id=6
-2025-05-02 15:12:26,223 - update_task - INFO - Task 8 updated successfully with changes: {}
-2025-05-02 15:12:28,151 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:12:28,156 - update_task - INFO - User 1 is updating Task 8 | Creator=True, Assignee=True
-2025-05-02 15:12:28,176 - update_task - INFO - Starting reverse_completion_from_review for task_id=8
-2025-05-02 15:12:28,188 - update_task - INFO - Review task 8 reverted to TaskStatus.To_Do
-2025-05-02 15:12:28,205 - update_task - INFO - Review task 7 reverted to TaskStatus.In_Review
-2025-05-02 15:12:28,219 - update_task - INFO - Reverting normal task 6 from Completed to TaskStatus.In_Review
-2025-05-02 15:12:28,226 - update_task - INFO - reverse_completion_from_review completed for task_id=6
-2025-05-02 15:12:28,244 - update_task - INFO - Task 8 updated successfully with changes: {}
-2025-05-02 15:12:37,016 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:12:37,020 - update_task - INFO - User 1 is updating Task 8 | Creator=True, Assignee=True
-2025-05-02 15:12:37,029 - update_task - INFO - Starting propagate_completion_upwards for task_id=8
-2025-05-02 15:12:37,033 - update_task - INFO - Marking child task 7 as Completed
-2025-05-02 15:12:37,037 - update_task - INFO - Child task 7 of review task 8 marked as Completed
-2025-05-02 15:12:37,039 - update_task - INFO - Marking child task 6 as Completed
-2025-05-02 15:12:37,045 - update_task - INFO - Child task 6 of review task 7 marked as Completed
-2025-05-02 15:12:37,049 - update_task - INFO - propagate_completion_upwards completed for task_id=6
-2025-05-02 15:12:37,056 - update_task - INFO - Task 8 updated successfully with changes: {}
-2025-05-02 15:45:11,301 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:45:11,303 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 15:45:11,316 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 15:45:11,321 - update_task - INFO - Review task 3 reverted to TaskStatus.Completed
-2025-05-02 15:45:11,329 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
-2025-05-02 15:45:11,338 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 15:45:11,347 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 15:45:11,973 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:45:11,976 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 15:45:11,986 - update_task - INFO - Starting propagate_completion_upwards for task_id=3
-2025-05-02 15:45:11,989 - update_task - INFO - Marking child task 2 as Completed
-2025-05-02 15:45:11,992 - update_task - INFO - Child task 2 of review task 3 marked as Completed
-2025-05-02 15:45:11,995 - update_task - INFO - Marking child task 1 as Completed
-2025-05-02 15:45:12,000 - update_task - INFO - Child task 1 of review task 2 marked as Completed
-2025-05-02 15:45:12,003 - update_task - INFO - propagate_completion_upwards completed for task_id=1
-2025-05-02 15:45:12,007 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 15:45:57,098 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 15:45:57,101 - update_task - INFO - User 1 is updating Task 3 | Creator=True, Assignee=True
-2025-05-02 15:45:57,110 - update_task - INFO - Starting reverse_completion_from_review for task_id=3
-2025-05-02 15:45:57,115 - update_task - INFO - Review task 3 reverted to TaskStatus.Completed
-2025-05-02 15:45:57,121 - update_task - INFO - Review task 2 reverted to TaskStatus.Completed
-2025-05-02 15:45:57,128 - update_task - INFO - Reverting normal task 1 from Completed to TaskStatus.In_Review
-2025-05-02 15:45:57,131 - update_task - INFO - reverse_completion_from_review completed for task_id=1
-2025-05-02 15:45:57,138 - update_task - INFO - Task 3 updated successfully with changes: {}
-2025-05-02 16:22:59,402 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 16:22:59,408 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
-2025-05-02 16:22:59,414 - update_task - INFO - Task 9 updated successfully with changes: {'description': 'chat test'}
-2025-05-02 17:21:01,836 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 17:21:01,840 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
-2025-05-02 17:21:01,846 - update_task - INFO - is_review_required set to True
-2025-05-02 17:21:01,859 - update_task - INFO - Review task created: 10
-2025-05-02 17:21:01,864 - update_task - INFO - Task 9 updated successfully with changes: {'is_review_required': True}
-2025-05-02 17:55:10,629 - update_task - INFO - POST /update_task called by user_id=1
-2025-05-02 17:55:10,635 - update_task - INFO - User 1 is updating Task 9 | Creator=True, Assignee=True
-2025-05-02 17:55:10,639 - update_task - INFO - Assigned_to updated
-2025-05-02 17:55:10,652 - update_task - INFO - Task 9 updated successfully with changes: {'assigned_to': 2}
+2025-05-10 10:08:59,248 - update_task - INFO - POST /update_task called by user_id=5
+2025-05-10 10:08:59,250 - update_task - INFO - User 5 is updating Task 25 | Creator=True, Assignee=True
+2025-05-10 10:08:59,253 - update_task - INFO - Starting propagate_completion_upwards for task_id=25
+2025-05-10 10:08:59,253 - update_task - INFO - Marking child task 24 as Completed
+2025-05-10 10:08:59,260 - update_task - INFO - Child task 24 of review task 25 marked as Completed
+2025-05-10 10:08:59,266 - update_task - INFO - Checklist 36 marked as completed
+2025-05-10 10:08:59,273 - update_task - INFO - propagate_completion_upwards completed for task_id=24
+2025-05-10 10:08:59,276 - update_task - INFO - Task 25 updated successfully with changes: {}
+2025-05-10 10:12:09,403 - update_task - INFO - POST /update_task called by user_id=5
+2025-05-10 10:12:09,419 - update_task - INFO - User 5 is updating Task 25 | Creator=True, Assignee=True
+2025-05-10 10:12:09,423 - update_task - INFO - Starting propagate_completion_upwards for task_id=25
+2025-05-10 10:12:09,423 - update_task - INFO - Marking child task 24 as Completed
+2025-05-10 10:12:09,436 - update_task - INFO - Child task 24 of review task 25 marked as Completed
+2025-05-10 10:12:09,453 - update_task - INFO - Checklist 36 marked as completed
+2025-05-10 10:12:09,469 - update_task - INFO - propagate_completion_upwards completed for task_id=24
+2025-05-10 10:12:09,474 - update_task - INFO - Task 25 updated successfully with changes: {}

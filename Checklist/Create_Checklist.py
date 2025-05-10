@@ -2,7 +2,7 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import or_
-from models.models import Task, TaskStatus, Checklist, TaskChecklistLink, TaskType
+from models.models import Task, TaskStatus, Checklist, TaskChecklistLink, TaskType, User
 from Logs.functions import log_task_field_change
 from database.database import get_db
 from Currentuser.currentUser import get_current_user
@@ -18,9 +18,11 @@ router = APIRouter()
 def add_checklist(data: CreateChecklistRequest, db: Session = Depends(get_db), Current_user: int = Depends(get_current_user)):
     logger = get_logger('create_checklist', 'create_checklist.log')
     logger.info(f"POST /add_checklist called by user_id={Current_user.employee_id}")
-    logger.debug(f"Checklist creation request: task_id={data.task_id}, checklist_name='{data.checklist_name}'")  
+    logger.debug(f"Checklist creation request: task_id={data.task_id}, checklist_names={data.checklist_names}")  
 
     try:
+        users = db.query(User).filter().all()
+        user_map = {u.employee_id: u.username for u in users}
         task = db.query(Task).filter(Task.task_id == data.task_id, Task.is_delete == False).first()
         if not task:
             logger.warning(f"Task {data.task_id} not found or deleted")
@@ -38,15 +40,15 @@ def add_checklist(data: CreateChecklistRequest, db: Session = Depends(get_db), C
             parent_task_id = parent_task.task_id
             target_task = parent_task
 
-            
             parent_task.previous_status = parent_task.status
             parent_task.status = TaskStatus.To_Do
             log_task_field_change(db, task.task_id, "status", parent_task.status, TaskStatus.To_Do, Current_user.employee_id)
-            old_status = task.status
-            task.previous_status = task.status
-            task.status = TaskStatus.In_ReEdit
-            log_task_field_change(db, task.task_id, "status", old_status, task.status, Current_user.employee_id)
-            logger.info(f"Review task {task.task_id} status updated to In_ReEdit")
+            if task.status != TaskStatus.In_ReEdit:
+                old_status = task.status
+                task.previous_status = task.status
+                task.status = TaskStatus.In_ReEdit
+                log_task_field_change(db, task.task_id, "status", old_status, task.status, Current_user.employee_id)
+                logger.info(f"Review task {task.task_id} status updated to In_ReEdit")
 
         elif task.task_type == TaskType.Normal:
             if task.created_by != Current_user.employee_id and task.assigned_to != Current_user.employee_id:
@@ -55,35 +57,61 @@ def add_checklist(data: CreateChecklistRequest, db: Session = Depends(get_db), C
             parent_task_id = task.task_id
             target_task = task
 
-        checklist = Checklist(
-            checklist_name=data.checklist_name,
-            is_completed=False,
-            is_delete=False,
-            created_by=Current_user.employee_id
-        )
-        db.add(checklist)
-        db.flush()
-        logger.info(f"Checklist created with ID={checklist.checklist_id}")
+        created_checklists = []
+        for name in data.checklist_names:
+            checklist = Checklist(
+                checklist_name=name,
+                is_completed=False,
+                is_delete=False,
+                created_by=Current_user.employee_id
+            )
+            db.add(checklist)
+            db.flush()
 
-        task_checklist_link = TaskChecklistLink(
-        parent_task_id=parent_task_id,
-            checklist_id=checklist.checklist_id,
-            sub_task_id=None
-        )
-        db.add(task_checklist_link)
-        db.flush()
-        logger.info(f"Checklist linked to task_id={parent_task_id}")
+            logger.info(f"Checklist created with ID={checklist.checklist_id}")
 
-        if target_task:
-           
-            if target_task.task_type == TaskType.Normal and (target_task.status == TaskStatus.Completed or target_task.status == TaskStatus.In_Review):
-                propagate_incomplete_upwards(checklist.checklist_id, db,Current_user)
+            task_checklist_link = TaskChecklistLink(
+                parent_task_id=parent_task_id,
+                checklist_id=checklist.checklist_id,
+                sub_task_id=None
+            )
+            db.add(task_checklist_link)
+            db.flush()
+
+            if target_task and target_task.task_type == TaskType.Normal and target_task.status in [TaskStatus.Completed, TaskStatus.In_Review]:
+                propagate_incomplete_upwards(checklist.checklist_id, db, Current_user)
+
+            created_checklists.append({
+                "checklist_id": checklist.checklist_id,
+                "checklist_name": checklist.checklist_name,
+                "checklist_created_by_id": checklist.created_by,
+                "checklist_created_by_name": user_map.get(checklist.created_by),
+                "is_completed": checklist.is_completed,
+            })
 
         db.commit()
-        logger.info("Checklist creation and task updates committed successfully")
+        
+        
+        task_links = db.query(TaskChecklistLink).filter(TaskChecklistLink.parent_task_id == task.task_id).all()
+
+        subtask_checklist_data = []
+        for st_link in task_links:
+            st_checklist = db.query(Checklist).filter(Checklist.checklist_id == st_link.checklist_id,Checklist.is_delete == False).first()
+            if st_checklist:
+                subtask_checklist_data.append(st_checklist)
+
+        st_completed = sum(1 for c in subtask_checklist_data if c.is_completed)
+        st_total = len(subtask_checklist_data)
+        checklist_progress = f"{st_completed}/{st_total}" if st_total > 0 else "0/0"
+
+        logger.info("All checklists created and task updates committed successfully")
         return {
-            "message": "Checklist created successfully",
-            "checklist_id": checklist.checklist_id
+            "message": "Checklists created successfully",
+            "checklists": created_checklists,
+            "task_id": task.task_id,
+            "task_name": task.task_name,
+            "status":task.status,
+            "checklist_progress": checklist_progress,
         }
 
     except HTTPException:

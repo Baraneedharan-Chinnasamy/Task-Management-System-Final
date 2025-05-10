@@ -9,10 +9,7 @@ from Currentuser.currentUser import get_current_user
 from Checklist.inputs import UpdateChecklistRequest
 from logger.logger import get_logger
 
-
 router = APIRouter()
-
-
 
 @router.post("/update_checklist")
 def update_checklist(data: UpdateChecklistRequest, db: Session = Depends(get_db), current_user: str = Depends(get_current_user)):
