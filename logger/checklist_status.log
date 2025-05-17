@@ -809,3 +809,5 @@ UnboundLocalError: cannot access local variable 'old_status' where it is not ass
 2025-05-10 10:50:19,367 - mark_checklist_complete - INFO - Checklist is linked to parent_task_id=37, task_type=TaskType.Normal
 2025-05-10 10:50:19,367 - mark_checklist_complete - INFO - Checklist 57 marked as completed
 2025-05-10 10:50:19,415 - mark_checklist_complete - INFO - Checklist status updated and committed successfully
+2025-05-16 17:20:55,201 - mark_checklist_complete - INFO - POST /mark_checklist_complete called by user_id=2
+2025-05-16 17:20:55,203 - mark_checklist_complete - INFO - Checklist 5 found, current status: False

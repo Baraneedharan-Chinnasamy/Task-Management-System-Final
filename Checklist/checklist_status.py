@@ -1,8 +1,8 @@
 import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from sqlalchemy.sql import or_
-from models.models import Task, TaskStatus, Checklist, TaskChecklistLink, TaskType
+from sqlalchemy.sql import or_, desc
+from models.models import Task, TaskStatus, Checklist, TaskChecklistLink, TaskType, TaskTimeLog
 from Logs.functions import log_task_field_change, log_checklist_field_change
 from database.database import get_db
 from Currentuser.currentUser import get_current_user
@@ -22,6 +22,7 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
     logger.debug(f"Request data: checklist_id={data.checklist_id}, is_completed={data.is_completed}")
 
     try:
+        
         # Step 1: Fetch checklist
         checklist = db.query(Checklist).filter(
             Checklist.checklist_id == data.checklist_id,
@@ -36,7 +37,7 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
 
         if checklist.is_completed == data.is_completed:
             logger.info(f"Checklist {data.checklist_id} already {'completed' if data.is_completed else 'incomplete'}")
-            return {"message": f"Checklist was already {'completed' if data.is_completed else 'incomplete'}"}
+            
 
         # Step 2: Validate and fetch parent task
         parent_link = db.query(TaskChecklistLink).filter(
@@ -58,6 +59,15 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
             ),
             Task.is_delete == False
         ).first()
+
+        if data.is_completed:
+            time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == parent_task.task_id,TaskTimeLog.end_time == None).order_by(desc(TaskTimeLog.start_time)).first()
+            if time is None:
+                return {"Start time": "No active time tracking found for this task."}
+        if data.is_completed == False:
+            time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == parent_task.task_id).order_by(desc(TaskTimeLog.start_time)).first()
+            if not time:
+                return {"End time": "No active time tracking found for this task."}
 
         if not parent_task:
             logger.warning(f"User {Current_user.employee_id} has no access to parent task {parent_task_id}")
@@ -89,13 +99,15 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
         )
         checklist.is_completed = data.is_completed
         logger.info(f"Checklist {data.checklist_id} marked as {'completed' if data.is_completed else 'incomplete'}")
-
-        # Step 5: Task Type Logic
+         
+        
         if parent_task.task_type == TaskType.Normal:
             logger.debug(f"Normal task - Propagating checklist change for parent_task_id={parent_task_id}")
+            
             if data.is_completed:
                 update_parent_task_status(parent_task_id, db, Current_user)
             else:
+                
                 propagate_incomplete_upwards(data.checklist_id, db, Current_user)
 
         elif parent_task.task_type == TaskType.Review:
@@ -157,12 +169,31 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
         completed_count = sum(1 for c in parent_checklists if c.is_completed)
         total_count = len(parent_checklists)
         parent_checklist_progress = f"{completed_count}/{total_count}" if total_count > 0 else "0/0"
+        
         logger.info(f"Checklist status updated and committed successfully")
+        # ⏱️ Add ongoing time details for the parent task (if any)
+        latest_time_log = db.query(TaskTimeLog).filter(
+            TaskTimeLog.task_id == parent_task_id,
+            TaskTimeLog.user_id == Current_user.employee_id
+        ).order_by(TaskTimeLog.start_time.desc()).first()
+
+        if latest_time_log:
+            is_ongoing = latest_time_log.end_time is None
+            ongoing_start_time = latest_time_log.start_time.isoformat()
+            ongoing_end_time = latest_time_log.end_time.isoformat() if latest_time_log.end_time else None
+        else:
+            is_ongoing = None
+            ongoing_start_time = None
+            ongoing_end_time = None
         return {
             "message": f"Checklist marked as {'complete' if data.is_completed else 'incomplete'} successfully",
             "checklist_id": data.checklist_id,
             "parent_task_id": parent_task_id,
-            "parent_checklist_progress": parent_checklist_progress
+            "status": parent_task.status,
+            "checklist_progress": parent_checklist_progress,
+            "is_ongoing": is_ongoing,
+            "ongoing_start_time": ongoing_start_time,
+            "ongoing_end_time": ongoing_end_time
         }
 
     except HTTPException:
@@ -172,3 +203,8 @@ def update_Status(data: UpdateStatus, db: Session = Depends(get_db), Current_use
         db.rollback()
         logger.exception(f"Unexpected error while updating checklist {data.checklist_id}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+    
+
+
+
+

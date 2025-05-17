@@ -1,8 +1,8 @@
 import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from sqlalchemy.sql import or_
-from models.models import Task, TaskStatus, Checklist, TaskChecklistLink, TaskType, ChatRoom, User
+from sqlalchemy.sql import or_, desc
+from models.models import Task, TaskStatus, Checklist, TaskChecklistLink, TaskType, ChatRoom, User, TaskTimeLog
 from Logs.functions import log_task_field_change,log_checklist_field_change
 from database.database import get_db
 from Currentuser.currentUser import get_current_user
@@ -41,8 +41,8 @@ def add_checklist_subtask(
         logger.info(f"Main task created with ID={new_task.task_id}")
 
         db.add(ChatRoom(task_id=new_task.task_id))
-        log_task_field_change(db, new_task.task_id, "status", None, "To_Do", 2)
-        print(len(data.checklist_names))
+        log_task_field_change(db, new_task.task_id, "status", None, "To_Do", 1)
+       
         # Create checklists
         checklists_created = []
         for name in data.checklist_names:
@@ -75,12 +75,13 @@ def add_checklist_subtask(
             )
             db.add(review_task)
             db.flush()
-            log_task_field_change(db, review_task.task_id, "status", None, "New", 2)
+            log_task_field_change(db, review_task.task_id, "status", None, "New", 1)
 
         # Handle if it's a subtask being linked to an existing checklist
         if data.checklist_id is not None:
             link = db.query(TaskChecklistLink).filter(
-                TaskChecklistLink.checklist_id == data.checklist_id
+                TaskChecklistLink.checklist_id == data.checklist_id,
+                TaskChecklistLink.parent_task_id.isnot(None)
             ).first()
             if not link:
                 raise HTTPException(status_code=404, detail="Checklist not found")
@@ -96,6 +97,10 @@ def add_checklist_subtask(
 
             if not parent_task:
                 raise HTTPException(status_code=403, detail="Task not found or unauthorized")
+            
+            time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == parent_task.task_id,TaskTimeLog.end_time == None).order_by(desc(TaskTimeLog.start_time)).first()
+            if time is None:
+                return {"Start time": "No active time tracking found for this task."}
 
             if parent_task.task_type == TaskType.Review:
                 raise HTTPException(status_code=400, detail="Cannot add subtask to a review task")
@@ -104,21 +109,49 @@ def add_checklist_subtask(
                 checklist_id=data.checklist_id,
                 sub_task_id=new_task.task_id
             ))
-
+            
             logger.info(f"Subtask {new_task.task_id} linked to checklist {data.checklist_id}")
             # Trigger status/checklist propagation
             checklist = db.query(Checklist).filter(Checklist.checklist_id == data.checklist_id,Checklist.is_completed == True).first()
             if checklist:
                 checklist.is_completed == False
                 log_checklist_field_change(db,checklist.checklist_id,"is_completed",True,False,Current_user.employee_id)
+                
                 propagate_incomplete_upwards(data.checklist_id, db, Current_user)
         db.commit()
+        if data.checklist_id is not None:
+            link = db.query(TaskChecklistLink).filter(
+                TaskChecklistLink.checklist_id == data.checklist_id,
+                TaskChecklistLink.parent_task_id.isnot(None)
+            ).first()
+            if not link:
+                raise HTTPException(status_code=404, detail="Checklist not found")
+
+            parent_task = db.query(Task).filter(Task.task_id == link.parent_task_id,or_(Task.created_by == Current_user.employee_id,Task.assigned_to == Current_user.employee_id),Task.is_delete == False).first()
+            # Parent task checklist progress
+            parent_task_checklists = db.query(TaskChecklistLink).filter(
+                TaskChecklistLink.parent_task_id == parent_task.task_id,
+                TaskChecklistLink.checklist_id.isnot(None)
+            ).all()
+
+            checklist_ids = [link.checklist_id for link in parent_task_checklists]
+            checklists = db.query(Checklist).filter(Checklist.checklist_id.in_(checklist_ids),Checklist.is_delete == False).all()
+
+            completed = sum(1 for c in checklists if c.is_completed)
+            total = len(checklists)
+            parent_checklist_progress = f"{completed}/{total}" if total > 0 else "0/0"
+        
+
         users = db.query(User).filter().all()
         user_map = {u.employee_id: u.username for u in users}
         logger.info("Task and dependencies committed successfully")
         return {
             "message": "Task created successfully",
             "Checklist_id_parent": data.checklist_id if data.checklist_id else None,
+            "checkbox_status": False if data.checklist_id else True,
+            "is_completed": False if data.checklist_id else None,
+            "parent_task_status":parent_task.status if data.checklist_id else None,
+            "parent_checklist_progress": parent_checklist_progress if data.checklist_id else None,
             "task_id": new_task.task_id,
             "task_name": new_task.task_name,
             "description": new_task.description,
@@ -133,17 +166,12 @@ def add_checklist_subtask(
             "task_type": new_task.task_type,
             "is_review_required": new_task.is_review_required,
             "checklist_progress":f"0/{len(data.checklist_names)}" if len(data.checklist_names) > 0 else 2,
-            "checklists_created": [
-    {
+            "checklists_created": [{
         "checklist_id": c.checklist_id,
         "checklist_name": c.checklist_name,
         "created_by": c.created_by,
-        "created_by_name": user_map.get(c.created_by)
-    }
-    for c in checklists_created
-]
-
-        }
+        "created_by_name": user_map.get(c.created_by)}
+    for c in checklists_created]}
 
     except Exception as e:
         db.rollback()

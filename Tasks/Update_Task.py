@@ -1,14 +1,16 @@
 import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from sqlalchemy.sql import or_
-from models.models import Task, TaskStatus, TaskType, TaskChecklistLink, Checklist
+from sqlalchemy.sql import or_, desc
+from sqlalchemy import func
+from models.models import Task, TaskStatus, TaskType, TaskChecklistLink, Checklist, TaskTimeLog
 from Logs.functions import log_task_field_change, log_checklist_field_change
 from database.database import get_db
 from Currentuser.currentUser import get_current_user
 from Tasks.inputs import UpdateTaskRequest, SendForReview
-from Tasks.functions import reverse_completion_from_review, propagate_completion_upwards
+from Tasks.functions import reverse_completion_from_review, propagate_completion_upwards,deduplicate_tasks
 from logger.logger import get_logger
+from datetime import datetime
 
 router = APIRouter()
 
@@ -19,6 +21,7 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
     logger.debug(f"Task update request: {task_data}")
 
     try:
+        result = []
         if not task_data.task_id:
             logger.warning("Task ID not provided")
             return {"message": "Task ID is required"}
@@ -54,6 +57,17 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
                 update_fields['due_date'] = task_data.due_date
                 logger.info("Due date updated")
 
+            if task_data.task_name is not None:
+                    log_task_field_change(db, task.task_id, "task_name", task.task_name, task_data.task_name, Current_user.employee_id)
+                    task.task_name = task_data.task_name
+                    update_fields['task_name'] = task_data.task_name
+            
+            if task_data.description is not None:
+                log_task_field_change(db, task.task_id, "description", task.description, task_data.description, Current_user.employee_id)
+                task.description = task_data.description
+                update_fields['description'] = task_data.description
+        
+
             if task_data.is_review_required is not None:
                 log_task_field_change(db, task.task_id, "is_review_required", task.is_review_required, task_data.is_review_required, Current_user.employee_id)
                 if task.task_type == TaskType.Normal:
@@ -87,6 +101,8 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
                         update_fields['is_review_required'] = True
                     else:
                         task.is_review_required = False
+                        if task.status == TaskStatus.In_Review:
+                            task.status = TaskStatus.Completed.name    
                         update_fields['is_review_required'] = False
                         review_task = db.query(Task).filter(
                             Task.parent_task_id == task_id,
@@ -107,17 +123,7 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
                             log_task_field_change(db, review_task.task_id, "is_delete", False, True, Current_user.employee_id)
                             review_task.is_delete = True
                             logger.info(f"Review task {review_task.task_id} marked as deleted")
-
-                        if task_data.task_name is not None:
-                            log_task_field_change(db, task.task_id, "task_name", task.task_name, task_data.task_name, Current_user.employee_id)
-                            task.task_name = task_data.task_name
-                            update_fields['task_name'] = task_data.task_name
-        
-        if is_assignee or is_creator:
-            if task_data.description is not None:
-                log_task_field_change(db, task.task_id, "description", task.description, task_data.description, Current_user.employee_id)
-                task.description = task_data.description
-                update_fields['description'] = task_data.description
+ 
         if is_assignee:
             if task_data.output is not None:
                 log_task_field_change(db, task.task_id, "output", task.output, task_data.output, Current_user.employee_id)
@@ -125,6 +131,10 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
                 update_fields['output'] = task_data.output
         if is_assignee or is_creator:
             if task_data.is_reviewed is not None and task.task_type == TaskType.Review:
+                if task_data.is_reviewed:
+                    time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id,TaskTimeLog.end_time == None).order_by(desc(TaskTimeLog.start_time)).first()
+                    if time is None:
+                        return {"Start time": "No active time tracking found for this task."}
                 checklists = db.query(Checklist).join(TaskChecklistLink).filter(
                     TaskChecklistLink.parent_task_id == task.task_id,
                     Checklist.is_delete == False
@@ -151,15 +161,56 @@ def update_task(task_data: UpdateTaskRequest, db: Session = Depends(get_db), Cur
                     log_task_field_change(db, task.task_id, "is_reviewed", False, True, Current_user.employee_id)
                     task.previous_status = task.status
                     task.status = TaskStatus.Completed.name
-                    propagate_completion_upwards(task, db, Current_user.employee_id, logger, Current_user)
+                    time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id).order_by(desc(TaskTimeLog.start_time)).first()
+                    time.end_time = None
+                    db.flush()
+                    result = propagate_completion_upwards(task, db, Current_user.employee_id, logger, Current_user)
+                    updated_tasks_raw = result.get("updated_tasks", [])
+                    result = deduplicate_tasks(updated_tasks_raw)
+                    result = [item for item in result if item.get("task_id") != task.task_id]
                 else:
+                    time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id).order_by(desc(TaskTimeLog.start_time)).first()
+                    if time is None:
+                        return {"Start time": "No active time tracking found for this task."}
                     task.is_reviewed = False
                     log_task_field_change(db, task.task_id, "is_reviewed", True, False, Current_user.employee_id)
-                    reverse_completion_from_review(task, db, Current_user.employee_id, logger, Current_user)
+                    result =reverse_completion_from_review(task, db, Current_user.employee_id, logger, Current_user)
+                    updated_tasks_raw = result.get("updated_tasks", [])
+                    result = deduplicate_tasks(updated_tasks_raw)
+                    result = [item for item in result if item.get("task_id") != task.task_id]
+                update_fields['is_reviewed'] = task_data.is_reviewed
 
         db.commit()
         logger.info(f"Task {task_id} updated successfully with changes: {update_fields}")
-        return {"message": "Task updated successfully", "updated_fields": update_fields}
+
+        def get_latest_time_log_info(task_id: int) -> dict:
+            latest_log_subq = db.query(
+                func.max(TaskTimeLog.start_time)
+            ).filter(
+                TaskTimeLog.task_id == task_id,
+                TaskTimeLog.user_id == Current_user.employee_id
+            ).scalar_subquery()
+
+            log = db.query(TaskTimeLog).filter(
+                TaskTimeLog.task_id == task_id,
+                TaskTimeLog.user_id == Current_user.employee_id,
+                TaskTimeLog.start_time == latest_log_subq
+            ).first()
+
+            if log:
+                return {
+                    "is_ongoing": log.end_time is None,
+                    "ongoing_start_time": log.start_time.isoformat(),
+                    "ongoing_end_time": log.end_time.isoformat() if log.end_time else None
+                }
+            else:
+                return {
+                    "is_ongoing": None,
+                    "ongoing_start_time": None,
+                    "ongoing_end_time": None
+                }
+        time_log_info = get_latest_time_log_info(task.task_id)
+        return {"message": "Task updated successfully", "updated_fields": update_fields,"status":task.status, "parent_task_chain": result,**time_log_info}
 
     except Exception as e:
         db.rollback()
@@ -181,11 +232,19 @@ def send_for_review(data: SendForReview, db: Session = Depends(get_db), Current_
         if not task:
             logger.warning(f"Task not found or unauthorized for user {Current_user.employee_id}")
             return {"message": "Task not found or unauthorized"}
+        
+        time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id,TaskTimeLog.end_time == None).order_by(desc(TaskTimeLog.start_time)).first()
+        if time is None:
+            return {"Start time": "No active time tracking found for this task."}
 
         if task.task_type != TaskType.Review:
             logger.warning("Attempted to send a non-review task for review")
             return {"message": "Only review tasks can send for further review."}
 
+        time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id,TaskTimeLog.end_time == None).first()
+        if time is not None:
+            time.end_time = datetime.now()
+            db.flush()
         next_review = db.query(Task).filter(
             Task.parent_task_id == task.task_id,
             Task.task_type == TaskType.Review,
@@ -198,6 +257,10 @@ def send_for_review(data: SendForReview, db: Session = Depends(get_db), Current_
 
         task.is_review_required = True
         task.status = TaskStatus.In_Review
+        time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id,TaskTimeLog.end_time == None).first()
+        if time is not None:
+            time.end_time = datetime.now()
+            db.flush()
         logger.info(f"Marked task {task.task_id} as in review")
 
         review_task = Task(
@@ -218,7 +281,7 @@ def send_for_review(data: SendForReview, db: Session = Depends(get_db), Current_
         db.commit()
         logger.info(f"Review task {review_task.task_id} created successfully")
 
-        return {"message": "Review task created successfully", "review_task_id": review_task.task_id}
+        return {"message": "Review task created successfully", "review_task_id": review_task.task_id,"status":task.status}
 
     except Exception as e:
         db.rollback()

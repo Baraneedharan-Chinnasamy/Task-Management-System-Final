@@ -11,6 +11,7 @@ from Delete.functions import get_related_tasks_checklists_logic
 from Logs.functions import log_checklist_field_change,log_task_field_change
 from logger.logger import get_logger
 from datetime import datetime
+from Tasks.functions import update_parent_task_status
 
 router = APIRouter()
 
@@ -40,7 +41,7 @@ def delete_related_items(
         checklist = db.query(Checklist).filter(Checklist.checklist_id == checklist_id , Checklist.created_by == Current_user.employee_id ).first()
         parent_task = db.query(Task).filter(Task.task_id == parent_task_link.parent_task_id,Task.is_delete == False).first()
         if parent_task.created_by != Current_user.employee_id and checklist.created_by != Current_user.employee_id:
-    # Enter this block only if BOTH are not created by the current user
+            # Enter this block only if BOTH are not created by the current user
             logger.warning(f"Checklist deletion denied. Checklist {checklist_id} is  not owned by user {Current_user.employee_id}")
             raise HTTPException(status_code=403, detail="You don't have permission to delete this checklist.")
 
@@ -91,11 +92,47 @@ def delete_related_items(
         
         db.bulk_insert_mappings(ChecklistUpdateLog, logs)
         
+    db.flush()
+    if delete_request.task_id:
+        link = db.query(TaskChecklistLink.checklist_id).filter(
+            TaskChecklistLink.sub_task_id == delete_request.task_id).first()
+        if link:
+            update_parent_task_status(link.checklist_id,db,Current_user)
+
+    if delete_request.checklist_id:
+        update_parent_task_status(delete_request.checklist_id, db, Current_user)
+        db.flush()
+            
         logger.info(f"Marked checklists as deleted: {checklists_to_delete}")
+    
+        parent_task_checklists = db.query(TaskChecklistLink).filter(
+                TaskChecklistLink.parent_task_id.isnot(None),
+                TaskChecklistLink.checklist_id==delete_request.checklist_id,
+            ).first()
+
+        parent_task = db.query(Task).filter(
+            Task.task_id == parent_task_checklists.parent_task_id,
+            Task.is_delete == False
+        ).first()
+
+        parent_task_checklists = db.query(TaskChecklistLink).filter(
+                TaskChecklistLink.parent_task_id == parent_task.task_id,
+                TaskChecklistLink.checklist_id.isnot(None)).all()
+
+        checklist_ids = [link.checklist_id for link in parent_task_checklists]
+        checklists = db.query(Checklist).filter(Checklist.checklist_id.in_(checklist_ids),Checklist.is_delete == False).all()
+
+        completed = sum(1 for c in checklists if c.is_completed)
+        total = len(checklists)
+        checklist_progress = f"{completed}/{total}" if total > 0 else "0/0"
+
     db.commit()
     logger.info("Deletion process completed successfully.")
     return {
         "message": "Related tasks and checklists marked as deleted",
         "tasks": list(tasks_to_delete),
-        "checklists": list(checklists_to_delete)
-    }
+        "checklists": list(checklists_to_delete),
+        "parent_task_id": parent_task.task_id if parent_task else None,
+        "parent_checklist_progress": checklist_progress if parent_task else None,
+        "parent_task_status": parent_task.status if parent_task else None
+        }

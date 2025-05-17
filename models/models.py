@@ -31,9 +31,12 @@ class User(Base):
     email = Column(String(100), unique=True, nullable=False, index=True)
     password_hash = Column(String(255), nullable=False)
     designation = Column(String(100), nullable=True)
+    department = Column(String(100), nullable=True)  
+    role = Column(String(50), nullable=True, index=True)  
     is_active = Column(Boolean, default=True, index=True)
     updated_at = Column(TIMESTAMP, server_default=func.current_timestamp(), onupdate=func.current_timestamp())
     created_at = Column(TIMESTAMP, server_default=func.current_timestamp())
+
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -139,3 +142,16 @@ class ChatMessageRead(Base):
     __table_args__ = (
         UniqueConstraint('message_id', 'user_id', name='uq_message_user_seen'),
     )
+
+class TaskTimeLog(Base):
+    __tablename__ = "task_time_log"
+
+    id = Column(Integer, primary_key=True, index=True)
+    task_id = Column(Integer, ForeignKey("tasks.task_id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id = Column(Integer, ForeignKey("users.employee_id", ondelete="CASCADE"), nullable=False, index=True)
+    start_time = Column(TIMESTAMP, nullable=False, server_default=func.current_timestamp())
+    end_time = Column(TIMESTAMP, nullable=True)
+    is_paused = Column(Boolean, default=False)
+
+    task = relationship("Task", backref="time_logs")
+    user = relationship("User", backref="time_logs")

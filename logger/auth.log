@@ -1,10 +1,72 @@
-2025-05-08 13:07:23,228 - auth - INFO - Login attempt for username='Baranee'
-2025-05-08 13:07:24,083 - auth - WARNING - Login failed for username='Baranee'
-2025-05-08 13:07:31,739 - auth - INFO - Signup attempt for username='string', email='user@example.com'
-2025-05-08 13:07:32,364 - auth - INFO - New user created: user_id=5, username=string
-2025-05-08 13:07:41,893 - auth - INFO - Login attempt for username='string'
-2025-05-08 13:07:42,490 - auth - INFO - Login successful for user_id=5, username=string
-2025-05-08 16:19:18,190 - auth - INFO - Login attempt for username='string'
-2025-05-08 16:19:18,801 - auth - INFO - Login successful for user_id=5, username=string
-2025-05-10 10:03:40,660 - auth - INFO - Login attempt for username='string'
-2025-05-10 10:03:41,279 - auth - INFO - Login successful for user_id=5, username=string
+2025-05-16 10:42:15,042 - auth - INFO - Login attempt for username='string'
+2025-05-16 10:42:15,569 - auth - INFO - Login successful for user_id=2, username=string
+2025-05-16 10:52:34,980 - auth - INFO - Login attempt for username='string'
+2025-05-16 10:52:35,391 - auth - INFO - Login successful for user_id=2, username=string
+2025-05-16 17:16:12,487 - auth - INFO - Login attempt for username='string'
+2025-05-16 17:16:12,729 - auth - INFO - Login successful for user_id=2, username=string
+2025-05-16 17:16:15,584 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:19:26,316 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:21:12,291 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:21:51,672 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:22:18,838 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:22:35,452 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:28:27,027 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:28:38,478 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:28:49,212 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:31:02,461 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:31:03,381 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:39:28,106 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:40:40,591 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:41:31,360 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:42:13,567 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:49:47,248 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:50:10,749 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:53:34,274 - auth - INFO - Login attempt for username='string'
+2025-05-16 17:53:34,786 - auth - INFO - Login successful for user_id=2, username=string
+2025-05-16 17:54:07,764 - auth - INFO - Signup attempt for username='dot', email='dot@gmail.com'
+2025-05-16 17:54:08,222 - auth - INFO - New user created: user_id=3, username=dot
+2025-05-16 17:54:16,681 - auth - INFO - Login attempt for username='Dot'
+2025-05-16 17:54:17,068 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 17:54:29,658 - auth - INFO - Login attempt for username='dot'
+2025-05-16 17:54:30,044 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 17:54:52,241 - auth - INFO - Login attempt for username='dot'
+2025-05-16 17:54:52,642 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 17:55:07,824 - auth - INFO - Login attempt for username='dot'
+2025-05-16 17:55:08,243 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 17:55:55,985 - auth - INFO - Login attempt for username='string'
+2025-05-16 17:55:56,445 - auth - INFO - Login successful for user_id=2, username=string
+2025-05-16 17:55:58,600 - auth - INFO - Fetching all users for user_id=2
+2025-05-16 17:56:48,438 - auth - INFO - Login attempt for username='dot'
+2025-05-16 17:56:48,849 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 17:58:05,711 - auth - INFO - Login attempt for username='dot'
+2025-05-16 17:58:06,160 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 18:01:07,041 - auth - INFO - Login attempt for username='dot'
+2025-05-16 18:01:07,501 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 18:01:30,184 - auth - INFO - Login attempt for username='dot'
+2025-05-16 18:01:30,601 - auth - INFO - Login successful for user_id=3, username=dot
+2025-05-16 18:03:01,690 - auth - INFO - Signup attempt for username='sounder', email='soundernarayanasamy08@gmail.com'
+2025-05-16 18:03:02,094 - auth - INFO - New user created: user_id=4, username=sounder
+2025-05-16 18:03:56,020 - auth - INFO - Signup attempt for username='baranee1', email='baranee4277@gmail.com'
+2025-05-16 18:03:56,470 - auth - INFO - New user created: user_id=5, username=baranee1
+2025-05-16 18:04:09,548 - auth - INFO - Password reset requested for email='baraee4277@gmail.com'
+2025-05-16 18:04:09,552 - auth - WARNING - Password reset failed: email not found - baraee4277@gmail.com
+2025-05-16 18:04:19,771 - auth - INFO - Password reset requested for email='baranee4277@gmail.com'
+2025-05-16 18:04:23,950 - auth - INFO - OTP sent to email=baranee4277@gmail.com, OTP=531931 (masked in logs)
+2025-05-16 18:04:50,871 - auth - INFO - Reset password attempt for email='baranee4277@gmail.com'
+2025-05-16 18:04:51,271 - auth - INFO - Password reset successful for user_id=5, email=baranee4277@gmail.com
+2025-05-16 18:05:03,644 - auth - INFO - Login attempt for username='baranee'
+2025-05-16 18:05:03,647 - auth - WARNING - Login failed for username='baranee'
+2025-05-16 18:05:35,102 - auth - INFO - Login attempt for username='baranee1'
+2025-05-16 18:05:35,412 - auth - INFO - Login successful for user_id=5, username=baranee1
+2025-05-16 18:05:45,785 - auth - INFO - Login attempt for username='sounder'
+2025-05-16 18:05:46,153 - auth - INFO - Login successful for user_id=4, username=sounder
+2025-05-16 18:06:09,838 - auth - INFO - Password reset requested for email='soundernarayanasamy08@gmail.com'
+2025-05-16 18:06:13,607 - auth - INFO - OTP sent to email=soundernarayanasamy08@gmail.com, OTP=234306 (masked in logs)
+2025-05-16 18:06:36,930 - auth - INFO - Password reset requested for email='baranee4277@gmail.com'
+2025-05-16 18:06:40,813 - auth - INFO - OTP sent to email=baranee4277@gmail.com, OTP=935985 (masked in logs)
+2025-05-16 18:06:55,999 - auth - INFO - Reset password attempt for email='soundernarayanasamy08@gmail.com'
+2025-05-16 18:06:56,402 - auth - INFO - Password reset successful for user_id=4, email=soundernarayanasamy08@gmail.com
+2025-05-16 18:07:15,366 - auth - INFO - Reset password attempt for email='baranee4277@gmail.com'
+2025-05-16 18:07:15,761 - auth - INFO - Password reset successful for user_id=5, email=baranee4277@gmail.com
+2025-05-16 18:07:27,318 - auth - INFO - Login attempt for username='baranee1'
+2025-05-16 18:07:27,752 - auth - INFO - Login successful for user_id=5, username=baranee1

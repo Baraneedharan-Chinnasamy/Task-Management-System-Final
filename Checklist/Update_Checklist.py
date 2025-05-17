@@ -46,7 +46,8 @@ def update_checklist(data: UpdateChecklistRequest, db: Session = Depends(get_db)
 
         return {
             "message": "Checklist updated successfully",
-            "updated_checklist_name": data.checklist_name
+            "checklist_id": checklist.checklist_id,
+            "checklist_name": data.checklist_name
         }
 
     except Exception as e:

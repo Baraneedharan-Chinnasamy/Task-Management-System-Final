@@ -1,11 +1,14 @@
-from models.models import TaskChecklistLink,Task,Checklist,TaskStatus, TaskType ,TaskUpdateLog
+from models.models import TaskChecklistLink,Task,Checklist,TaskStatus, TaskType ,TaskUpdateLog, TaskTimeLog
 from Logs.functions import log_task_field_change,log_checklist_field_change
 from logger.logger import get_logger
 from Checklist.functions import update_parent_task_status,propagate_incomplete_upwards
+from datetime import datetime
+from sqlalchemy import desc
 
 def propagate_completion_upwards(task, db, updated_by, logger, Current_user):
     logger.info(f"Starting propagate_completion_upwards for task_id={task.task_id}")
     visited_tasks = set()
+    updated_tasks = []  # ✅ To collect updated task info
 
     def complete_task_and_children(t):
         last_task = None
@@ -20,13 +23,20 @@ def propagate_completion_upwards(task, db, updated_by, logger, Current_user):
                 logger.warning(f"No parent task found for review task {t.task_id}")
                 break
 
-            logger.info(f"Marking child task {child.task_id} as Completed")
             child.previous_status = child.status
             child.status = TaskStatus.Completed
+            time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id,TaskTimeLog.end_time == None).first()
+            if time is not None:
+                time.end_time = datetime.now()
+                db.flush()
             db.flush()
-
-            log_task_field_change(db, child.task_id, "status", child.previous_status, child.status, updated_by)
+            log_task_field_change(db, child.task_id, "status", child.previous_status, child.status, 1)
             logger.info(f"Child task {child.task_id} of review task {t.task_id} marked as Completed")
+
+            updated_tasks.append({  # ✅ Add to list
+                "task_id": child.task_id,
+                "status": child.status
+            })
 
             last_task = child
             t = child  # Move upward
@@ -55,7 +65,7 @@ def propagate_completion_upwards(task, db, updated_by, logger, Current_user):
                 if all(sub_task.status == TaskStatus.Completed for sub_task in sub_tasks):
                     if not checklist.is_completed:
                         checklist.is_completed = True
-                        log_checklist_field_change(db, checklist.checklist_id, "is_completed", False, True, updated_by)
+                        log_checklist_field_change(db, checklist.checklist_id, "is_completed", False, True, 1)
                         logger.info(f"Checklist {checklist.checklist_id} marked as completed")
 
                         parent_link = db.query(TaskChecklistLink).filter(
@@ -64,28 +74,38 @@ def propagate_completion_upwards(task, db, updated_by, logger, Current_user):
                         ).first()
 
                         if parent_link:
-                            logger.debug(f"Updating parent task status for parent_task_id={parent_link.parent_task_id}")
                             update_parent_task_status(parent_link.parent_task_id, db, Current_user)
 
     final_task = complete_task_and_children(task) if task.task_type == TaskType.Review else task
+
     if final_task:
         check_checklist_completion(final_task.task_id)
+        updated_tasks.append({ "task_id": final_task.task_id, "status": final_task.status })  # ✅ Add final
         logger.info(f"propagate_completion_upwards completed for task_id={final_task.task_id}")
-        return {"message": "Task completion propagated successfully"}
-    return {"message": "No parent task found to propagate completion"}
+        return { "message": "Task completion propagated successfully", "updated_tasks": updated_tasks }
+
+    return { "message": "No parent task found to propagate completion", "updated_tasks": [] }
+
 
 def reverse_completion_from_review(task, db, updated_by, logger, Current_user):
     logger.info(f"Starting reverse_completion_from_review for task_id={task.task_id}")
+    reverted_tasks = []
 
     def revert_review_chain_until_normal(task):
         while task and task.task_type == TaskType.Review:
+            if task.status == TaskStatus.Completed or task.status == TaskStatus.In_Review:
+                time = db.query(TaskTimeLog).filter(TaskTimeLog.task_id == task.task_id).order_by(desc(TaskTimeLog.start_time)).first()
+                time.end_time = None
+                db.flush()
             task.is_reviewed = False
             task.status = task.previous_status
             db.flush()
 
-            log_task_field_change(db, task.task_id, "is_reviewed", True, False, updated_by)
-            log_task_field_change(db, task.task_id, "status", task.previous_status, task.status, updated_by)
-            logger.info(f"Review task {task.task_id} reverted to {task.previous_status}")
+            log_task_field_change(db, task.task_id, "is_reviewed", True, False, 1)
+            log_task_field_change(db, task.task_id, "status", task.previous_status, task.status, 1)
+            logger.info(f"Review task {task.task_id} reverted to {task.status}")
+
+            reverted_tasks.append({ "task_id": task.task_id, "status": task.status })  # ✅ collect
 
             task = db.query(Task).filter(
                 Task.task_id == task.parent_task_id,
@@ -100,13 +120,15 @@ def reverse_completion_from_review(task, db, updated_by, logger, Current_user):
         if task and task.status == TaskStatus.Completed:
             logger.info(f"Reverting normal task {task.task_id} from Completed to {task.previous_status}")
             task.status = task.previous_status
+            reverted_tasks.append({ "task_id": task.task_id, "status": task.status })
+            
 
             Link = db.query(TaskChecklistLink).filter(TaskChecklistLink.sub_task_id == task.task_id).first()
             if Link:
                 checklist = db.query(Checklist).filter(Checklist.checklist_id == Link.checklist_id, Checklist.is_delete == False).first()
                 if checklist and checklist.is_completed:
                     checklist.is_completed = False
-                    log_checklist_field_change(db, checklist.checklist_id, "is_completed", True, False, updated_by)
+                    log_checklist_field_change(db, checklist.checklist_id, "is_completed", True, False, 1)
                     logger.info(f"Checklist {checklist.checklist_id} reverted to incomplete")
                     propagate_incomplete_upwards(checklist.checklist_id, db, Current_user)
 
@@ -115,5 +137,18 @@ def reverse_completion_from_review(task, db, updated_by, logger, Current_user):
         if final_normal_task:
             recurse_up_from_normal_task(final_normal_task.task_id)
             logger.info(f"reverse_completion_from_review completed for task_id={final_normal_task.task_id}")
-            return {"message": "Task review reverted and changes propagated"}
-    return {"message": "No parent task found to revert review"}
+            return { "message": "Review reversal successful", "updated_tasks": reverted_tasks }
+
+    return { "message": "No parent task found to revert review", "updated_tasks": [] }
+
+def deduplicate_tasks(tasks):
+    seen = set()
+    unique = []
+    for task in tasks:
+        task_id = task.get("task_id")
+        if task_id not in seen:
+            seen.add(task_id)
+            unique.append(task)
+    return unique
+
+

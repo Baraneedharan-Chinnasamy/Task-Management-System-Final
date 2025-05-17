@@ -669,3 +669,7 @@ sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'tasks' a
 2025-05-10 10:12:09,453 - update_task - INFO - Checklist 36 marked as completed
 2025-05-10 10:12:09,469 - update_task - INFO - propagate_completion_upwards completed for task_id=24
 2025-05-10 10:12:09,474 - update_task - INFO - Task 25 updated successfully with changes: {}
+2025-05-16 17:20:17,918 - update_task - INFO - POST /update_task called by user_id=2
+2025-05-16 17:20:17,921 - update_task - INFO - User 2 is updating Task 7 | Creator=True, Assignee=True
+2025-05-16 17:20:17,923 - update_task - INFO - Due date updated
+2025-05-16 17:20:17,929 - update_task - INFO - Task 7 updated successfully with changes: {'due_date': '2025-05-30'}
