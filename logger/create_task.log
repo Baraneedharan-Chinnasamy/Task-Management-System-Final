@@ -5,3 +5,27 @@
 2025-05-16 17:21:43,683 - create_task - INFO - Create Task endpoint hit by user_id=2
 2025-05-16 17:21:43,685 - create_task - INFO - Main task created with ID=11
 2025-05-16 17:21:43,688 - create_task - INFO - Checklist 10 linked to task 11
+2025-05-18 11:09:34,195 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-05-18 11:09:34,225 - create_task - INFO - Main task created with ID=12
+2025-05-18 11:09:34,259 - create_task - INFO - Checklist 12 linked to task 12
+2025-05-18 11:09:34,276 - create_task - INFO - Task and dependencies committed successfully
+2025-05-18 11:12:08,754 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-05-18 11:12:08,754 - create_task - INFO - Main task created with ID=14
+2025-05-18 11:12:08,780 - create_task - INFO - Checklist 13 linked to task 14
+2025-05-18 11:12:08,804 - create_task - INFO - Task and dependencies committed successfully
+2025-05-18 12:01:59,057 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-05-18 12:01:59,073 - create_task - INFO - Main task created with ID=16
+2025-05-18 12:01:59,092 - create_task - INFO - Checklist 14 linked to task 16
+2025-05-18 12:01:59,122 - create_task - INFO - Task and dependencies committed successfully
+2025-05-18 12:02:20,242 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-05-18 12:02:20,248 - create_task - INFO - Main task created with ID=18
+2025-05-18 12:02:20,254 - create_task - INFO - Checklist 15 linked to task 18
+2025-05-18 12:02:20,274 - create_task - INFO - Task and dependencies committed successfully
+2025-05-18 12:02:42,548 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-05-18 12:02:42,558 - create_task - INFO - Main task created with ID=20
+2025-05-18 12:02:42,560 - create_task - INFO - Checklist 16 linked to task 20
+2025-05-18 12:03:03,978 - create_task - INFO - Create Task endpoint hit by user_id=2
+2025-05-18 12:03:03,991 - create_task - INFO - Main task created with ID=22
+2025-05-18 12:03:03,993 - create_task - INFO - Checklist 17 linked to task 22
+2025-05-18 12:03:04,023 - create_task - INFO - Subtask 22 linked to checklist 15
+2025-05-18 12:03:04,060 - create_task - INFO - Task and dependencies committed successfully

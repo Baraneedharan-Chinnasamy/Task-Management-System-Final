@@ -163,3 +163,7 @@
 2025-05-16 17:50:59,388 - print_task - INFO - Returning task details for task_id=7
 2025-05-16 17:55:37,859 - print_task - INFO - GET /tasks - Called by user_id=2
 2025-05-16 17:55:58,559 - print_task - INFO - GET /tasks - Called by user_id=2
+2025-05-18 11:11:09,572 - print_task - INFO - GET /task/task_id called - task_id=12 by user_id=2
+2025-05-18 11:11:09,572 - print_task - WARNING - Task not found for task_id=12
+2025-05-18 11:11:13,224 - print_task - INFO - GET /task/task_id called - task_id=13 by user_id=2
+2025-05-18 11:11:13,274 - print_task - INFO - Returning task details for task_id=13

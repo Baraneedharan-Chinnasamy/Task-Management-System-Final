@@ -1,7 +1,5 @@
-import logging
-from sqlalchemy.sql import or_, update,select
-from models.models import TaskChecklistLink
-
+from sqlalchemy import select
+from models.models import Task, TaskChecklistLink, TaskType
 
 def get_related_tasks_checklists_logic(session, task_id, checklist_id):
     tasks_to_process = set()
@@ -31,6 +29,34 @@ def get_related_tasks_checklists_logic(session, task_id, checklist_id):
                 continue
             processed_tasks.add(tid)
 
+            # 👇 RECURSIVELY process all review tasks linked to this task
+            review_stack = [tid]
+            while review_stack:
+                current = review_stack.pop()
+                review_tasks = session.execute(
+                    select(Task.task_id)
+                    .where(
+                        Task.parent_task_id == current,
+                        Task.task_type == TaskType.Review,
+                        Task.is_delete == False
+                    )
+                ).scalars().all()
+
+                for review_task_id in review_tasks:
+                    if review_task_id not in processed_tasks:
+                        processed_tasks.add(review_task_id)
+                        review_stack.append(review_task_id)  # continue recursive review traversal
+
+                        # Checklists linked to review task
+                        review_checklists = session.execute(
+                            select(TaskChecklistLink.checklist_id)
+                            .where(TaskChecklistLink.sub_task_id == review_task_id)
+                        ).scalars().all()
+                        for cid in review_checklists:
+                            if cid and cid not in processed_checklists:
+                                processed_checklists.add(cid)
+
+            # 👇 Existing logic: get child checklists/subtasks
             results = session.execute(
                 select(TaskChecklistLink.checklist_id, TaskChecklistLink.sub_task_id)
                 .where(TaskChecklistLink.parent_task_id == tid)

@@ -128,6 +128,8 @@ def delete_related_items(
 
     db.commit()
     logger.info("Deletion process completed successfully.")
+    parent_task = None  # ✅ Ensure variable is always defined
+    checklist_progress = None
     return {
         "message": "Related tasks and checklists marked as deleted",
         "tasks": list(tasks_to_delete),

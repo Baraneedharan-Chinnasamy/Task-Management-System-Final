@@ -1,3 +1,12 @@
-2025-05-02 13:28:31,559 - delete - INFO - DELETE requested by user_id=1
-2025-05-02 13:28:31,577 - delete - INFO - Marked checklists as deleted: [2]
-2025-05-02 13:28:31,587 - delete - INFO - Deletion process completed successfully.
+2025-05-18 11:09:50,887 - delete - INFO - DELETE requested by user_id=2
+2025-05-18 11:09:50,910 - delete - INFO - Marked tasks as deleted: [12]
+2025-05-18 11:09:50,933 - delete - INFO - Deletion process completed successfully.
+2025-05-18 11:12:19,714 - delete - INFO - DELETE requested by user_id=2
+2025-05-18 11:12:19,729 - delete - INFO - Marked tasks as deleted: [14]
+2025-05-18 11:12:19,729 - delete - INFO - Deletion process completed successfully.
+2025-05-18 12:02:05,923 - delete - INFO - DELETE requested by user_id=2
+2025-05-18 12:02:05,945 - delete - INFO - Marked tasks as deleted: [16, 17]
+2025-05-18 12:02:05,967 - delete - INFO - Deletion process completed successfully.
+2025-05-18 12:04:08,779 - delete - INFO - DELETE requested by user_id=2
+2025-05-18 12:04:08,830 - delete - INFO - Marked tasks as deleted: [18, 19, 22, 23, 24]
+2025-05-18 12:04:08,843 - delete - INFO - Deletion process completed successfully.

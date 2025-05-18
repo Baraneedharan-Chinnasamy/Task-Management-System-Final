@@ -70,3 +70,5 @@
 2025-05-16 18:07:15,761 - auth - INFO - Password reset successful for user_id=5, email=baranee4277@gmail.com
 2025-05-16 18:07:27,318 - auth - INFO - Login attempt for username='baranee1'
 2025-05-16 18:07:27,752 - auth - INFO - Login successful for user_id=5, username=baranee1
+2025-05-18 11:09:14,747 - auth - INFO - Login attempt for username='string'
+2025-05-18 11:09:15,341 - auth - INFO - Login successful for user_id=2, username=string
